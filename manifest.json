@@ -1,0 +1,341 @@
+{
+  "version": "b4b230a231c95435",
+  "skills": [
+    {
+      "name": "eversince",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-make-content",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-make-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-make-images",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-promote",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-video-editing",
+      "files": [
+        "SKILL.md",
+        "skill-talking-head.md"
+      ]
+    },
+    {
+      "name": "eversince-edit-in-my-style",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-remake-from-a-reference",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-short-form-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-clipping",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-podcast-editing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-animated-captions",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-vlog-editing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-screen-recording-editing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-sound-design",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-color-grading",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-translation-and-dubbing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-music-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-smart-glasses-footage",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-video-effects",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-motion-graphics",
+      "files": [
+        "SKILL.md",
+        "skill-motion-overlays.md",
+        "skill-motion-planning.md",
+        "skill-motion-recipes.md"
+      ]
+    },
+    {
+      "name": "eversince-explainer-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-making-thumbnails",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-making-carousels",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-graphic-design",
+      "files": [
+        "SKILL.md",
+        "skill-design-looks.md"
+      ]
+    },
+    {
+      "name": "eversince-photo-editing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-product-photography",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-brand-style",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-social-trends",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-account-audit",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-content-ideas",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-hooks-and-scripts",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-content-calendar",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-run-ads",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-image-ads",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-ad-variations",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-ugc-ads",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-product-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-launch-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-teasers-and-trailers",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-content-repurposing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-publishing",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-inbox-and-auto-replies",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-public-links",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-keeping-content-organized",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-searching-your-backlog",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-ai-filmmaking",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-ai-animation",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-ai-influencer",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-transform-video",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-faceless-videos",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-voiceovers-and-music",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-finish",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-timeline-operations",
+      "files": [
+        "SKILL.md"
+      ]
+    },
+    {
+      "name": "eversince-canvas-operations",
+      "files": [
+        "SKILL.md",
+        "skill-canvas-drawings.md"
+      ]
+    }
+  ]
+}

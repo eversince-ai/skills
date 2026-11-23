@@ -1,0 +1,14 @@
+{
+  "name": "eversince",
+  "owner": {
+    "name": "Eversince",
+    "url": "https://eversince.ai"
+  },
+  "plugins": [
+    {
+      "name": "eversince",
+      "source": "./",
+      "description": "The skills for media work with Eversince."
+    }
+  ]
+}
