@@ -42,7 +42,7 @@ setup can connect without the desktop app.
 ## On a Linux machine of your own
 
 An agent with its own Linux machine (a virtual machine or server it runs commands on, x64 or
-arm64, with Node) can run the Eversince app there with no screen. `npx eversince app install`
+arm64, with Node) can run the Eversince app there with no screen. `npx eversince app install --name "<your name>"`
 downloads it with the system packages it needs, starts it, and prints a link the user opens on a
 phone or computer to sign it in; it waits for that, or `--no-wait` returns at once and
 `eversince app sign-in` collects later. Then `eversince init --agent <agent> --scope user`
