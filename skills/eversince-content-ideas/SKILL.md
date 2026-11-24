@@ -32,7 +32,7 @@ Content ideas finds what the user should make next: five to ten ideas, ranked, e
 - The season: holidays, local events, weather, restocks, the calendar of its customers.
 
 **A creator or personal brand**
-- Their own breakouts: remake a past post that outperformed with a new subject, or turn it into a series. An account connected in Eversince lists them free (`read_social_results` posts, sort engagement), a post made here with the library file it came from.
+- Their own breakouts: remake a past post that outperformed with a new subject, or turn it into a series. An account connected in Eversince lists them free (`read_social_results` posts, sort engagement), a post made here with the library item it came from.
 - Their comments: the questions people ask and the lines they repeat back are the next posts (`manage_social_inbox` commented_posts and comments on a connected account).
 - What happened to them: the work, the trip, the experiment, the result.
 

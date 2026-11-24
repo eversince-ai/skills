@@ -123,7 +123,7 @@ A callout works only if it is on the thing.
   passes, by 2 to 4%. Pass one: `inspect_timeline` at that moment, ruled every 0.1 of the frame;
   every cell the target touches is named. Pass two: a throwaway `compose_motion` on that moment for
   a few frames drawing only a fine grid over that region, a line every 0.02 of the frame, each
-  labelled; the moment read again and the cells picked. Centre and size come from those cells; the
+  labeled; the moment read again and the cells picked. Center and size come from those cells; the
   ring is drawn and read on a frame and corrected by the direction it is off; then the throwaway is
   removed (`edit_timeline` removeClip). A target that could be several things is made unique first.
 - **A line has a start and an end anchor**: start on the target's ring, end where the label sits,
@@ -132,7 +132,7 @@ A callout works only if it is on the thing.
 - **Ring, then line, then label.** The ring draws (0.6s, in-out); a looser second ring over-strokes
   it (0.5s, starting about 0.4s later); the line draws out toward the words (0.35s); the label
   arrives at its end (0.45s).
-- **The label goes outward**, toward the nearer edge and off-centre, measured with
+- **The label goes outward**, toward the nearer edge and off-center, measured with
   `Layout.measureText` and flipped only when it would cross the safe edge; checked against faces
   on a frame.
 - **Nothing is pre-drawn**: a path stays hidden until its progress leaves 0 (a round-capped dash at
@@ -149,16 +149,16 @@ interfaces).
 
 ## Social overlays
 
-Generic, brandable versions of the cards people know: the shape is recognisable (a dark pill with an
+Generic, brandable versions of the cards people know: the shape is recognizable (a dark pill with an
 avatar and a button, a rounded toast from the top-right), never a real platform's logo, icon or
 interface. Name, handle, count and color are knobs. In a vertical frame everything is about 25%
 larger.
 
-- **Follow or subscribe card**: a dark pill (#1c1c1f), centred low; a 96px avatar inside a 3px grey
-  (#3a3a3e) ring; name white 34px bold; handle and count 24px mid grey (#a4a4aa); a round 220×68
+- **Follow or subscribe card**: a dark pill (#1c1c1f), centered low; a 96px avatar inside a 3px gray
+  (#3a3a3e) ring; name white 34px bold; handle and count 24px mid gray (#a4a4aa); a round 220×68
   button in the accent. Rises 300px in 0.5s and holds; at 1.0s the button is pressed (0.92 scale over
   0.15s) and released with a small spring, the one overshoot, because a button has one; the accent
-  fades to dark grey (#343438) over 0.12s while the label changes to its done state over 0.08s. Out in
+  fades to dark gray (#343438) over 0.12s while the label changes to its done state over 0.08s. Out in
   0.25s, 0.7s before the end. Shelf: Social (social-follow-prompt, social-subscribe-press).
 - **Notification toast**: top-right inside the safe area, scaled about 2.2× from a desktop
   notification's real size: 820px wide at 1080 lines, radius 32, a 76px icon, app name and time 24px
@@ -179,7 +179,7 @@ larger.
   highlights as one. Vertical: an outlet kicker at the top, one sentence in a bold (700) serif at 70
   to 76px on 1.4 line spacing, about 900px across. Wide: logo top left (about 64px), date under it
   (about 30px, muted), headline in a serif at 96px 700 across about 1080px, line height 1.16, a 38px
-  grey standfirst, the outlet bottom left (about 50px), the person as a cutout (`remove_background`, credits,
+  gray standfirst, the outlet bottom left (about 50px), the person as a cutout (`remove_background`, credits,
   offered; otherwise their photo inside a shape, never a bare rectangle) rising from the bottom right. Order: logo 0.15s, date 0.4, person 0.45 (for
   0.85s), headline 0.7, standfirst 1.5, outlet 1.9, highlight 2.2 for 0.8s; about 6.5s in all.
   Shelf: News and live (news-story-banner, news-full-story, news-explainer-opener).
@@ -201,8 +201,8 @@ larger.
 ## Building it
 
 - One palette at the top: every color in a few named constants or controls.
-- A centred element moves inside its centring: `translate(-50%, -50%)` stays in the same transform
-  string as the move, or the move replaces the centring and it jumps.
+- A centered element moves inside its centering: `translate(-50%, -50%)` stays in the same transform
+  string as the move, or the move replaces the centering and it jumps.
 - One repair pass on what the frames show (text off the frame or colliding, an empty frame, wrong
   content, a move nobody could read), fixed in place once and read again; the clip's length is never
   changed to hide a defect; frames that show the composition wrong as a whole mean a redesign.

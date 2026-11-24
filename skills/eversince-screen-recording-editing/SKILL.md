@@ -27,7 +27,7 @@ A screen recording holds the work and the waiting in equal measure, and the view
 
 ## Reading the recording
 
-You have the pixels, not the cursor's clicks, so find the actions from what changes on screen: a field filling, a menu opening, a page changing, a modal appearing. Start with `inspect_media` `overview` for the session's shape and `window` to grid the stretches that matter. Where someone narrates, `transcribe_media` with `ref` gives the words the cut follows. `inspect_media` with a `prompt` is cloud processing and can wait in a queue, so ask one only for what the frames and the transcript cannot answer, kept narrow (when each action starts and its result shows, when the screen waits, loads or idles); it returns the seconds.
+You have the pixels, not the cursor's clicks, so find the actions from what changes on screen: a field filling, a menu opening, a page changing, a modal appearing. Start with `inspect_media` `overview` for the session's shape and `window` to grid the stretches that matter. Where someone narrates, `transcribe_media` with `ref` gives the words the cut follows. `inspect_media` with a `prompt` uses credits and can wait in a queue, so ask one only for what the frames and the transcript cannot answer, kept narrow (when each action starts and its result shows, when the screen waits, loads or idles); it returns the seconds.
 
 Write the beats down before cutting: the action, the frame it starts, the frame its result is on screen, and the area of the screen where it happens. A beat whose result cannot be named is not a beat yet.
 

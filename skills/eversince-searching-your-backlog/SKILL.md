@@ -1,6 +1,6 @@
 ---
 name: eversince-searching-your-backlog
-description: "Past content wherever it lives (YouTube, TikTok, Instagram, Drive, a computer) brought in with the user, then searched."
+description: "The user's past content wherever it lives (their channels, Drive, a computer) brought in with them, then searched."
 metadata:
   publisher: eversince
 ---
@@ -22,10 +22,10 @@ A backlog is the user's past content, wherever it lives: their YouTube channel, 
 
 ## Bringing it in
 
-Agree with the user where the backlog lives, which part of it (a channel, a date range, a folder, a series) and what it is for. Start with the smallest slice that answers the need (one channel read by its transcripts, one folder, the last year) and search it at once; bring in more when the user asks. Check what is already in the workspace first (`search_library`, `get_workspace_overview` for its projects). When the backlog is the library itself, nothing comes in; the work is making it searchable: `get_items` says which reads each file is missing and `prepare_media` starts them (transcript, search_index), twenty files a call. Leave the user's files in their projects unless they ask for a move. Each other place has its own way in:
+Agree with the user where the backlog lives, which part of it (a channel, a date range, a folder, a series) and what it is for. Start with the smallest slice that answers the need (one channel read by its transcripts, one folder, the last year) and search it at once; bring in more when the user asks. Check what is already in the workspace first (`search_library`, `get_workspace_overview` for its projects). When the backlog is the library itself, nothing comes in; the work is making it searchable: `get_items` says which reads each item is missing and `prepare_media` starts them (transcript, search_index), twenty items a call. Leave the user's items in their projects unless they ask for a move. Each other place has its own way in:
 
 - **Files on the computer**, including a Google Drive or Dropbox folder synced there by its own desktop app: `import_media` local with the paths and `cloud_copy: false`, through the Eversince desktop app. The files are read where they sit and stay on the computer: no cloud copy, no cloud storage, and transcribing and indexing run there, free, at any size. A file goes up only when something made from it needs the cloud. Such a backlog is searched by what is shown and said through the desktop app on that computer; an agent in the cloud finds only what has a cloud copy. If the user wants it searchable from other devices or agents, offer a cloud copy (the default `cloud_copy`).
-- **TikTok and Instagram**: list the account's posts with `pull_posts` (account, order latest) a page at a time, with `cursor` for the page before, back to the date the user set. Bring in the posts wanted with `keep_posts` (20 files a call, within two days of the pull, a TikTok video within hours); their videos land in the library.
+- **TikTok and Instagram**: list the user's posts with `pull_posts` (account, order latest) a page at a time, with `cursor` for the page before, back to the date the user set. Bring in the posts wanted with `keep_posts` (20 items a call, within two days of the pull, a TikTok video within hours); their videos land in the library.
 - **YouTube**: list the channel with `pull_posts` (source youtube, the channel as account), a page at a time back to the date set. Its videos cannot be brought in from a link, but their words can: `transcript_of` on each video's link reads its transcript (a page each), enough to search the whole channel by what was said. Videos to cut from come in as files the user downloads from YouTube Studio and adds.
 - **A public Google Drive or Dropbox file link**: `import_media` url. A private file or a whole folder comes in through the desktop app or as files the user adds (`import_media` link opens a page they drop files onto, from a phone too).
 
@@ -37,8 +37,8 @@ Give a backlog one project (`new_project` "<source> backlog") whose description 
 
 ## Searching it
 
-- By what is said and shown inside the files: `search_footage` with the backlog's `project` returns the best matching moments with their spans; a duplicate, or a cleaned copy and its original, fold into one hit with `also_in`. Files not yet indexed are named; `search_footage` with their refs and no query indexes them (in the cloud with a query) and returns job ids for `get_jobs`.
-- For an exhaustive ask ("every time X is said"), read instead of searching: `transcribe_media` with `refs` and `format: "lines"` over each file. A search returns the best matches, not all of them.
+- By what is said and shown inside the items: `search_footage` with the backlog's `project` returns the best matching moments with their spans; a duplicate, or a cleaned copy and its original, fold into one hit with `also_in`. Items not yet indexed are named; `search_footage` with their refs and no query indexes them (in the cloud with a query) and returns job ids for `get_jobs`.
+- For an exhaustive ask ("every time X is said"), read instead of searching: `transcribe_media` with `refs` and `format: "lines"` over each item. A search returns the best matches, not all of them.
 - By words across the transcripts kept in documents: `search_library` with the project.
 - Read each match in its surrounding lines before keeping it (`transcribe_media` with `refs`, `window` over the span); a word is not always a moment about the subject. A spoken match can cover a long stretch (one test returned 26 seconds for one point), so narrow it to the exact lines before cutting.
 

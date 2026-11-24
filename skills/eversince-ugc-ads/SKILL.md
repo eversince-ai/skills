@@ -1,6 +1,6 @@
 ---
 name: eversince-ugc-ads
-description: "A video ad that reads as a real person filming, to camera or over footage, real or generated. A set of variants: ad variations."
+description: "A creator-style video ad, to camera or over footage, from real takes or generated. A set of variants: ad variations."
 metadata:
   publisher: eversince
 ---

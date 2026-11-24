@@ -51,9 +51,9 @@ leaned toward it:
 
 ## Type
 
-The font catalogue is one list for the canvas, captions and motion graphics (`get_templates` kind
+The font catalog is one list for the canvas, captions and motion graphics (`get_templates` kind
 font lists every family with its weights and scripts). A family or weight it does not hold is refused
-with the ones available, so choose from the catalogue, not from memory.
+with the ones available, so choose from the catalog, not from memory.
 
 **Faces that read as nobody chose**, because every model picks them first: the sans Poppins, Outfit,
 Sora, Nunito, Lato, Open Sans, Roboto and Inter; the serifs EB Garamond, Prata, Bodoni Moda,
@@ -62,7 +62,7 @@ waiting, Space Grotesk, DM Serif Display, Archivo Black, Fraunces, Instrument Se
 Grotesque. Any of them fits when the content asks for it and you can name the reason. A face used in
 the last piece for the same user counts as a default too.
 
-**More of the catalogue, by voice.** Serif: Crimson Pro, Gloock, Libre Baskerville, Newsreader,
+**More of the catalog, by voice.** Serif: Crimson Pro, Gloock, Libre Baskerville, Newsreader,
 Spectral, Young Serif. Sans: Albert Sans, Archivo, Figtree, Geist, Hanken Grotesk, IBM Plex Sans,
 Instrument Sans, Inter Tight, Onest, Red Hat Display, Schibsted Grotesk, Work Sans. Condensed and
 heavy display: Anton, Antonio, Barlow Condensed, Bebas Neue, Big Shoulders, Dela Gothic One, Fjalla
@@ -98,7 +98,7 @@ Mono), an upright with its italic, one face at display and at text size.
   few words run at feed sizes or larger. A slide shown in a room holds nothing under about 40px at
   1080, with its headline at 72 to 96px and its body near 48px.
 - A line that carries the message stays at or above 1.4% of the width (27px at 1920); smaller type is
-  chrome (a page number, a catalogue mark).
+  chrome (a page number, a catalog mark).
 - Fit to measure: cap a headline block at 78% of the width and let its word count pick the tier:
   three words or fewer get the largest display size, four to six the next, seven or more the next
   down. A hero line spans 60 to 80% of the frame; step a long line down rather than run it edge to edge.
@@ -221,7 +221,7 @@ The frames `inspect_timeline` draws of a graphic or any other moment, or the sli
 - Scarcity: every rare gesture used once, one accent moment, one signature device, one hard shadow.
 - Palette: every color in the declared palette or the brand kit; one ground across sections; no pure
   #000 or #fff unless chosen; no full-frame linear gradient on dark.
-- Type: catalogue families at weights they ship, one expressive face, fit within 78% of the width,
+- Type: catalog families at weights they ship, one expressive face, fit within 78% of the width,
   message lines at 1.4% of the width or more, display tracked tight, tabular figures on every number
   that counts.
 - Composition: anchored and zoned, no three sections sharing an anchor, every line with two real ends

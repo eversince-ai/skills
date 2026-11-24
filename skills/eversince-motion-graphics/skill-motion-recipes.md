@@ -15,7 +15,7 @@ const ramp = (t0, t1, from, to, easing = Easing.out(Easing.poly(4))) =>
 Eases by feel: **settle** `Easing.out(Easing.poly(4))`, the default · **slam**
 `Easing.out(Easing.poly(5))` · **snap** `Easing.out(Easing.exp)` · **gentle**
 `Easing.out(Easing.cubic)` · **orbit** `Easing.inOut(Easing.circle)`, camera legs and moves round a
-centre · **overshoot** `Easing.out(Easing.back(s))`, only where a recipe says so. A piece uses
+center · **overshoot** `Easing.out(Easing.back(s))`, only where a recipe says so. A piece uses
 about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 1920×1080 and scale by
 `width / 1920`. Every position is one the piece placed, or `Layout.measureText` for text.
 
@@ -114,7 +114,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   with the count beside them · stagger 0.06 to 0.1s · one accent hue, the rest muted, flat fills ·
   grown by scale from the baseline (`scaleY` from `'bottom'`, `scaleX` from `'left'`) · a ring's
   dash is its real circumference (`2 * Math.PI * r`), rotated −90° to fill from twelve, hidden at
-  zero · stars are a gold row over a grey row, the gold clipped by `clipPath: inset(0 (1 − score /
+  zero · stars are a gold row over a gray row, the gold clipped by `clipPath: inset(0 (1 − score /
   outOf) × 100% 0 0)` over about 1s. Shelf: stat-ring-percent, chart-bars-across, chart-standout-bar,
   chart-share-bar, progress-goal, review-card.
 - **chart-read-head**: a tracking line and marker riding a drawn series while a readout steps
@@ -128,8 +128,8 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 
 ## Camera and viewport
 
-- **aim-zoom**: zooming into an element off centre is one `<Camera>` leg with `focus` at the
-  element's centre as laid out. 1.5× gains a little, 3× takes over, 5× is extreme; capped so the
+- **aim-zoom**: zooming into an element off center is one `<Camera>` leg with `focus` at the
+  element's center as laid out. 1.5× gains a little, 3× takes over, 5× is extreme; capped so the
   target fills 88% of the frame at most, `Math.min(want, 0.88 * width / w, 0.88 * height / h)` · 1.0
   to 2.0s on `Easing.inOut(Easing.poly(4))`, starting 0.5 to 1.5s after the layout lands, holding
   1s or more after · pictures need source resolution at least rendered size × zoom · `overflow:
@@ -166,15 +166,15 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 
 ## Layout and networks
 
-- **spoke-spread**: elements starting at the centre and radiating to their places, each centred with
+- **spoke-spread**: elements starting at the center and radiating to their places, each centered with
   `translate(-50%, -50%)` and moved by its target offset × progress. 3 to 8 items · 1.0 to 1.8s on
   settle · stagger 0.04 to 0.08s · with 6+ items starting 0.3 of the way out. Driven by a count: no
   stagger, the count's own duration and ease. Its reverse is the orbit collapse. By hand. Shelf:
   diagram-hub, diagram-rings.
-- **Orbit collapse** (ring-flip-in, flat): a ring of items condensing into its centre on the frame
+- **Orbit collapse** (ring-flip-in, flat): a ring of items condensing into its center on the frame
   of its cause, one 1 → 0 value multiplying both radii and each item's scale, 0.5 to 0.9s on
   `Easing.in(Easing.poly(4))`; the ring an ellipse (y at 0.4 to 0.7 of x, 4 to 12 items) that never
-  touches the centre label: `RADIUS_X × min|cos θ| ≥ label half-width + item half-width + air`. By
+  touches the center label: `RADIUS_X × min|cos θ| ≥ label half-width + item half-width + air`. By
   hand.
 - **Scatter and assemble** (tumble-assemble, flat): fragments flying in from a scatter and locking
   into a layout, each starting at its index on the golden angle, `a = i × Math.PI × (3 −
@@ -185,7 +185,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 - **face-ring**: faces on an elliptical ring around a hub with lines drawing out to each. Ring 20 to
   30% of the width by 18 to 25% of the height · 8 to 12 avatars at 80 to 120px · hub in over 0.4 to
   0.6s, avatars from 0.6 of the way through it, 0.4 to 0.7s each 0.06 to 0.10s apart · lines from 0.1
-  to 0.2s before the last avatar settles, 0.4 to 0.7s each · one centre constant feeds hub, ring and
+  to 0.2s before the last avatar settles, 0.4 to 0.7s each · one center constant feeds hub, ring and
   line ends; the hub paints after the lines · still for 1s or more. By hand. Shelf:
   gallery-picture-ring, diagram-hub.
 - **detect-box**: a detection box following a moving subject: four L corners (48px arms, 6px thick,
@@ -198,7 +198,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   fixed-height mask (`overflow: 'hidden'`) holds a sheet sliding from `−BODY_H` to 0 and everything
   below rides the same value. Grow 0.35 to 0.6s on settle, rows fading in from a quarter of the way
   (0.2 to 0.3s each, 0.04 to 0.08s apart), collapse 0.2 to 0.35s on `Easing.in(Easing.poly(4))`. A
-  side pane grows along x; its neighbour is overlapped or pushed, never both. **Typed-wrap growth**:
+  side pane grows along x; its neighbor is overlapped or pushed, never both. **Typed-wrap growth**:
   a composer growing from its top edge as its text wraps, one short step per authored `\n` (0.12 to
   0.2s on settle, one line height), the card drawn at full height and clipped down with `clipPath:
   inset(top 0 0 0 round r)`, the lines riding up on the same value. By hand. Shelf: ui-context-menu,
@@ -216,7 +216,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 
 - **pop-arrival**: the canonical arrival: `scale` 0 → 1 with a 0 to 32px rise, settle or snap, 0.4
   to 0.7s, the hero visible by 0.5s. A group of 3 to 9 staggers `Math.min(0.06, 0.5 / count)`;
-  over 9, a wipe. Order by index, from the centre out by `|i − (n − 1) / 2| × step`, or from the
+  over 9, a wipe. Order by index, from the center out by `|i − (n − 1) / 2| × step`, or from the
   edges in. For exact physics a spring with mass 1, `stiffness: (2π / response)²`, `damping: 2ζ ×
   2π / response`: response 0.25 to 0.35s a tight snap, 0.35 to 0.5 a standard entrance, 0.5 to 0.7 a
   weighted hero; ζ 1 is the house settle, 0.8 to 0.85 overshoots 0.6 to 1.5%, 0.6 to 0.7 overshoots 5
@@ -235,7 +235,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   shots aspect-matched · the radius lands at `apparent / END_SCALE` · a fill changing color is
   `interpolateColors` on the same value. By hand.
 - **skin-swap**: everything re-skins around one thing that never moves: each skin one complete
-  pre-styled layer, a simultaneous opacity crossfade between neighbours, the anchor drawn once on
+  pre-styled layer, a simultaneous opacity crossfade between neighbors, the anchor drawn once on
   top. 3 to 5 skins · held 0.8 to 1.5s · morph 0.25 to 0.4s · skin k at `START + k × (HOLD +
   MORPH)` · the last held 2 to 3× · shared geometry aligned to the pixel. By hand.
 - **knock-aside**: an entrance that knocks the previous element out: one value on overshoot 1.2 to
@@ -291,7 +291,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   in over 0.2 to 0.3s with its chrome. Resize is uniform scale about the anchor corner, the cursor
   sent to `anchor + scale × (corner₀ − anchor)` on the same window. Helper: Cursor; the payload by
   hand.
-- **team-pointers**: two to four labelled cursors (`<Cursor label color>`) working one canvas, a
+- **team-pointers**: two to four labeled cursors (`<Cursor label color>`) working one canvas, a
   literal table of legs per actor (0.6 to 1.2s, `Easing.inOut(Easing.cubic)`) with 0.5 to 1.5s rests
   of total stillness; actions on alternating beats 1s or more apart; each actor in its zone (two
   within 80px reads as a glitch); actors may be mid-canvas on the first frame; the camera never
@@ -316,7 +316,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 - **living-icon**: an icon's own parts moving (a clock's hands, a recording dot, data down a line).
   `Icons` draws a lucide icon whole; a moving part is drawn as SVG on the same 24-unit grid (stroke
   2, round caps) with the part separate, rotated with the SVG attribute `transform="rotate(deg 12
-  12)"` (CSS `transformOrigin` on a thin line swings off-centre). Rotation linear: a minute hand
+  12)"` (CSS `transformOrigin` on a thin line swings off-center). Rotation linear: a minute hand
   0.5 to 2 turns over the clip, a second hand 4 to 10. Pulse: dot 0.05 to 0.20, ring 0.04 to 0.12
   lagging π/2, 2 to 4 cycles over 3 to 5s. Dash flow: `strokeDashoffset` linear through a whole
   multiple of dash + gap. By hand. Shelf: live-badge, notify-banner.
@@ -350,7 +350,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   `const { bands } = useSound({ bands: 8 }); const bass = (bands[0] + bands[1]) / 2;`. Type and
   marks move at most 5% in scale and 30% in glow; a background can take 10 to 30%. Bands: 4 for a
   glow, 8 for a bar chart, 16 a detailed meter, 32 a dense radial. Bars, spectra and waves for a
-  visualiser (an audiogram over a podcast, `{ follow: 'voice' }`), never as decoration; no strobing
+  visualizer (an audiogram over a podcast, `{ follow: 'voice' }`), never as decoration; no strobing
   or rainbow cycling. Helper: useSound. Shelf: Audio (audio-podcast-card,
   audio-speaking-ring, audio-spectrum-edge, audio-beat-word, audio-hit-flash).
 
@@ -424,7 +424,7 @@ toward. Depth is a spectacle beat, one per piece; most work stays flat. Shelf: D
   resolve flat. By hand.
 - **ring-flip-in**: each item parked at its place on the ellipse first, hidden, and flipped there:
   `rotateX` ±60 to 120°, `rotateY` ±45 to 120°, z −200 to −400, scale 0.2 to 0.6, resolving over 0.4
-  to 0.8s on overshoot 1.2 to 2.0, staggered 0.06 to 0.12s; the centre element pushed forward with
+  to 0.8s on overshoot 1.2 to 2.0, staggered 0.06 to 0.12s; the center element pushed forward with
   `translateZ(180 to 240)`, landing after two to four items have. By hand.
 - **tilted-page**: a page taller than its card, `rotateY` ±4 to 12° and `rotateX` 0 to 6° at
   `perspective` 800 to 2000, set once and held; the card carries `overflow: 'hidden'` and
@@ -464,5 +464,5 @@ diagram-overlap.
 ## Not in this runtime
 
 Real 3D geometry (a mesh, a light, a material) is three.js inside `<ThreeCanvas>`, as `skill-motion-graphics` shows; CSS
-`perspective` only turns flat planes in space. A modelled hand still tops out at what three.js primitives draw. Per-pixel transitions
+`perspective` only turns flat planes in space. A modeled hand still tops out at what three.js primitives draw. Per-pixel transitions
 between two scenes, a star iris, tilt-shift and lens flare are not CSS anywhere.

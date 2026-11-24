@@ -22,7 +22,7 @@ This repo is generated from the skills Eversince serves to connected agents; cha
 - `eversince-remake-from-a-reference`: A video like a reference, with the user's footage: the reference written down as numbers, built, compared at the same seconds.
 - `eversince-short-form-videos`: A Reel, Short or TikTok around one idea: the shape, beats, safe area, sound and rights, assembly, checks. A video that sells: UGC ads.
 - `eversince-clipping`: Finds the moments in something long and cuts each to stand alone as a set of clips. One finished video from the footage: video editing.
-- `eversince-podcast-editing`: A podcast episode, video or audio: the cut follows whoever talks, pauses and fillers trimmed, sound levelled, chapters, an audio master.
+- `eversince-podcast-editing`: A podcast episode, video or audio: the cut follows whoever talks, pauses and fillers trimmed, sound leveled, chapters, an audio master.
 - `eversince-animated-captions`: Word-timed captions styled to fit the video: the look chosen from it, lines, timing, emphasis, readable over any footage.
 - `eversince-vlog-editing`: A day or trip cut into one story in the order it happened: a short day in my life, a long YouTube vlog, a travel or silent vlog.
 - `eversince-screen-recording-editing`: A screen recording into a demo someone can follow: dead time cut, zooms on the actions, each step named, the interface kept true.
@@ -48,7 +48,7 @@ This repo is generated from the skills Eversince serves to connected agents; cha
 - `eversince-run-ads`: Ads launched, read and improved: what each creative did and why, then left, ended or remade from its source. Making a set is ad variations.
 - `eversince-image-ads`: An image ad built on one angle, chosen by what the buyer already knows: headline, product, layout, sized for each placement.
 - `eversince-ad-variations`: New versions of an ad that works, or a set to test: angles first, each variant one stated change a platform sees as different.
-- `eversince-ugc-ads`: A video ad that reads as a real person filming, to camera or over footage, real or generated. A set of variants: ad variations.
+- `eversince-ugc-ads`: A creator-style video ad, to camera or over footage, from real takes or generated. A set of variants: ad variations.
 - `eversince-product-videos`: The film where the product is the hero and the picture carries it: reveal, detail run, demonstration, few words or none.
 - `eversince-launch-videos`: A narrated case for a product, a release or an update, with real screens as proof: one claim, clear by the second beat, one ask.
 - `eversince-teasers-and-trailers`: A teaser or trailer that makes a release wanted without explaining it, cut to its track, landing on the title and where to get it.
@@ -57,7 +57,7 @@ This repo is generated from the skills Eversince serves to connected agents; cha
 - `eversince-inbox-and-auto-replies`: Comments and messages answered in the account's voice, and the comment-a-word reply that sends a link to everyone who asks.
 - `eversince-public-links`: Media, text or both on a page anyone opens without an account, for clients, an audience or teammates: what it holds and what a plan adds.
 - `eversince-keeping-content-organized`: A workspace structure agreed with the user and held every session: projects, labels, names, a calendar; media in and found.
-- `eversince-searching-your-backlog`: Past content wherever it lives (YouTube, TikTok, Instagram, Drive, a computer) brought in with the user, then searched.
+- `eversince-searching-your-backlog`: The user's past content wherever it lives (their channels, Drive, a computer) brought in with them, then searched.
 - `eversince-ai-filmmaking`: AI-generated video that looks like film: how shots, light, movement and coverage are designed and prompted. Drawn frames are animation.
 - `eversince-ai-animation`: AI-generated animation: drawn, painted or rendered worlds, style families, motion, one style held across shots. Type is motion graphics.
 - `eversince-ai-influencer`: An AI person or character made once, face and voice, and kept identical in every scene: the reference set, generating from it, posting it.

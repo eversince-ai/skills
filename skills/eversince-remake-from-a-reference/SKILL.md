@@ -48,7 +48,7 @@ described in words, and the remake is as good as the description.
 
 Look first, then ask a model only what looking cannot answer.
 
-- **The shape**: `inspect_media` overview of the whole file, then window grids over each section and single frames at the moments that matter.
+- **The shape**: `inspect_media` overview of the whole item, then window grids over each section and single frames at the moments that matter.
 - **The rhythm**: `inspect_media` with `cuts` gives every cut in seconds and each shot's length. The average and the median are the tempo. Mode shot_log adds a line on what is in each shot. On motion-graphics references and white or color transitions the cut list runs slow and misses changes, so read the shot changes off the overview frames and count them.
 - **What a frame cannot answer**: `inspect_media` with a `prompt`, one narrow question at a time (how the type enters and holds, how the camera moves here, how the mix sits). Answers about time come back as seconds in `moments`.
 - **The grade**: `inspect_color` on a few moments: black and white points, shadows, mids and highlights, saturation, warm or cool.
@@ -99,7 +99,7 @@ counts is a graphic (`skill-motion-graphics`), fixed in the frame while the layo
 An ad, a poster, a slide, a post, a cover: the same method on a canvas. Read off the picture
 (`inspect_media` with `grid`): the layout as percentages of the frame (each element's box, the
 margins, the gutters), the type (style of face, height as a share of the frame, weight, case,
-spacing, the closest catalogue face), the colors with `inspect_color` `points`, the photo's grade,
+spacing, the closest catalog face), the colors with `inspect_color` `points`, the photo's grade,
 the effects (shadow, blur, glow, duotone). Build at the reference's size (`manage_canvases` create
 with its width and height) with `skill-graphic-design`, and compare with `inspect_canvas` against the
 reference, one kind of thing per pass.

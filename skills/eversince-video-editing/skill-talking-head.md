@@ -26,7 +26,7 @@ Steps 2, 7, 8 and 13 only where the user asked for them. Steps 5, 6 and 10 run o
 ## What the job needs
 
 - The recording as a library item, or several takes as several items, with words: `transcribe_media`
-  with `ref` reads a file (over five minutes, a job); with `timeline_id` it gives the
+  with `ref` reads an item (over five minutes, a job); with `timeline_id` it gives the
   clips their words once the takes are on a timeline.
 - The destination: 16:9 for a player or a site, 9:16 for a vertical cut; whether it plays with sound
   by default (a feed usually does not).
@@ -106,13 +106,13 @@ Hand-set punches beat the rhythm where a line matters: `moments_seconds` with `c
 punch on the claim, the reveal and the joke and nowhere else, which reads as intent. A punch lands on
 the first word of the line. The face stays whole: a punch that crops the forehead or the chin is too
 close for the framing the user shot. Where the clip's subject has been read (`auto_reframe`), each
-punch holds on the face; a talking head framed off centre is reframed before it is punched.
+punch holds on the face; a talking head framed off center is reframed before it is punched.
 
 ## B-roll
 
 A line that names a thing the viewer cannot see is covered by the thing, from any of: the person's
 own footage and screens (`search_footage` by phrase over the workspace's recordings,
-`search_library` for the file), a frame or a still they hold, stock (`search_stock` kind video,
+`search_library` for the item), a frame or a still they hold, stock (`search_stock` kind video,
 brought in with `import_media` mode url), or a generated shot (`generate_video`, in credits; it
 cannot show the real product). The real interface is the file itself, never a
 model's redraw (`skill-screen-recording-editing`).
@@ -144,7 +144,7 @@ camera; the last take is trimmed to the last word that lands.
 
 ## Sound
 
-`clean_audio` denoise on the recording where the user says the room is noisy (cloud processing), before any cut, since the cleaned file
+`clean_audio` denoise on the recording where the user says the room is noisy (cloud processing), before any cut, since the cleaned item
 takes the clip's slot whole (with `timeline_id` and `clip_id` the clip's words stay). Once the cut is
 final, `level_audio` brings the speech to the delivery target and evens the takes, which makes a
 piece cut from several recordings sound like one sitting. A bed and the duck under the voice are

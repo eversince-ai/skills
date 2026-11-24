@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-run-ads"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-Running ads is three jobs that repeat: put distinct creatives in front of buyers, read which ones worked and why, and make the next ones from what the read says. The third is where most accounts stall, because the ad's numbers sit in the ad platform and its footage somewhere else. Here they sit together: an ad is made from a library file, its results read back beside it, and the next version is cut from the same source. The loop is the same on every connected ad platform (Meta, TikTok, Google, LinkedIn, Pinterest, X, Reddit, ChatGPT); the numbers and habits are each platform's own, Meta's first below since most of today's practice was worked out there, the others after. The spend is the user's, on their own ad account. Connecting an ad account here is the user's choice, charged a month; with none connected the method is the same, the ads made in the platform's own tools from the rendered files and the numbers read from there or from what the user shares. A brief, a budget or a structure the user already runs outranks everything here: where the user has a way of running ads, the work is done their way, and what follows is what is known to work where they have none.
+Running ads is three jobs that repeat: put distinct creatives in front of buyers, read which ones worked and why, and make the next ones from what the read says. The third is where most accounts stall, because the ad's numbers sit in the ad platform and its footage somewhere else. Here they sit together: an ad is made from a library item, its results read back beside it, and the next version is cut from the same source. The loop is the same on every connected ad platform (Meta, TikTok, Google, LinkedIn, Pinterest, X, Reddit, ChatGPT); the numbers and habits are each platform's own, Meta's first below since most of today's practice was worked out there, the others after. The spend is the user's, on their own ad account. Connecting an ad account here is the user's choice, charged a month; with none connected the method is the same, the ads made in the platform's own tools from the rendered files and the numbers read from there or from what the user shares. A brief, a budget or a structure the user already runs outranks everything here: where the user has a way of running ads, the work is done their way, and what follows is what is known to work where they have none.
 
 ## The plan
 
@@ -15,7 +15,7 @@ Running ads is three jobs that repeat: put distinct creatives in front of buyers
 2. `manage_ads` ad_accounts {account_id}, then health {account_id, ad_account_id} before anything is created; `manage_ad_tracking` pixels and match_quality where the goal is a sale or a lead counted on a site
 3. `read_ad_results` tree {account_id, ad_account_id, fields: {from_date, to_date}} → what already runs and what it did; ranked {fields: {sort_by}} for the ads in order, timeline for a campaign day by day. An account with history is read before anything new is made
 4. With the user: how they run ads today and what stays as it is (their campaigns, audiences, budgets). Then the round (below): the goal, the budget, how many distinct creatives, and where they go: a new ad set, or an ad set that already delivers
-5. The creatives: each a rendered library file (`render_timeline`, `render_canvas`), named so a report maps back to it ("<angle> · <hook> · v1")
+5. The creatives: each a rendered library item (`render_timeline`, `render_canvas`), named so a report maps back to it ("<angle> · <hook> · v1")
 6. `manage_ads` fields {of: "create"} → what create takes on this platform; fields with field reads inside one (targeting, placements)
 7. `manage_ads` create {account_id, ad_account_id, fields: {name, goal, budget_amount, budget_type, budget_level, creatives: [one per file, each with its own headline, body, link_url and call_to_action], targeting or advantage_audience, validate_only: true}} → the check with nothing made; then the same call without validate_only. A creative added to an ad set that already delivers is create with ad_set_id; a post already out is promoted with boost (boostable_posts lists them); ad_preview {id} shows an ad as its placements draw it, and review its state in the platform's review
 8. Wait for the read (below), then `read_ad_results` ad {id, fields: {breakdowns}} per ad, and insights for what the tree does not carry
@@ -101,7 +101,7 @@ Payment failures, budgets raised many times over in a day on a new account, burs
 ## The check
 
 - The goal is the event the business is paid by where the platform can see it, else the nearest one it can count, named as that.
-- Every creative in the ad set is a different concept, and each maps to a named library file.
+- Every creative in the ad set is a different concept, and each maps to a named library item.
 - Nothing was judged before it had the spend or the days to mean something on that platform.
 - What the user already runs their way was left their way.
 - Each change is one change, named on the ad, so the next read can attribute it.
@@ -109,7 +109,7 @@ Payment failures, budgets raised many times over in a day on a new account, burs
 
 ## Handover
 
-- What runs: the campaign, the ad sets, each ad with its file, the budget and the goal; which ads wait paused for the user's switch.
+- What runs: the campaign, the ad sets, each ad with its item, the budget and the goal; which ads wait paused for the user's switch.
 - What the last read said: per creative, delivery, hook, hold, click, cost per result, and the verdict (left, ended, remade), with what each taught.
 - What comes next and when it is read.
 - Also possible: a rule that ends runaway spend, a lead form, a custom or lookalike audience from the user's customers (`manage_ad_audiences`), the same winners on another ad platform, a lead's details read back (`manage_ad_tracking` leads), competitors' running ads read from the public ad libraries of Meta and LinkedIn (`read_ad_results` ad_library).

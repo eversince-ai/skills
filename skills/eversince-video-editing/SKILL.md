@@ -11,7 +11,7 @@ This skill turns raw recordings into a finished video. The story is in the mater
 
 ## The plan
 
-1. Read everything: the words of every file, and the footage where the picture carries it
+1. Read everything: the words of every item, and the footage where the picture carries it
 2. Choose the story in the words before placing anything: the opening, the order that builds, the ending
 3. Assemble the selects on one timeline in story order, cut loose
 4. Make passes over the whole piece: structure, then rhythm, then the trim
@@ -20,7 +20,7 @@ This skill turns raw recordings into a finished video. The story is in the mater
 
 ## What you need
 
-- The recordings as library items. If the user means a file they did not attach, find it with `search_library`; bring one from elsewhere in with `import_media`.
+- The recordings as library items. If the user means a recording they did not attach, find it with `search_library`; bring one from elsewhere in with `import_media`.
 - What the video is for, who it is for, where it plays (a player or site at the source's shape, a feed at 9:16), and its length. The length is a budget every select is charged against.
 - Any moments the user already knows matter, as a starting point.
 
@@ -28,7 +28,7 @@ This skill turns raw recordings into a finished video. The story is in the mater
 
 Choose nothing until you have seen everything.
 
-- **Speech-led material:** read it as words. `transcribe_media` with `refs` and `format: "lines"` gives one timed line per sentence, about 100,000 characters a page per file for up to three files; for the next page, pass `window` {start: next_start, end: the file's length}. Read a file that has never been read with `ref` (over five minutes, it is a job). Run `speakers` on a recording with more than one voice so the words carry who said them.
+- **Speech-led material:** read it as words. `transcribe_media` with `refs` and `format: "lines"` gives one timed line per sentence, about 100,000 characters a page per item for up to three items; for the next page, pass `window` {start: next_start, end: the file's length}. Read an item that has never been read with `ref` (over five minutes, it is a job). Run `speakers` on a recording with more than one voice so the words carry who said them.
 - **Action-led material:** read it as frames. `inspect_media` overview, then window into anything alive.
 - **Many hours of footage:** `search_footage` with the theme narrows which stretches to read. You still choose by reading.
 
@@ -56,7 +56,7 @@ Cutting speech is quoting, and the meaning stays the speaker's. The standards do
 
 ## The assembly
 
-Put the selects on one timeline in story order, cut generously: into the setup and past the landing. Trimming later is cheap; finding a lost frame again is not. `manage_timelines` create with `clips`, each {ref, source} as you recorded it in the read, builds it in one call; add a later select with one `edit_timeline` addClip. Selects carry their files' words onto the cut, which `get_transcript`, `remove_silence` and `remove_words` read. A marker (addMarker kind note) keeps a note on the cut itself.
+Put the selects on one timeline in story order, cut generously: into the setup and past the landing. Trimming later is cheap; finding a lost frame again is not. `manage_timelines` create with `clips`, each {ref, source} as you recorded it in the read, builds it in one call; add a later select with one `edit_timeline` addClip. Selects carry their items' words onto the cut, which `get_transcript`, `remove_silence` and `remove_words` read. A marker (addMarker kind note) keeps a note on the cut itself.
 
 ## The passes
 

@@ -131,7 +131,7 @@ Prompt order differs by model: Google puts the camera first (cinematography, sub
 | Optically clean air | Haze, dust, steam, rain between camera and subject |
 | Poreless, symmetrical faces | Skin texture, subsurface warmth where light passes ears and fingers |
 | Showroom-empty rooms | One or two lived-in details: the coffee ring, the stacked mail |
-| Highlights clipped to white, blacks crushed | Halation around lights and windows, shadows lifted to dark grey |
+| Highlights clipped to white, blacks crushed | Halation around lights and windows, shadows lifted to dark gray |
 | Grade instead of composition | A frame that fails in black and white is not saved by orange and teal |
 | Everything in slow motion | Life speed by default, the action prompted at real speed |
 | A camera drifting nowhere | Locked off, or a move with a destination |

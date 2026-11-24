@@ -75,7 +75,7 @@ A 3:4 clip in a 9:16 video loses its sides; three quarters of the width shows. H
 ## Sound
 
 - The wearer's voice is the dialogue and the world is the background.
-- `clean_audio` `denoise` (cloud processing) on a windy clip, with `timeline_id` and `clip_id` so the clean file takes its slot, before cutting on its words.
+- `clean_audio` `denoise` (cloud processing) on a windy clip, with `timeline_id` and `clip_id` so the clean item takes its slot, before cutting on its words.
 - Clips from one day arrive at different levels; `level_audio` with the platform evens them once the cut is final.
 - Music where the user wants it, low under the world: `duck_music` places, levels and ducks it in one call.
 - Silent clips (`has_audio` false in `get_items`) can take ambience (`search_stock` kind ambience), music, or nothing, as the user likes.

@@ -18,7 +18,7 @@ Scene 3 (3.0 to 6.0s): everything has resolved; the read holds, still
   read; on a short shot the last reveal and the hold are one window.
 - **One signature move per shot**, on the key reveal; two is two shots. Only the last shot of a
   piece exits; every earlier one leaves by the seam into the next.
-- **Each scene line names its job**: the layout (centred for a hero or climax, thirds, a split for
+- **Each scene line names its job**: the layout (centered for a hero or climax, thirds, a split for
   a comparison, 60/40 or 70/30 for editorial, a triptych, a full-width strip), the device (before
   and after, a numbered run, a counterexample, a callback) and the beat it lands as (recognition,
   the aha, relief). On a composed frame the primary visual takes at least 40% of the frame over at
@@ -33,7 +33,7 @@ Scene 3 (3.0 to 6.0s): everything has resolved; the read holds, still
   the shot rebuilds an interface on purpose.
 - **Captions share the frame.** Small readable text (a label, a stat's caption, a URL) keeps out of
   the span the caption line covers; imagery, cards and full-bleed subjects may run under it. The
-  composition sits on the frame's true centre; with no captions there is no band. At 9:16 the
+  composition sits on the frame's true center; with no captions there is no band. At 9:16 the
   platform's interface holds the bottom quarter and the top eighth (`skill-animated-captions`).
 
 In code each window's start is one constant, seconds times fps, and every move reads its start from
@@ -46,7 +46,7 @@ inversion, scale, weight or density, not a third color. A motif planted early (a
 color) returns later, fuller, as the payoff; the plan names both appearances as the same element.
 
 **A storyboard or deck is a set of states to move between, not pages to flip.** An element shared
-by neighbouring frames (matched by name, then by size and place) animates between its states;
+by neighboring frames (matched by name, then by size and place) animates between its states;
 whatever appears or leaves does so on its own frame's beat. Notes under the frames are motion
 direction, not on-screen copy. Successive states of one app screen are interactions (the cursor
 acts, the screen answers), not tweens. Stills cut one after another are the fallback for frames
@@ -91,7 +91,7 @@ suit, the one whose moves sit closer to the scenes; where none does, build.
   unexplained close detail pulls back to show the tool) · pointer-walkthrough (named cursors of
   several people editing one canvas as a headline forms).
 - **Pain**: word-beats (3 to 5 short lines of frustration, each alone; or questions passing through
-  the centre until one climax word) · number-first (a figure getting worse, then a push into the
+  the center until one climax word) · number-first (a figure getting worse, then a push into the
   chart) · crowded-frame (tools stack up, the viewer is in the middle, tasks close in) ·
   station-pan (steps that do not connect, ending in a knot).
 - **First look**: word-beats (build-up beats landing on the name; a headline holding while one
@@ -118,7 +118,7 @@ suit, the one whose moves sit closer to the scenes; where none does, build.
 - **Value**: word-beats (a rapid run of 8 to 12 phrases; 2 to 4 statements each held 1.5s or more,
   each arriving its own way) · quiet-title (two calm lines: the pause in the piece) · pinned-line
   (one surface stays while its whole look changes each beat) · tile-cascade (a list of gains that
-  builds) · camera-route (something small done here changes something there, the camera travelling
+  builds) · camera-route (something small done here changes something there, the camera traveling
   between) · wide-reveal (small actions close up, one pull-back shows how much got done) ·
   pointer-walkthrough (a demo, type, another demo).
 - **The ask**: word-beats (a final line landing beat by beat on the logo or address) · logo-forming
@@ -147,20 +147,20 @@ Shared by every shot with a product surface, a camera or a cursor:
   clipped at its card (overflow hidden on the card, the moving layer inside); the background belongs
   to the scene, never to the layer that moves. A raster inside a zoomed world needs a source at
   least its rendered size times the largest scale it reaches. A change is shown by the strongest
-  honest route: the real interface, rebuilt or placed; an analog whose behaviour is the claim
+  honest route: the real interface, rebuilt or placed; an analog whose behavior is the claim
   (caching as two identical request rows, the second finishing at once; batching as ticks drawing
   together into groups; a speed-up as a counter and bar on an in-ease); a terminal the command
   types into; last, a checklist of six rows at most. An interface implying a screen the product
   does not have is invented.
 - **The camera is one `<Camera>`**, the whole world inside it, every move a leg: one state, one
-  transform about the frame's centre. Hard out-eases on dives and landings, in-out on
+  transform about the frame's center. Hard out-eases on dives and landings, in-out on
   repositioning; no spring or back-ease on a camera.
 - **A cursor is `<Cursor>`, in the interface's own coordinates**, placed from the same constants as
-  what it clicks and painted last. It arrives decelerating, lands a few px off its target's centre,
+  what it clicks and painted last. It arrives decelerating, lands a few px off its target's center,
   and the target compresses with it on the press (`Cursor.press`).
 - **Depth** (a tilted card, a camera flying in perspective, cards opening like a book) stands on the
   stage in the recipes part, each depth variant paired with its flat form. A 3D object (a device, a product) can be
-  built in three.js inside `<ThreeCanvas>` (`skill-motion-graphics`); a lifelike modelled hand is beyond its primitives.
+  built in three.js inside `<ThreeCanvas>` (`skill-motion-graphics`); a lifelike modeled hand is beyond its primitives.
 
 ## The shot plans
 
@@ -172,7 +172,7 @@ line, one slot**: the sentence stays and a single slot changes on a hard cut wit
 blur, or the last word is deleted and typed again. **B, line after line**: every beat cuts to a
 fresh line, can swap a light field for a dark one with the type reversing, and enters its own way (a
 big blurred slam settling to size, a sideways snap, a rise with a slight turn, a masked slide up, a
-soft fly-in coming into focus). **C, handoff**: phrases arrive at the centre in turn, the one on its
+soft fly-in coming into focus). **C, handoff**: phrases arrive at the center in turn, the one on its
 way out shrinking and parting toward both sides; the peak word gets one treatment of its own (a
 gradient settling to flat, a small -8° tilt), or the question is answered by the product surface
 sliding in as an element.
@@ -206,7 +206,7 @@ Sign-off, opening. 3.6 to 7s.
   spreading); the typed line sits under it.
 - Scene 2 (about 2.0 to 4.5s): the line is edited where it stands. Opening: the final word deleted
   and another typed, or the last word flips to the accent. Sign-off: the line goes by a hard
-  replace or a travelling mask, never a backspace, and the mark stays.
+  replace or a traveling mask, never a backspace, and the mark stays.
 - Scene 3: opening, the caret disappears and the line shrinks to a point (0.3 to 0.7s), then the
   brand pops on, the mark first, the wordmark sliding out from behind it under a mask; or a control
   pops on, a cursor finds it, and a 150ms change of state fades it to the accent. Sign-off: the ask
@@ -224,12 +224,12 @@ Value, proof, the ask, first look. 3 to 5s; a run of cards 2 to 3s each, 5.5 to 
 calm is what it delivers.
 - Scene 1 (0.0 to about 0.3s): the field at rest, empty for value; for proof, a crowded collage of
   app cards under a line that sets it up.
-- Scene 2 (about 0.3 to 1.5s): the arrival. Value: the first line fades in at the centre, growing
+- Scene 2 (about 0.3 to 1.5s): the arrival. Value: the first line fades in at the center, growing
   95% to 100% on a smooth out-ease. Proof: a big accent pill crosses the frame on a diagonal, lower
   left to upper right and out through the corner, its clip clearing the collage as it passes and
   uncovering the lockup while the icon's strokes draw in.
 - Scene 3 (1.5s to end): the hold. Value: the first line lifts and fades and the second comes up
-  from below into the centre as the first leaves, one move. Proof: icon, wordmark and "in use at N+
+  from below into the center as the first leaves, one move. Proof: icon, wordmark and "in use at N+
   studios" (the N counting up) settle and stay.
 - Card run (the closing cards of an ask, the opening cards of a first look): 2 to 3 cards, each
   arriving, making one move and holding. Cards change on instant hard cuts at full opacity, or by a
@@ -283,7 +283,7 @@ collision (that is roll-and-crash).
 
 ### logo-forming: the mark comes to exist, then locks up
 First look, the ask, sign-off. 4.4 to 11s. Three stages: empty the frame, make the mark, settle the
-centred lockup and hold. How the mark appears: **stroke by stroke** (feature pills leave by all four
+centered lockup and hold. How the mark appears: **stroke by stroke** (feature pills leave by all four
 edges, each moving out from where it sits; the mark draws a stroke at a time, the wordmark uncovers
 beside it) · **grown from nothing** (a serif tagline fades on left to right, holds, goes; the
 complete mark grows in the exact middle with a slight turn, eases left while the wordmark uncovers)
@@ -295,8 +295,8 @@ top, letters slide in in turn, the closing punctuation lands) · **outlined butt
 its outline traces itself with a spark leading it; a slanted band covers the frame and swaps the
 ground color, then narrows to an accent slash; the wordmark types beside it) · **line then mark**
 (a supporting line types first, the mark pops in beside it, the line departs as the layout
-re-centres, the camera closes in) · **ring pulse** (rings spread from a mark that does not move,
-the ground fades light to dark, dots on the rings circle the centre and slow to a stop) · **already
+re-centers, the camera closes in) · **ring pulse** (rings spread from a mark that does not move,
+the ground fades light to dark, dots on the rings circle the center and slow to a stop) · **already
 there** (the lockup from frame one; shapes drift away, an underline runs, the tagline wipes on) ·
 **through the mark** (the camera rushes through the gaps in the mark with sideways blur, letters of
 the ask flying past, landing on an address wiped on from the left).
@@ -313,19 +313,19 @@ drawing; a stroke that overshoots (a pen does not bounce). Shelf: Logo reveals.
 The ask, opening. 4 to 7.5s. The camera stays still.
 - Scene 1 (0.0 to about 1.4s): the mark in the exact middle; a title beneath it does not move.
 - Scene 2 (about 1.4 to 2.4s): the mark shrinks and fades at the very moment a smaller, brighter
-  button grows where it was, both positioned absolutely around one centre, so the eye sees one thing
+  button grows where it was, both positioned absolutely around one center, so the eye sees one thing
   changing shape.
 - Scene 3 (about 2.4 to 3.4s): a cursor pops into view with no fade, travels in from outside the
-  frame slowing as it comes, and stops a few px short of the button's exact centre.
+  frame slowing as it comes, and stops a few px short of the button's exact center.
 - Scene 4 (about 3.4s to end): cursor and button squeeze together (to 0.9 and back) and let go with
   a ripple or a glow. Hold on the pressed state.
 - As an opening: a single pill or chip on a flat field changes where it stands, unfolding into a
   menu or springing open into a prompt card; it does its job (placeholder text types, a control
   switches from muted to vivid); then it disappears and a closing title types onto the empty frame.
-**Signature**: the mark shrinking into the button on one shared centre. **Recipes**:
+**Signature**: the mark shrinking into the button on one shared center. **Recipes**:
 same-spot-swap, heavy-press, pointer-click, soft-glow, edge-grow, shape-morph, typed-states,
 colored-caret, pop-arrival. **Breaks it**: a button in normal flow that pushes the mark aside; a
-cursor at even speed straight onto the exact centre; several steps (that is pointer-walkthrough).
+cursor at even speed straight onto the exact center; several steps (that is pointer-walkthrough).
 Shelf: Calls to action (end-card-button), Social (social-subscribe-press).
 
 ### tile-cascade: the sheer amount
@@ -351,39 +351,39 @@ shrink about 50% to become headers, the middle card settling about 5% bigger and
 **Signature**: a staggered fill into place that reads as one arrival, 0.35s first to last for six
 tiles. **Recipes**: pop-arrival, spoke-spread, slot-roll, line-draw-on, value-bars, typed-states,
 count-and-grow, soft-glow, rig-camera, face-ring, ghost-trail. **Breaks it**: a stagger longer than
-0.5s (a queue); 8 or more items flying out of one centre. Shelf: Lists and timelines, Galleries
+0.5s (a queue); 8 or more items flying out of one center. Shelf: Lists and timelines, Galleries
 (gallery-tile-build, gallery-picture-wall).
 
-### ring-around-core: everything around one centre
+### ring-around-core: everything around one center
 Opening, proof, the ask. 5 to 8s.
 - Scene 1 (0 to about 1.5s): the main nodes (circles holding an icon and a label) pop in one after
-  another into a broad circle around a centre that is blank or holds the mark.
+  another into a broad circle around a center that is blank or holds the mark.
 - Scene 2 (about 0.7 to 2.5s, overlapping): smaller chips fill the spaces between; thin lines or a
-  circular track draw outward from the centre.
-- Scene 3 (2.5s to end), one ending, then hold. **Close in**: the camera moves to the centre, near
-  nodes staying sharp as far ones slide off and blur. **Circle round**: the centre mark lands, a
+  circular track draw outward from the center.
+- Scene 3 (2.5s to end), one ending, then hold. **Close in**: the camera moves to the center, near
+  nodes staying sharp as far ones slide off and blur. **Circle round**: the center mark lands, a
   circle draws, badges pop onto it and travel clockwise to their places, upright, easing to a stop
   as a zoom-out finishes. **Pull-in** (the ask): icons sit motionless around an empty button; a click
   draws the whole circle inward to the cursor as the demo bursts out. **Icon field**: about 20 icons
   pop in across the frame around a serif headline on two lines, settle and hold. **Gathering**
-  (proof): a logo in the centre collects endorsements one by one, faces fall into the circle with a
+  (proof): a logo in the center collects endorsements one by one, faces fall into the circle with a
   line drawing to each while partner logos scroll along a strip at the bottom.
-**Signature**: the circle assembling, then one resolve onto its centre. Nodes settle smoothly; a
+**Signature**: the circle assembling, then one resolve onto its center. Nodes settle smoothly; a
 playful brand may overshoot 1.15 at most. A 2D orbit is position from one eased angle,
 `cx + R * Math.cos(a0 + SWEEP * p)` with the y term scaled for an ellipse, which keeps badges
 upright; it revolves into place and stops. **Recipes**: pop-arrival, face-ring, line-draw-on,
 rack-blur, camera-phases, aim-zoom, spoke-spread, pointer-click, letter-flap (flat), typed-states.
-**Breaks it**: a centre a few pixels off the hub; all nodes landing together. Shelf: Diagrams
+**Breaks it**: a center a few pixels off the hub; all nodes landing together. Shelf: Diagrams
 (diagram-hub, diagram-rings), Galleries (gallery-picture-ring).
 
 ### two-up: two things weighed at once
 Feature in use. 4 to 6s. Two soft glows, accent A at about 30% across and B at 70%. The camera does
 not move.
-- Scene 1 (0 to about 0.8s): a centred title with one accent word comes down into position, the
+- Scene 1 (0 to about 0.8s): a centered title with one accent word comes down into position, the
   vertical stroke of a T the cards complete.
 - Scene 2 (about 0.4 to 1.9s): the first card in from the left and the second from the right 0.2s
   later, each growing 0.85 to 1 while the title is still finishing, so the three read as one
-  entrance; shadows fall away from the centre.
+  entrance; shadows fall away from the center.
 - Scene 3 (1.9s to end): a pill badge lands where each card faces the other, left first, right 0.3s
   after, about 15% over its card, the only overshoot. Hold.
 **Signature**: two cards arriving as mirror images. **Recipes**: facing-pair (flat), pop-arrival,
@@ -419,7 +419,7 @@ of type).
   counting.
 - Scene N: the main metric settles in the exact middle with a glow behind it (opacity 0.45 at
   most), and holds.
-Variants: **icon burst** (3 to 5 icons pop in bunched at the centre, then the number bursts to full
+Variants: **icon burst** (3 to 5 icons pop in bunched at the center, then the number bursts to full
 size as they fly out to their places) · **getting worse** (ring, push through, trend, then a pan
 across a grid of avatars where some dim while others get ticks) · **scroll to the figure** (a grid
 of cards scrolling its key metric into the middle beneath a tagline building a word at a time,
@@ -489,7 +489,7 @@ Opening, value. 6.8 to 11s. Never zoom in, zoom out exactly once, the camera sti
   plays in time, a pane changes through a brief flash to white.
 **Signature**: one move outward that changes the meaning of everything shown so far. The whole
 workspace is laid out in its final positions in one world, opened at scale S0 (usually 4 to 12×)
-centred on the detail, eased down to 1 on one curve, `Easing.out(Easing.exp)` or
+centered on the detail, eased down to 1 on one curve, `Easing.out(Easing.exp)` or
 `Easing.out(Easing.poly(5))`; anything visible at S0 is text or vector. **Recipes**: rig-camera,
 aim-zoom, rack-blur, pop-arrival, pointer-click, edge-grow. **Breaks it**: animating letters the
 pull is already moving; a cut where the pull should be. Against tile-cascade: items assembling then
@@ -537,7 +537,7 @@ Feature in use, first look, opening, value. 4 to 13s.
   react with small hover changes; may stop mid-drift) · **demo, type, demo** (two fixed-frame demo
   halves of 4 to 5s either side of a full-frame run of type built as word-beats).
 The camera approach comes from the material: follow for a task that moves across a surface, a fixed
-frame for a crowded dashboard, the single sweep for one document travelling through the product. In
+frame for a crowded dashboard, the single sweep for one document traveling through the product. In
 a fixed frame any zoom is the interface scaling itself, never the camera.
 **Signature**: every state change follows a cursor action. **Recipes**: pointer-click, pointer-drag,
 team-pointers, heavy-press, rig-camera, aim-zoom, same-spot-swap, word-drop, detect-box,
@@ -564,7 +564,7 @@ once.
   latest line; C shows a finished result (suggestion chips popping as the query types, code
   flipping to its preview).
 - Scene 5: hold the result; or the click that confirms it; or (opening) a second prompt begins and
-  the shot stops mid-action. The install card for an ask: the headline steps back (50%, grey, moved
+  the shot stops mid-action. The install card for an ask: the headline steps back (50%, gray, moved
   up), a $ chip stretches into a wide terminal pill, the command types, tool icons pop on one at a
   time, only the caret moves.
 **Signature**: the keyboard acts and the product responds. At most two real camera moves, none
@@ -636,7 +636,7 @@ fading into a window over a bright gradient, a push-in on its sidebar, a zoom ba
 content scrolls) · **start to finish** (setup, action and success with no cursor: a code's digits
 popping in left to right before a green tick, a confirm press with a spinner, a tiny push-in at the
 confirm and nowhere else) · **rotating screens** (a widget trying on brand styles about 0.8s each,
-then phone screens sliding left about 1s each, each half introduced by a single centred word).
+then phone screens sliding left about 1s each, each half introduced by a single centered word).
 **Signature**: a surface that stays in place and is used through its own screen; screens clip to the
 screen's rectangle. **Recipes**: tilted-page (its flat form is a translateY), typed-states,
 same-spot-swap, press-back, pop-arrival, camera-phases, aim-zoom, spoken-word-glow. **Breaks it**:
@@ -665,7 +665,7 @@ second interaction ahead of the reveal; a device frame (that is held-screen).
 # Cutting inside a graphic
 
 Several scenes in one graphic play as one unbroken move when every cut keeps the axis, the
-direction and the speed, and falls while both sides are still travelling. The same choices apply
+direction and the speed, and falls while both sides are still traveling. The same choices apply
 inside one `compose_motion` piece, where the handoff is written by hand, and between clips on the
 timeline, where `transitionIn` and `transitionOut` offer a fixed set of styles (the mapping is at
 the end).
@@ -696,7 +696,7 @@ cut`. Exit and entry agree on axis and sign, or the plan changes, not the eases.
 
 - **Bridges.** The best cut passes a real object over the join at the same place and speed: a
   cursor partway along its path, a panel that shrinks and settles into the next layout, a mark
-  travelling into its slot, the words of a word relay. A cursor bridge speeds up in its final 0.3s
+  traveling into its slot, the words of a word relay. A cursor bridge speeds up in its final 0.3s
   before the cut toward where the next scene will click first, and the next scene picks it up at
   that point and speed. A cursor with nothing to bridge exits by the closest edge on an in-ease over
   0.5 to 0.7s, never a fade in place. With nothing natural to bridge, each scene's main element does
@@ -740,7 +740,7 @@ start has the same sign on both sides · speed at the cut is k × distance ÷ du
 for `poly(5)`, 4 for `poly(4)`, 3 for `cubic`, 2 for `quad` and about 6.9 for `exp`, and the two
 sides stay within a factor of 3 · no frame shows both sides above about 0.04 opacity · scale moves
 the same way on both sides, counting the incoming scene's own entrances in the 0.5s after the cut ·
-an object passed across a match cut stays within 12px of its centre (at 1920 wide) and within 5% of
+an object passed across a match cut stays within 12px of its center (at 1920 wide) and within 5% of
 its size from the frame before to the frame after · a change to a scene's first or last second,
 including a re-time to new voiceover, reopens its cut · cuts sit on the real word timings; a line
 is never sped up to fit a slot.
@@ -875,7 +875,7 @@ exit half of the cut is the handoff, and only the final scene leaves on its own.
 
 What goes wrong, and the fix: each scene's entrance designed separately (plan the cuts first) · a
 crossfade between scenes (cut while moving) · the exit finishing before the scene changes (both
-sides travelling at the cut) · an entry setting off from rest (start partway along on an out-ease) ·
+sides traveling at the cut) · an entry setting off from rest (start partway along on an out-ease) ·
 a shrinking exit into an entry that scales up (scale changing the same way) · the incoming scene
 popping its own elements in during a depth cut (arrive laid out, stage entrances after it settles) ·
 both texts on screen in a push-in (a one-frame swap once blur peaks) · 20px blur on type (10 on type,
@@ -950,7 +950,7 @@ spanning a cut.
 
 ## Between clips: transitionIn and transitionOut
 
-A clip transition is drawn at the cut with the neighbouring clip on the same lane, its window centred
+A clip transition is drawn at the cut with the neighboring clip on the same lane, its window centered
 on the cut: `{ style, durationInFrames, direction? }`, frames at the timeline's rate (seconds × the
 fps `get_timeline` reports). The arriving clip's `transitionIn` wins over the leaving clip's
 `transitionOut`. Every style eases in and out on a fixed curve, so the choice is the style and the
@@ -966,7 +966,7 @@ slide) is the way the picture travels; `left`, the default, is the main directio
 | Push, upward push | `push` | both clips move a full frame; `direction` set to the main direction |
 | Cover | `slide` | the arriving clip slides over the leaving one |
 | Edge wipe, angled wipe | `wipe` | a straight edge only |
-| Iris | `iris` | opens from the centre |
+| Iris | `iris` | opens from the center |
 | Clock wipe | `clock` | sweeps from twelve |
 | Push-in | `zoom` | grows in from 0.85: into depth only |
 | Whip pan | `whip` | a push that smears; `direction` set |

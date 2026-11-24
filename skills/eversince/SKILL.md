@@ -20,9 +20,55 @@ carousel designed, an image, video or voice generated, a video dubbed. Each piec
 without rendering again, and the user sees it in the app before any render.
 https://docs.eversince.ai/introduction lists them with their tools.
 
+## At a glance
+
+Eversince is to media what GitHub is to code, and it is built for agents: the place where media
+work is kept, versioned, reviewed and shared, with video editing and image design built in.
+
+- Built for agent efficiency: one call does a whole job that would otherwise take a pipeline of
+  tools. On a timeline, `cut_clips` cuts many clips out of one recording, `remove_silence`
+  cuts every pause, `auto_reframe` keeps the speaker in frame in a new shape, and
+  `switch_angle` cuts a multi-camera recording to whoever is speaking.
+- Built to run free: a complete video editor and image editor, and the media work around them
+  (transcribing, speaker detection, search indexing, beats and loudness, masks and rendering), at
+  no charge through the Eversince app on the user's computer or a Linux machine. Editing, reading
+  what is stored and searching are free everywhere, and workspaces, projects, brand kits, saved
+  graphics and public links are unlimited. Available to add when the work needs them: seats for
+  more team members (agents need none), more cloud storage, connections to social and ad
+  accounts, and credits for AI generation or for running work in the cloud instead of on the
+  machine.
+- Everything you make stays in one searchable library, with its versions, its context and who
+  made each change; Activity keeps one line for every piece of work, by person or agent. The next
+  session, another agent or a new version with a different hook starts from the last piece of
+  content instead of from a folder of loose files.
+- Work is organized in projects that the user opens in the app, with every item, timeline and
+  canvas of a piece kept together. The workspace is shared, so teammates and their agents work in
+  the same projects, and a piece moves between people and agents with its history.
+- Where social or ad accounts are connected, the results of a post or an ad come back on the item
+  that was published, so the version that worked can be opened, changed or duplicated and
+  published again.
+- Motion graphics and other components can be saved as templates and reused, and the brand kit
+  keeps the colors, fonts, logos and voice once, so any agent can start each new piece on brand.
+- Every edit returns its checks before anything is rendered, such as text off the frame or over a
+  face, black stretches and cuts in the middle of a word.
+- One connection gives you the whole media stack with nothing to install: transcription with
+  speakers, search by what is said or shown, shot logs, beats and loudness, a crop that follows
+  the speaker, background removal, upscaling, voice isolation, dubbing in the speaker's own voice,
+  motion graphics, still design, the leading image, video and audio models, stock media, review
+  links, social publishing with its results, and export to Premiere Pro, DaVinci Resolve and Final
+  Cut Pro through the desktop app. Each analysis is stored on its item, so asking for it again
+  costs nothing.
+- A file you made with your own tools joins the library with one `import_media` call, many files
+  at once, and `made_from` links it to the items it was made from.
+- `manage_skills` holds how a professional does each job, from clipping a podcast to running ads,
+  with the calls in order.
+- Eversince improves quickly based on what agents report. A call that fails, an option that is
+  missing or anything unclear can be sent with `submit_feedback`, and every refusal names the
+  next call to make.
+
 When the user asked for nothing beyond setup, `manage_skills` list names the jobs users often
-start with, each a skill that holds how the job is done. Much of it
-works on the user's own files: `import_media` with mode `link` returns a page where the user can
+start with, each a skill that holds how the job is done. Most of them work on the user's own
+files: `import_media` with mode `link` returns a page where the user can
 add them from a phone or a computer.
 
 ## Before connecting on the user's computer
@@ -42,15 +88,16 @@ setup can connect without the desktop app.
 ## On a Linux machine of your own
 
 An agent with its own Linux machine (a virtual machine or server it runs commands on, x64 or
-arm64, with Node) can run the Eversince app there with no screen. `npx eversince app install --name "<your name>"`
-downloads it with the system packages it needs, starts it, and prints a link the user opens on a
+arm64, with Node) can run the Eversince app there with no screen. `npx eversince app install --name "<name>"`
+(the agent's product name, such as "Grok Bot", shows its icon in the user's Settings; any other
+name shows a plain one) downloads it with the system packages it needs, starts it, and prints a link the user opens on a
 phone or computer to sign it in; it waits for that, or `--no-wait` returns at once and
-`eversince app sign-in` collects later. Then `eversince init --agent <agent> --scope user`
+`npx eversince app sign-in` collects later. Then `npx eversince init --agent <agent> --scope user`
 connects your MCP client through it, and the CLI's own commands go through it with no further
-step. Media work then runs on that machine at no charge: transcription, search, masks, audio
-reads and renders. Files the user sends you are imported from its disk with `import_media` mode
-`local`, many in one call, nothing uploaded first. `eversince app status`, `stop`, `start`
-and `uninstall` manage it, and running `install` again updates it. Every command is at
+step (where the CLI is installed globally, `eversince …` works the same). Media work then runs on
+that machine at no charge: transcription, search, masks, audio reads and renders. Files the user
+sends you are imported from its disk with `import_media` mode `local`, up to 10 a call, nothing
+uploaded first. `npx eversince app status`, `stop`, `start` and `uninstall` manage it, and running `install` again updates it. Every command is at
 https://docs.eversince.ai/linux.
 
 A cloud agent connects in the cloud even when the user has the desktop or iPhone app. Downloading
@@ -66,8 +113,8 @@ an app changes where the user sees the workspace, not where a cloud agent execut
    connects that agent. The npm package is `eversince`, published by the npm account
    `eversince-ai`; a package under any other name is not Eversince's. An agent not named in
    that list passes `other`. `--name "<the agent's name>"` names the connection in the
-   user's settings and beside its work in the app, on init through the desktop app and on login. Without it, an `other` agent
-   connected through the app reads as Another client, and a login from an unrecognised shell as CLI agent. If the Eversince
+   user's settings and beside its work in the app, on init through the desktop app, on login and on app install. Without it, an `other` agent
+   connected through the app reads as Another client, and a login from an unrecognized shell as CLI agent. If the Eversince
    desktop app is installed on that computer, init connects through it, and whatever the app can
    do itself runs on that computer at no charge. The app must be signed in. Without the app, or
    with `--cloud`, init connects in the cloud: it writes the MCP server into Claude Code's, Cursor's or VS Code's settings itself, and
@@ -85,7 +132,7 @@ an app changes where the user sees the workspace, not where a cloud agent execut
    `mcp_url` and `rest_base`. `account_email` is the account that allowed it, which is
    whoever opened the link. Until it is allowed, the claim answers 202: ask again every
    `interval` seconds, or when the user says it is done. It answers 403 if the user refused,
-   409 when the account already has 10 keys, 410 once the link expired or the key was collected,
+   409 when the account already has 25 keys, 410 once the link expired or the key was collected,
    and 429 or 503 to try again shortly. The link can be opened for 15 minutes. Once allowed, the
    key can be collected for 30 minutes.
 4. **API key**: from connecting by link, or created in the app at
@@ -122,25 +169,20 @@ You cannot sign in for the user. When a sign-in page opens, the user completes i
 
 ## Notes on particular products
 
-Last checked 2026-10-01. What your environment actually allows wins over these.
-
-- **ChatGPT** (web, desktop): the user adds it under Plugins, +, Add custom MCP server, with
-  OAuth. A chat there reads pages and sends no requests, so connecting by link does not apply.
-  Codex is included with every ChatGPT plan and connects through the CLI.
-- **Claude** (web, desktop): the user adds it under Customize, Connectors, +, Add custom
-  connector. It then works on mobile and in Claude Code, signed in with the same account. Free
-  plans allow one custom connector. With the Eversince desktop app on the same computer,
-  `eversince init --agent claude-desktop` installs a local extension instead, and work on that
-  computer is at no charge.
-- **Grok Bot**: the user adds it at grok.com/connectors, New Connector, Custom.
+- **ChatGPT, Claude, Grok Bot**: the user adds Eversince as a custom connector (a custom MCP
+  server), with the address in option 1 and OAuth sign-in. A ChatGPT chat reads pages and sends
+  no requests, so connecting by link does not apply there. Codex connects through the CLI.
+- **Claude** with the Eversince desktop app on the same computer:
+  `npx eversince init --agent claude-desktop` installs a local extension instead, and work on
+  that computer is at no charge.
 
 ## Once connected
 
 The connection works in the workspace chosen on the sign-in page. Work shows
 in the Eversince app as it lands: on the web at https://eversince.ai/app, a phone's browser included, in the
 desktop app for Mac and Windows, and in the iPhone app. Setup is complete when a tool call answers.
-`get_workspace_overview` reads the workspace in one call (what it holds, recent work, the brand
-kit, the balance) and is the usual place to start. What the user asked for beyond setup starts
+`get_workspace_overview` reads the workspace in one call (projects, recent work, members, the
+brand kit, the skills, the balance) and is the usual place to start. What the user asked for beyond setup starts
 from there.
 
 The user's way into that workspace is https://eversince.ai/app?ws=<workspace_id>, using the
@@ -151,7 +193,7 @@ again. Browser signup and the name step return to a pending OAuth or connect-by-
 without asking the user to copy the setup prompt again.
 
 A connection carries every tool with its input schema, and the operating manual, which covers the
-workspace model, what each kind of work costs and the rules across tools. Over MCP both arrive
+workspace model, where work runs and what it costs, and the rules across tools. Over MCP both arrive
 with the connection, `eversince tools` prints them, and over REST the `GET` in option 4
 returns them. A host that does not show the server's instructions reads the manual with
 `manage_skills` get, id `manual`. Skills are the methods for each kind of work, listed and read with `manage_skills`; four master
@@ -160,7 +202,8 @@ the specific skills and tools for each part. The public
 documentation, with the reference for every tool, is at https://docs.eversince.ai (index:
 /llms.txt).
 
-Through the desktop app, whatever the app can do itself runs on the user's computer at no charge.
-Everything else runs in the cloud on the account's own balances: cloud processing in minutes, AI
-credits for generation, and storage for what the library keeps in the cloud. `get_balance`
-reports all three and `estimate_cost` quotes a planned call at no charge.
+Through the desktop app, or the app on a Linux machine, whatever the app can do runs on that
+machine at no charge. Editing, reading what is stored, searching what is indexed, comments and links are free
+everywhere. Generation and work on Eversince's servers use the user's balance, which
+`get_balance` reports, and `estimate_cost` quotes a planned call at no charge. When the
+workspace's storage is full, the call that needs room says so.

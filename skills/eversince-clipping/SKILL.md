@@ -19,7 +19,7 @@ A clip is a moment that works without the recording around it. The viewer never 
 
 ## What you need
 
-- The recording as a library item with its words. `transcribe_media` with `ref` returns them, immediately if the file already has stored words. A file never read before takes a job if it runs over five minutes; call again after it finishes to get the words. You move in and out points onto the words and build the captions from them.
+- The recording as a library item with its words. `transcribe_media` with `ref` returns them, immediately if the item already has stored words. An item never read before takes a job if it runs over five minutes; call again after it finishes to get the words. You move in and out points onto the words and build the captions from them.
 - Where the clips go. tiktok, instagram-reels, youtube-shorts, facebook-reels, threads, pinterest and snapchat are 9:16; youtube and x are 16:9; instagram-feed, facebook-feed and linkedin are 1:1.
 - A bar and a count. A handful that clear the bar beat coverage: publishing a weak clip costs more than skipping a strong one. With no count given, selective clip teams keep about five to ten from an hour of strong talk; agencies that claim twenty to forty an hour are publishing coverage.
 - Whose recording it is. The user's own, or one they have rights to, can be clipped freely. Instagram holds back from recommendations, and YouTube counts as reused content, someone else's show reposted with light edits, permission or not. Those clips need something of the user's own (commentary, a voiceover, their framing) and credit to the show and the guest.
@@ -31,7 +31,7 @@ Read the whole recording before judging anything. A line that looks flat alone c
 
 - **Speech-led material** (a podcast, an interview, a talk): read the transcript in order with `transcribe_media` with `ref` and `format: "lines"`. That gives one timed line per sentence, about 100,000 characters per read (an hour or more), and `next_start` for the next `window`. Both the index and the judgement are in the words.
 - **Action-led material** (sport, gameplay, an event): the index is still speech, the commentator's call or the streamer's reaction. Use frames to confirm a span, not to find one (`inspect_media` mode window over the candidate). A storyboard over hours is one frame every few minutes, and an eight-second peak falls between them.
-- **A library, not a file**: `search_footage` with a phrase returns spoken and visual moments across every indexed recording, with their spans. Use it to gather one subject from a backlog.
+- **A library, not an item**: `search_footage` with a phrase returns spoken and visual moments across every indexed recording, with their spans. Use it to gather one subject from a backlog.
 
 What earns a mark: a surprising claim, a story with its own arc, a real laugh, a disagreement, a confession, a number that lands, the line everyone would quote tomorrow. In action: a turn, a peak, a reaction, a change of state. The shape decides the cut:
 

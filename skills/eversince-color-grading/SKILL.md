@@ -85,7 +85,7 @@ preset, the wheels and duotone. Library items themselves can't be graded.
 - A clean source needs no correction. Changing numbers is not evidence of work.
 - Footage that arrives flat and gray with no real contrast was shot in a camera's log profile on
   purpose. It needs the conversion its camera expects, a .cube LUT kept as a library document. The
-  grade has no built-in log conversion, and nothing here reads a file's color profile, so the picture
+  grade has no built-in log conversion, and nothing here reads an item's color profile, so the picture
   is your only tell. iPhone footage can be Apple Log or Apple Log 2, and each needs its own conversion
   LUT; the wrong one under-corrects the color, so find out which phone and setting when it
   matters. A phone clip that looks flat and gray next to the others may have been shot in HDR;

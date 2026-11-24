@@ -1,8 +1,8 @@
 # Graphic design: looks
 
 Opened from `skill-graphic-design`. A look is named before the code or the canvas, anchored to a
-reference a designer would recognise rather than to adjectives: a palette with roles, a pairing from
-the font catalogue, three display tiers, spacing, one signature, its moves, and the failure to hold
+reference a designer would recognize rather than to adjectives: a palette with roles, a pairing from
+the font catalog, three display tiers, spacing, one signature, its moves, and the failure to hold
 frames against. A brand's colors carry into the look that fits and keep its discipline. Percentages
 are of the frame's width unless marked. Tiers are the three display sizes for a headline of three
 words or fewer, four to six, and seven or more, measured within 78% of the width (`skill-graphic-design`).
@@ -12,20 +12,20 @@ everything but the moves.
 
 A piece stays in one look by rotating a small set of frame kinds, each with its own density and
 anchor: the opener (sparse, pinned left), the single statement, the section break (one huge numeral),
-the figures frame (the busy one), the list (busy through repeated rows), the quote (centred and open),
-the comparison (two halves, the winning half in the accent), the sequence, the sign-off (centred).
+the figures frame (the busy one), the list (busy through repeated rows), the quote (centered and open),
+the comparison (two halves, the winning half in the accent), the sequence, the sign-off (centered).
 
-Where these sit in 2026, from designers' and foundries' trend reports: bold type, strong color blocks and raw neo-brutalist layouts are current (Placard, Copy shop, Sodium); expressive serifs and novel italics are back (Almanac, Harbour); quiet, muted minimalism is fading. Warped or liquid type and Y2K chrome are in fashion too, and date fastest. A look is chosen for the subject and the brand, not the trend.
+Where these sit in 2026, from designers' and foundries' trend reports: bold type, strong color blocks and raw neo-brutalist layouts are current (Placard, Copy shop, Sodium); expressive serifs and novel italics are back (Almanac, Harbor); quiet, muted minimalism is fading. Warped or liquid type and Y2K chrome are in fashion too, and date fastest. A look is chosen for the subject and the brand, not the trend.
 
 ## Almanac
-A seed catalogue, a small-press poetry annual. Patient, warm, lit from one side.
+A seed catalog, a small-press poetry annual. Patient, warm, lit from one side.
 - Palette: linen #ECE5D3 ground (#E0D6BF a second surface); aubergine #2F1D35 for all type and every
   rule; saffron #E3A33A for the arch and nothing else; sage #93A88C for small marks only, never type.
 - Type: Spectral 300 display in sentence case, line height 0.95 to 1.1, tracked -0.02em, one word in
   Spectral italic; Albert Sans 600 uppercase labels at 0.14 to 0.24em; figures in Albert Sans, tabular.
 - Space: 5% edges, frames 50 to 60% empty; the list is the busy frame, rows parted by 2px rules.
 - Signature: the arch, one flat saffron shape with a semicircular top, 30 to 38% of the width,
-  standing on the bottom edge and cropped by it, off-centre behind the focal. No gradient, outline or
+  standing on the bottom edge and cropped by it, off-center behind the focal. No gradient, outline or
   shadow, only ever one. A section break sets its numeral inside the arch at 24% of the width; a
   picture can sit in it as a window. A running head (title top left, folio top right, small uppercase)
   is the only chrome that persists.
@@ -55,7 +55,7 @@ A picket sign, a strike notice pasted to a wall. Blunt.
 ## Copy shop
 A photocopied gig flyer, a cut-and-paste newsletter. Noisy on the surface, ordered underneath.
 - Palette: newsprint #E8E6DF ground; toner #121210 for type and blocks; highlighter #D4F03C as a flat
-  swipe behind a word; marker blue #2F4FD8 for the one hand mark; tape #F1E7B8 at 85%; halftone grey
+  swipe behind a word; marker blue #2F4FD8 for the one hand mark; tape #F1E7B8 at 85%; halftone gray
   #B9B6AD. Blue and highlighter never touch the same word.
 - Type: Dela Gothic One uppercase, line height 0.95; Roboto Mono 500 uppercase labels at 0.08em;
   Permanent Marker for a single handwritten note per frame, four words at most.
@@ -100,7 +100,7 @@ An ordnance map sheet, a geological survey plate. One ink, exact, unhurried.
   tables and plotted data are the busy frames.
 - Signature: the survey border, fine ticks on all four edges every 5% of the width with a coordinate
   at every fourth, is the chrome that never leaves. Behind declarative frames sit six to nine nested
-  contour lines, irregular closed 2px paths, centred off the focal. Data is plotted as dots on
+  contour lines, irregular closed 2px paths, centered off the focal. Data is plotted as dots on
   crosshairs, a key value flagged with a small triangle. A scale bar bottom left carries the section
   number.
 - Tiers: 11 (13 for a numeral) / 6.2 / 4.
@@ -110,7 +110,7 @@ An ordnance map sheet, a geological survey plate. One ink, exact, unhurried.
 - Fails as: a colorful map with pins, or a second ink.
 
 ## Terrace
-A football programme, a matchday poster on a stadium wall. Proud, loud, local.
+A football program, a matchday poster on a stadium wall. Proud, loud, local.
 - Palette: claret #6D1E34 and sky #9CC7E6 as the club pair, bone #F3EEE4 ground, night #17202B type on
   sky and bone, stone #6F6A66 small meta on bone. Type on claret is bone. Claret and sky meet only
   along a sash edge.
@@ -143,7 +143,7 @@ An engineering handbook with real code in it, a studio's style manual. Plain, we
 - Tiers: 9.2 / 6.6 / 4.2, the top two kept for the opener, a statement and a figure.
 - Moves: gentle entrances 0.5 to 0.7s and no overshoot; code appears a line at a time; a leader draws
   from its label once the target is in place; figures count up. Scenes change on short dissolves.
-- Fails as: pure white and cool grey, drop shadows, or two accents competing.
+- Fails as: pure white and cool gray, drop shadows, or two accents competing.
 
 ## Playroom
 A cut-paper picture book, a classroom wall. Bright and friendly, never babyish.
@@ -164,9 +164,9 @@ A cut-paper picture book, a classroom wall. Bright and friendly, never babyish.
   staggered, turning in by 6° at most. Scenes change as one large paper shape sweeps across the frame.
 - Fails as: a flat corporate slide with emoji stuck on.
 
-## Harbour
+## Harbor
 A shipping line's annual report, a maritime museum's wall label. Composed, weathered, serious.
-- Palette: harbour navy #1F2E3D ground (#172431 a second surface); fog #DCE2E1 headlines and body;
+- Palette: harbor navy #1F2E3D ground (#172431 a second surface); fog #DCE2E1 headlines and body;
   brass #BF9443 the accent (a rule, a figure, the seal); slate #8497A6 secondary text; rust #B4553A a
   small marker only, never type. Content frames may invert to a fog ground with navy type, where brass
   deepens to #86652A.
@@ -176,7 +176,7 @@ A shipping line's annual report, a maritime museum's wall label. Composed, weath
   figures in 2px-ruled rows is the busy frame.
 - Signature: the waterline and the seal. A full-width 2px brass rule at 62% of the height; the
   headline stands on it and everything supporting sits below, and only a picture crosses it. On the
-  opener and the close only, a seal: two concentric 2px brass rings with a numeral at the centre and
+  opener and the close only, a seal: two concentric 2px brass rings with a numeral at the center and
   the piece's name in spaced capitals beneath. A running foot bottom left names the section.
 - Tiers: 10.4 / 5.6 / 4, the top tier kept for the opener, a statement and a figure.
 - Moves: settle, entrances 0.7 to 0.9s; the waterline draws first, left to right; the seal's rings
@@ -199,4 +199,4 @@ A street at night under sodium lamps, the cold open of a crime drama. Dark, cine
   line that matters.
 - Moves: the band opens over 0.5 to 0.7s, a scale from 1.02 to 1 at most on what it reveals; never a
   creeping push. Scenes change by the band closing to its slit and cutting to dark.
-- Fails as: grey haze with nothing lit, or orange light everywhere.
+- Fails as: gray haze with nothing lit, or orange light everywhere.

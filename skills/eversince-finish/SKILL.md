@@ -110,5 +110,5 @@ comes last of the edits, then the one `check_timeline`.
 
 ## Handover
 
-- The piece at its destination's shape and length, levelled for its platform, `check_timeline` clean after the last change, with whether frames were drawn.
+- The piece at its destination's shape and length, leveled for its platform, `check_timeline` clean after the last change, with whether frames were drawn.
 - In the app from its first media, where it plays, the result's app_url the link the user opens; `render_timeline` makes a file for use elsewhere, a long piece offered with its estimate before it starts.

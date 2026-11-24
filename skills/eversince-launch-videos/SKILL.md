@@ -156,7 +156,7 @@ the code follows as proof. Don't open on code.
 ## Building it
 
 Lay the voice down first; it sets the clock. Use the user's own recording, or a generated one when
-they want it (`generate_audio` voiceover, in credits, priced before it is made): one file per beat,
+they want it (`generate_audio` voiceover, in credits, priced before it is made): one item per beat,
 the same `voice_id` and `stability` throughout, finishing inside the call. Each beat lasts as long
 as its voice; if a line runs past a capped shot, keep the delivery and extend the picture. Set the
 delivery with tags before the line (`skill-voiceovers-and-music`), not to fit a line.

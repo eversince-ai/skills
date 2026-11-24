@@ -86,7 +86,7 @@ on a turntable for the full 360; a soft key light with a rim light behind, which
 and lets glass and metal show reflections without glare; a slow, repeatable move on a slider or a
 motion-control arm rather than a handheld one.
 
-Look at existing material before choosing: `inspect_media` overview for the whole file, window into
+Look at existing material before choosing: `inspect_media` overview for the whole item, window into
 what moves, frames as pictures. Mark strong takes against the shot list. A missing shot can be
 stock, a still with a camera move, or a generated shot (credits); generate only the shots that need
 it, not the whole film.
@@ -109,7 +109,7 @@ from footage skip this: their frames exist, and generated shots are graded to ma
 other way round.
 
 Where the real images show the product from one side only, a product sheet keeps it consistent
-across the film: the product from the front, three-quarter and side on a seamless neutral grey, soft
+across the film: the product from the front, three-quarter and side on a seamless neutral gray, soft
 even light, no props. Make it from the real photo as the reference, check it against that photo,
 then use it as the reference in every shot. Name the label's words, the logo and the exact colors in
 the prompt, in one line, as things that hold, since a model can drop small text and logos it was

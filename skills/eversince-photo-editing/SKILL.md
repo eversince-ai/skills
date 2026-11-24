@@ -85,10 +85,10 @@ A noisy or soft photo can go through `upscale_media` (credits), which re-renders
 ## Separating the subject
 
 A photograph on a canvas takes a mask of `kind` `subject` or `background` on `edit_canvas`, found
-in the picture itself, on cloud processing. An adjustment layer
+in the picture itself, on cloud processing (free through the desktop app). An adjustment layer
 with `clip: true` and a `background` mask does the before-and-after in one operation: the room down in
-exposure and saturation while the subject keeps its look. The word behind them is the same three
-layers: the picture, the word, the picture again masked to the subject. The subject is the people
+exposure and saturation while the subject keeps its look. Text behind the subject is three
+layers: the picture, the text, the picture again masked to the subject. The subject is the people
 near the camera; `at` `{x, y}`, fractions of what the layer's box shows, makes it whatever is at that
 point (a product, a bottle, one person in a crowd), read off an `inspect_canvas` frame and pointed at
 the middle of the thing's own mass. It always answers, a wall or the sky included, and says how much

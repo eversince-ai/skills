@@ -58,7 +58,7 @@ There are four common shapes, and one video can mix them:
 
 The artist mimes or sings along to the song playing on set, so each take's camera sound carries the song. That is what lines it up.
 
-- `sync_recordings` takes the clean song and the takes (twelve files at most) and places each take at its moment in the song. The song plays and the takes' own sound goes quiet under it. A take whose camera did not pick up the playback comes back unplaced and named: transcribe it (`transcribe_media`), find a sung line and place it by hand where that line falls in the song.
+- `sync_recordings` takes the clean song and the takes (twelve items at most) and places each take at its moment in the song. The song plays and the takes' own sound goes quiet under it. A take whose camera did not pick up the playback comes back unplaced and named: transcribe it (`transcribe_media`), find a sung line and place it by hand where that line falls in the song.
 - Build the performance cut over the whole song first, as if it were the finished video: the best take for each line, cuts on downbeats or phrase ends. `switch_angle` with `switches` makes the cut and keeps every take in sync.
 - Wider shots for the verses and closer ones for the chorus and big notes is a common default. Hold a shot longer where the performance needs room: a held note, a look into the lens.
 - Then decide where to cut away to story, detail or B-roll shots. They go on a track above the takes, on the song's beats, and the performance shows again when they end. Use only the strongest shots, and don't cut away so often that the artist disappears.

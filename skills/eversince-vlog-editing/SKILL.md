@@ -20,7 +20,7 @@ A vlog is a day, a trip or a stretch of life cut so the viewer lives it in the o
 
 ## Logging
 
-See everything before choosing anything. `transcribe_media` with `refs` and `format: "lines"` returns the words of every file that has them; a file with none is read with `ref` (over five minutes, a job). Action-led clips are read with `inspect_media` `overview`, then `window` into anything alive; the overview also shows footage that already carries text, and a `prompt` read hears music already in a clip. Log a scene as a scene: where, who, what happens, the one line that says why it matters, how it ends. Log the to-camera pieces apart, since they are the narration, and mark any line that states the day's promise for the cold open. `search_footage` over the day's `project` finds a spoken moment across every file.
+See everything before choosing anything. `transcribe_media` with `refs` and `format: "lines"` returns the words of every item that has them; an item with none is read with `ref` (over five minutes, a job). Action-led clips are read with `inspect_media` `overview`, then `window` into anything alive; the overview also shows footage that already carries text, and a `prompt` read hears music already in a clip. Log a scene as a scene: where, who, what happens, the one line that says why it matters, how it ends. Log the to-camera pieces apart, since they are the narration, and mark any line that states the day's promise for the cold open. `search_footage` over the day's `project` finds a spoken moment across every item.
 
 ## The user's own style first
 
@@ -105,7 +105,7 @@ Footage from a phone and a camera, or from different light, has to read as one f
 
 ## An example plan: a long vlog for YouTube
 
-1. search_library {project: "<the day's project>", type: "video"} for the files; transcribe_media {refs, format: "lines"}; inspect_media {ref, mode: "overview"} on the action-led files
+1. search_library {project: "<the day's project>", type: "video"} for the items; transcribe_media {refs, format: "lines"}; inspect_media {ref, mode: "overview"} on the action-led items
 2. The log: each scene, each to-camera piece, the details by the passage they can carry; the question the day carries
 3. manage_timelines {create: {name: "<the day> · vlog", aspect_ratio: "16:9", clips: per scene in the day's order, the to-camera bridge then the scene, each {ref, source: [start, end]}, a passage between scenes the same way}}
 4. get_transcript {timeline_id} and edit_timeline rippleDeleteRange on whole passages a scene loses

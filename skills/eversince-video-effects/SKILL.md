@@ -88,7 +88,7 @@ A `person` mask written in the same `edit_timeline` call that adds its clip is s
 
 A motion graphic draws what the timeline cannot: pieces, depth, designed shapes. Code craft is in `skill-motion-graphics`. Footage goes inside a graphic as a `video` control and a still as an `image` control, each set in `values` to the library item's ref.
 
-**Designed transitions.** The Transitions shelf (`get_templates` {shelf: "Transitions"}) lists every designed transition. Place one with `compose_motion` `template`, centred on the cut, so the frame is covered at the cut point. The built-in clip transitions (`transitionIn`: fade, dipwhite, dissolve, wipe, push, slide, iris, clock, zoom, blur, whip, spin) are plainer and need no graphic. Use one style through a piece.
+**Designed transitions.** The Transitions shelf (`get_templates` {shelf: "Transitions"}) lists every designed transition. Place one with `compose_motion` `template`, centered on the cut, so the frame is covered at the cut point. The built-in clip transitions (`transitionIn`: fade, dipwhite, dissolve, wipe, push, slide, iris, clock, zoom, blur, whip, spin) are plainer and need no graphic. Use one style through a piece.
 
 **Accents on a cut.** Short, a few frames to under a second:
 - Flash: `transitionIn` style `dipwhite`, 2 to 4 frames, on a beat.
@@ -98,7 +98,7 @@ A motion graphic draws what the timeline cannot: pieces, depth, designed shapes.
 
 **Screen in 3D.** A screen recording tilted in space. A graphic with a dark ground, the recording inside a box with rounded corners and a shadow, under `perspective` (about 1600) with `rotateX` and `rotateY` animated between views (within about ±25°), springs with no bounce. Scale the box to about 0.65 of the frame so its near edge, which grows with the tilt, stays inside. The shelf graphic device-floating-screen is a ready version.
 
-**Shatter.** The shot breaks into pieces that fly apart, revealing the next shot. Freeze the outgoing shot's last frame as the cut shows it (`extract_media` with `timeline_id` and that frame, cloud processing; from the source item it comes back ungraded and unreframed) and pass it to a graphic as an image control. The graphic cuts it into triangles (a grid of 6 by 4 cells, inner points jittered, each cell split in two) with `clipPath` polygons. After a hold of about 8 frames, each piece flies outward from the centre, with an ease-in, a little gravity, rotation and a fade at the end, the pieces nearest the centre first, over about a second. Random-looking values come from a function of the piece's index, since Math.random is blocked. Place it at the cut, with the next shot on the timeline below.
+**Shatter.** The shot breaks into pieces that fly apart, revealing the next shot. Freeze the outgoing shot's last frame as the cut shows it (`extract_media` with `timeline_id` and that frame, cloud processing; from the source item it comes back ungraded and unreframed) and pass it to a graphic as an image control. The graphic cuts it into triangles (a grid of 6 by 4 cells, inner points jittered, each cell split in two) with `clipPath` polygons. After a hold of about 8 frames, each piece flies outward from the center, with an ease-in, a little gravity, rotation and a fade at the end, the pieces nearest the center first, over about a second. Random-looking values come from a function of the piece's index, since Math.random is blocked. Place it at the cut, with the next shot on the timeline below.
 
 **Photo in depth.** A still photo moving in 2.5D, the subject separated from the background: `remove_background` on the photo (credits) gives the subject; the full photo on the bottom and the subject on top, both slowly scaling over the shot, the subject a little more (1 to 1.08 against 1 to 1.04) so they part. The hole the subject leaves stays hidden while the movement is small.
 
@@ -166,7 +166,7 @@ the same `setKeyframes` track written onto both.
 on the word's from_frame from `get_transcript`, around a fifth of the frame's height and wide enough
 that at its peak their head covers a third to half of it: less reads as a label floating beside them,
 more and the word is eaten. Readable comes first: the word shrinks before the head takes whole
-letters. It goes on the larger clear side when they sit off centre, in the middle only when they are
+letters. It goes on the larger clear side when they sit off center, in the middle only when they are
 near the middle with clear space either side and the word runs well past both shoulders. At no
 moment is more than about two thirds of their face covered; one such word at a time, a beat apart
 from the next.
@@ -261,7 +261,7 @@ verified or nobody sees the shot before it is used.
 
 A word behind a presenter:
 
-1. get_timeline {timeline_id} on the timeline the work is on, or manage_timelines {create: {name, aspect_ratio, clips: [{ref: the background}]}} from files
+1. get_timeline {timeline_id} on the timeline the work is on, or manage_timelines {create: {name, aspect_ratio, clips: [{ref: the background}]}} from items
 2. inspect_timeline {timeline_id, seconds: [the beat's middle]}: where the head sits, for the word's side and size
 3. edit_timeline {timeline_id, if_revision: from step 1, operations: [addTrack above, addClip text on it spanning the beat, addTrack above that, copy of the shot on it at the same trim by addClip with the same ref, source and span]} (or a separate `copy_clips` call)
 4. edit_timeline {timeline_id, if_revision: from step 3, operations: [updateClip {clipId: the copy's id from step 3, patch: {masks: [{id: "person", shape: "person"}]}}]}; get_jobs {ids: its job_ids} until the mask is read
@@ -270,7 +270,7 @@ A word behind a presenter:
 
 A presenter keyed over their own screen recording:
 
-1. get_timeline {timeline_id} on the timeline the work is on, or manage_timelines {create: {name, aspect_ratio, clips: [{ref: the background}]}} from files
+1. get_timeline {timeline_id} on the timeline the work is on, or manage_timelines {create: {name, aspect_ratio, clips: [{ref: the background}]}} from items
 2. inspect_color {ref: the presenter's item, at_seconds, points: [the middle of the screen]} → the screen's hex; then inspect_color {ref, at_seconds, key_color: that hex} → key.suggested {similarity, smoothness}
 3. edit_timeline {timeline_id, if_revision: from step 1, operations: [addTrack {track: {kind: "visual", index: above the recording, id: "presenter"}}, addClip {trackId: "presenter", ref: the presenter, id: "presenter-clip"}, updateClip {clipId: "presenter-clip", patch: {effects: [{type: "colorkey", params: {keyColor, similarity, smoothness: from step 2}}]}}]}: the id given on addClip names the clip for the patch in the same call
 4. check_timeline {timeline_id}, then inspect_timeline {timeline_id, seconds: the first frame, the last, the fastest movement}: one call, the edge judged by its look
@@ -280,7 +280,7 @@ A presenter keyed over their own screen recording:
 ## What cannot be built here
 
 - Liquid, heat-haze and warped dissolves need per-pixel distortion that neither the timeline nor a graphic draws. A near one: `wave` or `fisheye` on a short adjustment clip, or a `blur` transition.
-- Motion tracking (text or a graphic pinned to a moving object) has no tracker. Place the graphic where the object holds still, or follow a person with a `person` mask instead.
+- Motion tracking (text or a graphic pinned to a moving object) has no tracker. Place the graphic where the object holds still, or follow a person with a `person` mask instead (through the desktop app, an `object` mask follows a thing).
 - Datamosh and kaleidoscope have no equivalent; `mirror` reflects one half onto the other.
 - Motion blur on moves is not drawn. Keep fast moves short, and use `zoomblur` or `blur` on the frames where it matters.
 

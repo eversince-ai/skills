@@ -92,7 +92,7 @@ Make the canonical, the sheet and the variants on one image model, chosen once f
 
 ## A voice that stays
 
-Two terms here mean one thing each. A "generated video" is what `generate_video` makes. A "voice recording" is the library item the voice is learned from: an audio or video file in which one person speaks.
+Two terms here mean one thing each. A "generated video" is what `generate_video` makes. A "voice recording" is the library item the voice is learned from: an audio or video item in which one person speaks.
 
 A video model that makes its own sound gives a speaking character a new, random voice in every generated video. A character who speaks in more than one generated video can keep one voice, as below; a character in a single scene does not need one.
 
@@ -100,7 +100,7 @@ Two ways to keep a voice:
 - Inside the generated video, on a video model whose `list_models` entry has `max_characters`: the character speaks on screen with the lips matching the words. This is simpler when the chosen model has it, and the rest of this section covers it.
 - Under the generated video, on any other video model: make every line with `generate_audio` voiceover in one `voice_id` (`list_models` type voice), lay it under the shots on a timeline, and make the generated video silent or set it to volume 0. The lips do not match the words.
 
-How a kept voice works. In `generate_video`, each character in `characters` has a look and, optionally, a voice. The look is `image_refs` (the canonical first, then up to three more angles from the sheet) or `video_ref` (a video file of them). The voice is `voice_ref`: a voice recording with at least 5 seconds of one person speaking clearly. A recording longer than 25 seconds is cut to its first 25 seconds, so those seconds must be the person talking, with no music and no other voice. The first time a voice recording is used, the model learns the voice and that library item keeps it: the item is tagged `voice` and the model's id, and `get_items` shows `voice_for` with the model and the date. Every later generated video that passes the same item as `voice_ref` speaks in that voice, in this session or any later one. A different item is a different voice. The recording itself is not played; the character says the prompt's new lines in that voice.
+How a kept voice works. In `generate_video`, each character in `characters` has a look and, optionally, a voice. The look is `image_refs` (the canonical first, then up to three more angles from the sheet) or `video_ref` (a video item of them). The voice is `voice_ref`: a voice recording with at least 5 seconds of one person speaking clearly. A recording longer than 25 seconds is cut to its first 25 seconds, so those seconds must be the person talking, with no music and no other voice. The first time a voice recording is used, the model learns the voice and that library item keeps it: the item is tagged `voice` and the model's id, and `get_items` shows `voice_for` with the model and the date. Every later generated video that passes the same item as `voice_ref` speaks in that voice, in this session or any later one. A different item is a different voice. The recording itself is not played; the character says the prompt's new lines in that voice.
 
 For a character who speaks, in order:
 1. Look for a voice already kept: `search_library` with query "voice" plus the character's name. A result tagged `voice` with that name is the `voice_ref` from here on; go to step 4.
@@ -113,7 +113,7 @@ For a character who speaks, in order:
 
 Several characters: each gets its own entry in `characters`, cited in the prompt as `@Element1`, `@Element2` in the order given. Write each line after the tag of the character who says it. Each character has its own voice recording. `list_models` gives the limits (how many characters, how many with a voice, how many as video). A video-to-video edit takes characters as images only, with no voice.
 
-Cost and failure: making a voice adds a fraction of a credit, once; later generated videos that reuse it add nothing. A character given as a video file is charged as video input. If the model cannot learn from a voice recording, that generation ends refunded; a different recording fixes it.
+Cost and failure: making a voice adds a fraction of a credit, once; later generated videos that reuse it add nothing. A character given as a video item is charged as video input. If the model cannot learn from a voice recording, that generation ends refunded; a different recording fixes it.
 
 ## Posting an AI persona
 

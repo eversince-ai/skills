@@ -20,7 +20,7 @@ reference or brand from the user outranks every default here.
 
 ## The plan
 
-1. transcribe_media {refs: the material, format: "lines"} (a file that comes back unread is read with {ref}, cloud processing) and inspect_media {refs, mode: "overview"}: the moments that raise questions marked
+1. transcribe_media {refs: the material, format: "lines"} (an item that comes back unread is read with {ref}, cloud processing) and inspect_media {refs, mode: "overview"}: the moments that raise questions marked
 2. The user's track; else generate_audio {kind: "music"} for a track made to fit the cut exactly, where the user has credits; else a stock track the user picked (search_stock {kind: "music"}, import_media {mode: "url", items: [{url}]}); with none, no music and the cut runs on picture and sound effects
 3. detect_beats {ref: from step 2}
 4. manage_timelines {create: {name, aspect_ratio}}

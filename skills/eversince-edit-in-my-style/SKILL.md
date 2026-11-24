@@ -25,7 +25,7 @@ A creator who posts talking-head shorts, screen walkthroughs and polished ads ed
 ## Bringing the videos in
 
 - **An Eversince timeline** is the best source: `get_timeline` returns the exact values (the caption template and its style, zoom and position keyframes, transitions, each track's volume, the grade), so nothing is estimated.
-- **A file in the library**: `search_library`, or `get_items` by ref.
+- **An item in the library**: `search_library`, or `get_items` by ref.
 - **A posted video**: `pull_posts` {source, account: the post's link} then `keep_posts` (credits, a fraction of one per page). A YouTube post comes without its file: `pull_posts` transcript_of gives its words, and its pace, captions and look are read once the user adds the video file itself.
 - **A file elsewhere**: `import_media`.
 

@@ -13,7 +13,7 @@ Each variation keeps what made the original work: its subject, its hook and its 
 
 The matrix repeats it per destination.
 
-1. `manage_timelines` {create: {from: the master's id, parent: the master's id, aspect_ratio, platforms}}, the response naming its tab: or, for a file, {create: {name, aspect_ratio, clips: [{ref}]}}, then `transcribe_media` {timeline_id} where the file has no words.
+1. `manage_timelines` {create: {from: the master's id, parent: the master's id, aspect_ratio, platforms}}, the response naming its tab: or, for an item, {create: {name, aspect_ratio, clips: [{ref}]}}, then `transcribe_media` {timeline_id} where the item has no words.
 2. `auto_reframe` {timeline_id: the id from step 1}: a clip whose subject is unread returns a job and lands when it finishes; `apply_layout` {timeline_id, layout: "split-v", slots: the clip's id in each} where the answer names a split-screen source.
 3. `edit_timeline` {timeline_id: the id from step 1, if_revision, operations: [updateClip objectFit "contain" on a wide that plays whole or a screen recording that cannot be cropped; splitClip and rippleDeleteRange only where the destination is shorter than the master]}.
 4. Only for a shorter variation: `remove_silence` {timeline_id: the id from step 1} then `get_transcript` and `remove_words` for the lines it gives up.
@@ -27,7 +27,7 @@ The matrix repeats it per destination.
 
 - The master: a timeline in the workspace, or a rendered file as a library item.
 - The destinations: only the platforms the user posts on, as they name them; ask if they have not said. Each has its ratio, length and language. These multiply, and each combination is its own fork and render, so write out the matrix before the first fork. A brief that names a ratio sets it; "for social" alone means 4:5 for a near-square source, the feed ratio that crops it least.
-- What carries the video: the subject of each shot, the line or moment that is the point, and where the payoff lands. Read these off the master (`get_timeline`, or `inspect_media` overview of a file) before deciding anything.
+- What carries the video: the subject of each shot, the line or moment that is the point, and where the payoff lands. Read these off the master (`get_timeline`, or `inspect_media` overview of an item) before deciding anything.
 
 ## Ratio
 
@@ -56,7 +56,7 @@ The same video on two platforms differs in what the first frame has to do, wheth
 
 ## The order across tools
 
-There are two starting states. A master that is a timeline here is forked with `manage_timelines` create with `from` and `parent` (the master's id). The master stays untouched, each variation is its own timeline as a tab beside the master, and the copy's clips carry the master's words, so the word tools read the fork without another transcription. In the app each variation plays as its own tile on the master's preview, after the master: `publish_preview` with its id returns that preview and names the tile. A master that arrived as a file becomes a fresh timeline with the file on it, in one call (`manage_timelines` create with `aspect_ratio` and `clips`). It lands as one clip, and `auto_reframe` frames each shot inside it on its own, so it needs no splitting first. For a file never read, get its words with `transcribe_media` with `timeline_id`, or let `captions` generate transcribe what is unread in the same call.
+There are two starting states. A master that is a timeline here is forked with `manage_timelines` create with `from` and `parent` (the master's id). The master stays untouched, each variation is its own timeline as a tab beside the master, and the copy's clips carry the master's words, so the word tools read the fork without another transcription. In the app each variation plays as its own tile on the master's preview, after the master: `publish_preview` with its id returns that preview and names the tile. A master that arrived as an item becomes a fresh timeline with the item on it, in one call (`manage_timelines` create with `aspect_ratio` and `clips`). It lands as one clip, and `auto_reframe` frames each shot inside it on its own, so it needs no splitting first. For an item never read, get its words with `transcribe_media` with `timeline_id`, or let `captions` generate transcribe what is unread in the same call.
 
 Make a fork at its shape (create with `from` takes `aspect_ratio` and `platforms`), then reframe per shot. Where speech carries it, cut on the words: `remove_silence` for pauses, `get_transcript` then `remove_words` for the lines the short variation gives up. Where it does not, cut on the frames with splitClip and rippleDeleteRange, then read `get_transcript` again, since every cut moves the word positions. Ripple closes the hole on every track the cut point is clear on; a bed running through the cut keeps its shape, so re-lay it where its length mattered. Generate captions once the cut is final, since each run replaces the caption track whole. `render_timeline` makes a variation's file for use elsewhere.
 

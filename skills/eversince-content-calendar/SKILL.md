@@ -29,8 +29,8 @@ Follow how the user already works. The ways below are options; if the user has a
 4. Report what is ready, what is waiting on whom, and what is open
 
 **Placing a finished post:**
-1. Render the post (render_timeline, render_canvas) so it is a file
-2. manage_cards create or update {place: its day, attachments: the files in order, body: the caption and what goes with it, fields: its time and channels, status}
+1. Render the post (render_timeline, render_canvas) into a finished item
+2. manage_cards create or update {place: its day, attachments: the items in order, body: the caption and what goes with it, fields: its time and channels, status}
 
 ## Ways of working
 
@@ -44,28 +44,28 @@ The pace is the user's call: one post a week, or twenty in a day across platform
 
 **As a plan:** a working title, the format, the platform, the day, and in the body the idea in a line or two and what it is made from. Its series, pillar or campaign goes in the title or the body if the user groups posts that way.
 
-**As a finished post:** the files in order (a carousel's slides in sequence, each slide's own text in its attachment text), the time, the channels, the status, and in the body everything the person posting needs:
+**As a finished post:** the items in order (a carousel's slides in sequence, each slide's own text in its attachment text), the time, the channels, the status, and in the body everything the person posting needs:
 
 - the caption, one per platform where they differ;
 - the first comment, hashtags, mentions, the link and alt text, if the user uses them;
 - notes for whoever approves it.
 
-A plan turns into a finished post on the same card: attach the files and write the caption as the work comes in, then move the status on.
+A plan turns into a finished post on the same card: attach the items and write the caption as the work comes in, then move the status on.
 
 ## Eversince's calendar
 
 - **The calendar** is one per workspace and holds cards, each on a day with a time and the channels (platforms, each with its own mark) and showing its status. `manage_calendars` get names the fields and the channels, and reads a range of days.
-- **A card** (`manage_cards`) is an entry with a title, a markdown body, attached library items in order with their own text, and a status from the workspace's list. It goes on a day with its time and channels, so one card follows a post from idea to done. The body holds the caption and notes; the attachments hold the files. update needs the revision from read, so if another member changed an entry, read it again instead of overwriting it.
-- **A single finished file** goes on a day as a card with that file attached and no body.
-- **What attaches:** library items: footage, rendered files, images, documents. Name a timeline or canvas still being edited in the card's body until you attach its render.
+- **A card** (`manage_cards`) is an entry with a title, a markdown body, attached library items in order with their own text, and a status from the workspace's list. It goes on a day with its time and channels, so one card follows a post from idea to done. The body holds the caption and notes; the attachments hold the items. update needs the revision from read, so if another member changed an entry, read it again instead of overwriting it.
+- **A single finished item** goes on a day as a card with that item attached and no body.
+- **What attaches:** library items: footage, rendered items, images, documents. Name a timeline or canvas still being edited in the card's body until you attach its render.
 - **Series, pillars and campaigns** go in a card's title or body.
 - **Order within a day:** by time, then as set (`manage_calendars` update order_on_day).
-- **Review:** members and their agents see the same calendar. Put a comment where the work is (`manage_comments` on the timeline, canvas or file).
+- **Review:** members and their agents see the same calendar. Put a comment where the work is (`manage_comments` on the timeline, canvas or item).
 - **Days and times** are in the user's time zone.
 
 ## The hand-off
 
-A finished entry holds what posting needs: the files and the caption in the body. Once the user approves it, `manage_social_posts` create with its card_id sends it now or schedules it to the accounts they connected. Where the workspace keeps agents' posts for approval (`manage_social_accounts` list, agents), the post comes back held on its card and goes out when a person approves it there. Where an account is not connected, the files' public addresses (`get_items`) and the caption go out by the route the user has. Once posted, move the status to Published.
+A finished entry holds what posting needs: the items and the caption in the body. Once the user approves it, `manage_social_posts` create with its card_id sends it now or schedules it to the accounts they connected. Where the workspace keeps agents' posts for approval (`manage_social_accounts` list, agents), the post comes back held on its card and goes out when a person approves it there. Where an account is not connected, the items' public addresses (`get_items`) and the caption go out by the route the user has. Once posted, move the status to Published.
 
 A user who plans in another tool or posts straight from the platform may still find a calendar here useful as the place they and their agent work from: posts planned or placed next to the footage, then taken out to wherever they post. You can suggest it; don't assume it.
 

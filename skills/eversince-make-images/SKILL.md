@@ -33,7 +33,7 @@ Pictures can come from the user's library (`search_library`, or `search_footage`
 
 ## Showing and checking
 
-A canvas shows in the app with `publish_preview`; generated pictures show as they land. `inspect_canvas` draws a canvas (cloud processing, except through the desktop app), worth it where text placement or layout is uncertain. Changes asked are made on the same canvas; a version is another slide or a duplicate canvas. A generated picture is checked for what models slip in: a colour cast (a yellow or blue tint across the frame), logos and small text warped, a place too clean and symmetrical to be real. A small fix is a one-line image-to-image edit on that picture, not a new generation. A picture that will become a video's first frame is judged for its light before it is animated: light that is wrong in the still is wrong in every second of the video.
+A canvas shows in the app with `publish_preview`; generated pictures show as they land. `inspect_canvas` draws a canvas (cloud processing, except through the desktop app), worth it where text placement or layout is uncertain. Changes asked are made on the same canvas; a version is another slide or a duplicate canvas. A generated picture is checked for what models slip in: a color cast (a yellow or blue tint across the frame), logos and small text warped, a place too clean and symmetrical to be real. A small fix is a one-line image-to-image edit on that picture, not a new generation. A picture that will become a video's first frame is judged for its light before it is animated: light that is wrong in the still is wrong in every second of the video.
 
 ## Proportion
 

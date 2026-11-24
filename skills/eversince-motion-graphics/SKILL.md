@@ -64,7 +64,7 @@ first section.
 `get_templates` with `query` and `kind: "graphic"`, or `shelf` by name, lists ready graphics on its
 shelves; `get_templates` with nothing names the shelves. The workspace's own saved graphics come
 first. Every card measures the frame it lands in, so it fits wide, vertical and square. A `ground`
-control usually paints the whole frame over the footage; one labelled Card color colors only the
+control usually paints the whole frame over the footage; one labeled Card color colors only the
 card. Reading one by id returns its controls and the `compose_motion` call that places it; an
 `image` or `video` control takes a library item's ref in `values`; `code: true` adds its reviewed source to build from. Once
 placed, a shelf graphic is the clip's own code.
@@ -133,7 +133,7 @@ The compiler enforces these; code outside them fails at compile or draws nothing
   letterSpacing the text is drawn in; widths are frame pixels. `Type.fit({ text, size, maxWidth,
   maxLines, steps, fontFamily, fontWeight })`, which the shelf graphics use, sets type in steps (the
   size, then about 0.72 and 0.52 of it, cut with an ellipsis past the last) with balanced lines.
-- **The fonts are the catalogue's, spelled exactly**: Sans: Montserrat, Inter, Poppins, DM Sans, Manrope, Outfit, Plus Jakarta Sans, Rubik, Nunito, Quicksand, Raleway, Lato, Open Sans, Roboto, Archivo, Space Grotesk, Sora, Figtree, Lexend, Urbanist, Work Sans, IBM Plex Sans, Geist, Instrument Sans, Albert Sans, Red Hat Display, Hanken Grotesk, Schibsted Grotesk, Bricolage Grotesque, Inter Tight, Onest. Display: Oswald, Bebas Neue, Anton, Barlow Condensed, Big Shoulders, League Gothic, Antonio, Fjalla One, Teko, Saira Condensed, Unbounded, Syne, Archivo Black, Dela Gothic One, Chakra Petch, Orbitron, Russo One, Righteous, Bungee, Alfa Slab One. Serif: Playfair Display, DM Serif Display, Fraunces, Instrument Serif, Cormorant Garamond, Libre Baskerville, Lora, Merriweather, EB Garamond, Crimson Pro, Newsreader, Young Serif, Bodoni Moda, Abril Fatface, Gloock, Prata, Spectral. Mono: JetBrains Mono, Space Mono, IBM Plex Mono, Fira Code, Roboto Mono, DM Mono, Geist Mono. Handwritten: Caveat, Permanent Marker, Pacifico, Dancing Script, Kalam, Satisfy, Great Vibes, Rock Salt. Hebrew, Arabic, CJK: Heebo, Assistant, Noto Sans Hebrew, Cairo, Tajawal, Almarai, Noto Sans Arabic, Noto Sans SC, Noto Sans JP, Noto Sans KR. Any other family
+- **The fonts are the catalog's, spelled exactly**: Sans: Montserrat, Inter, Poppins, DM Sans, Manrope, Outfit, Plus Jakarta Sans, Rubik, Nunito, Quicksand, Raleway, Lato, Open Sans, Roboto, Archivo, Space Grotesk, Sora, Figtree, Lexend, Urbanist, Work Sans, IBM Plex Sans, Geist, Instrument Sans, Albert Sans, Red Hat Display, Hanken Grotesk, Schibsted Grotesk, Bricolage Grotesque, Inter Tight, Onest. Display: Oswald, Bebas Neue, Anton, Barlow Condensed, Big Shoulders, League Gothic, Antonio, Fjalla One, Teko, Saira Condensed, Unbounded, Syne, Archivo Black, Dela Gothic One, Chakra Petch, Orbitron, Russo One, Righteous, Bungee, Alfa Slab One. Serif: Playfair Display, DM Serif Display, Fraunces, Instrument Serif, Cormorant Garamond, Libre Baskerville, Lora, Merriweather, EB Garamond, Crimson Pro, Newsreader, Young Serif, Bodoni Moda, Abril Fatface, Gloock, Prata, Spectral. Mono: JetBrains Mono, Space Mono, IBM Plex Mono, Fira Code, Roboto Mono, DM Mono, Geist Mono. Handwritten: Caveat, Permanent Marker, Pacifico, Dancing Script, Kalam, Satisfy, Great Vibes, Rock Salt. Hebrew, Arabic, CJK: Heebo, Assistant, Noto Sans Hebrew, Cairo, Tajawal, Almarai, Noto Sans Arabic, Noto Sans SC, Noto Sans JP, Noto Sans KR. Any other family
   draws in a fallback with nothing reported.
 - **Ready-made pieces**: `<Camera legs={[{ at, dur, focus, scale,
   ease, blur }]}>world</Camera>` is the one camera, each leg from wherever the camera is, `focus`
@@ -150,7 +150,7 @@ The compiler enforces these; code outside them fails at compile or draws nothing
   this is the one way to grain one.
 - **A line that draws itself is Paths**: `Paths.evolvePath(progress, d)` returns the
   `strokeDasharray` and `strokeDashoffset`; `Paths.interpolatePath(progress, from, to)` morphs
-  one shape into another; `getLength` and `getPointAtLength` put something travelling along a path.
+  one shape into another; `getLength` and `getPointAtLength` put something traveling along a path.
 - **A word marked by hand is Notation**: `<Notation.Underline progress={p} color strokeWidth
   padding iterations roughness seed>word</Notation.Underline>`, the same for Highlight, Circle (with
   `box: 'around'`), Box, Bracket, StrikeThrough, CrossedOff; the mark wraps its children and draws

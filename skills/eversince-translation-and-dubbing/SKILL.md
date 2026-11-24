@@ -69,7 +69,7 @@ dub with its price.
 ## The spoken version
 
 `change_language` runs on the timeline the work is on, whether the user's existing edit or one made
-from a file (`manage_timelines` create with `clips`), and saves a new timeline named
+from an item (`manage_timelines` create with `clips`), and saves a new timeline named
 "<name> · <Language>". It is one price for the whole dub and one job; `get_jobs` carries the new
 timeline id when it lands, and the result counts what was translated and names what was left.
 
@@ -163,7 +163,7 @@ A last pass over the whole piece is in `skill-finish`.
 
 ## The plan: subtitles in another language, free once the words exist (transcribing is cloud processing)
 
-1. `manage_timelines` {create: {parent: the timeline the work is on}}: the copy, a tab beside the master, its language recorded with edit_timeline setMeta {note} (from a file, make the master first with {create: {name, clips: [{ref}]}})
+1. `manage_timelines` {create: {parent: the timeline the work is on}}: the copy, a tab beside the master, its language recorded with edit_timeline setMeta {note} (from an item, make the master first with {create: {name, clips: [{ref}]}})
 2. captions {action: "generate", timeline_id: the copy, style: {maxWords: 7, maxChars: 42}} where it has none or its lines run two or three words, transcribing as it goes; then captions {action: "rewrite", timeline_id: the copy} → every line with its id and limits
 3. captions {action: "rewrite", timeline_id: the copy, language: the version's code, lines: [{clip_id, text: the translation}]}
 4. check_timeline {timeline_id: the copy}: the one check; a sheet only in the four cases above

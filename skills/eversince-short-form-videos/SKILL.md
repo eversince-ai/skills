@@ -83,7 +83,7 @@ To close a loop's seam, compare the last frame with the first using `inspect_tim
 
 ## From a template
 
-The shelf holds finished shorts as templates. `get_templates` kind timeline lists them; called with an id, it lists that template's holes, each with its length and what its sample showed. `manage_timelines` create with `from_template` and `fill` copies the cut, music, styling and transitions with the user's files in the holes, in one call. Words drawn by a graphic are its fields, not holes: set them after create with `edit_timeline` updateClip {clipId, patch: {values}}, each line written for the length its sample was cut for. Choose footage per hole: a moment whose span fits the hole's length, the strongest picture on the first hole, a moving shot where the sample moved and a still where it held. The response names any hole left unfilled; it keeps the template's sample until you fill it.
+The shelf holds finished shorts as templates. `get_templates` kind timeline lists them; called with an id, it lists that template's holes, each with its length and what its sample showed. `manage_timelines` create with `from_template` and `fill` copies the cut, music, styling and transitions with the user's items in the holes, in one call. Words drawn by a graphic are its fields, not holes: set them after create with `edit_timeline` updateClip {clipId, patch: {values}}, each line written for the length its sample was cut for. Choose footage per hole: a moment whose span fits the hole's length, the strongest picture on the first hole, a moving shot where the sample moved and a still where it held. The response names any hole left unfilled; it keeps the template's sample until you fill it.
 
 ## The check
 
@@ -111,7 +111,7 @@ A recurring format makes each next short faster to make and easy to recognize. P
 
 ## An example plan: one short from a long recording
 
-1. transcribe_media {ref: the recording, format: "phrases"}; a file over five minutes returns a job, get_jobs waits on it, and the same call then returns the words
+1. transcribe_media {ref: the recording, format: "phrases"}; an item over five minutes returns a job, get_jobs waits on it, and the same call then returns the words
 2. manage_timelines {create: {name: "<idea> · short", aspect_ratio: "9:16", clips: [{ref: the recording, source: [start, end]} per beat in order]}}
 3. auto_reframe {timeline_id}
 4. remove_silence {timeline_id}, unless the user wants the pauses kept; get_timeline for the length after it, a beat trimmed or dropped where it runs long
