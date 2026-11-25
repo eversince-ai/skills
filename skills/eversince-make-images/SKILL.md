@@ -15,7 +15,7 @@ Everything below is optional; what the user asked and what the agent knows about
 
 - **Composed on a canvas**: layers (pictures, text, shapes, the brand's logo) placed on one or more slides, editable later. `manage_canvases` create, `edit_canvas` for every change, `get_canvas` to read it, `inspect_canvas` to see it drawn, `render_canvas` for files (PNG, JPEG, PDF). A carousel or deck is one canvas with a slide per page. Every layer's fields: `skill-canvas-operations`.
 - **Edited from a photo**: straighten, light, color, crop, a look (`skill-photo-editing`); another shape: a crop on the canvas (free), or the scene extended so the whole picture stays (`reframe_image`, credits); the background removed (`remove_background`); more resolution (`upscale_media`).
-- **Generated**: `generate_image` from a description or from reference pictures, in AI credits (`list_models` for each model's settings and price, `estimate_cost` for a quote). Words can also be set on a canvas, where they stay editable.
+- **Generated**: `generate_image` from a description or from reference pictures, in credits (`list_models` for each model's settings and price, `estimate_cost` for a quote). Words can also be set on a canvas, where they stay editable.
 
 Pictures can come from the user's library (`search_library`, or `search_footage` and `extract_media` for a frame inside a video), an online shop (`import_store_products`), stock (`search_stock`) or generation, as the work needs.
 

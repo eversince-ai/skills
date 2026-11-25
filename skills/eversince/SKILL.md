@@ -33,7 +33,7 @@ work is kept, versioned, reviewed and shared, with video editing and image desig
   (transcribing, speaker detection, search indexing, beats and loudness, masks and rendering), at
   no charge through the Eversince app on the user's computer or a Linux machine. Editing, reading
   what is stored and searching are free everywhere, and workspaces, projects, brand kits, saved
-  graphics and public links are unlimited. Available to add when the work needs them: seats for
+  graphics and public links are unlimited. Available to add when the work needs them:
   more team members (agents need none), more cloud storage, connections to social and ad
   accounts, and credits for AI generation or for running work in the cloud instead of on the
   machine.

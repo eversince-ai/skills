@@ -23,7 +23,7 @@ This skill covers two jobs on an account's comments and messages: answering what
 1. Settle with what the post promises: the word, what is sent, and the post it runs on
 2. Only where the user wants what is sent to be a page made here: `manage_public_links` create {items, title} → link_url, live at once
 3. Where the post goes out from here: `manage_social_posts` create {caption, media, targets, scheduled_for} → its id
-4. `manage_auto_replies` list → what already runs on the account, so two do not answer the same comment, and how many automatic replies the month has left. A post that draws many comments can use them up, and replies pause until the next month; more are bought once (`manage_social_accounts` buy_replies), the owner's choice
+4. `manage_auto_replies` list → what already runs on the account, so two do not answer the same comment, and how many automatic replies the month has left. A post that draws many comments can use them up, and replies pause until the next month; more are bought with credits (`manage_social_accounts` buy_block) by the owner
 5. `manage_auto_replies` create {account_id, name, post_id, keywords, dm_text, reply_text, options: {buttons: [{title, url}]}, active: false} → made paused, bound to the post before it is out (platform_post_id for a post already on the platform)
 6. Read it back as a commenter would meet it: the comment, the public reply, the message, the page. Then update {automation_id, active: true}, before the post publishes
 7. Once it runs: get {automation_id} for its log, `manage_public_links` get and activity for the page's opens, people and downloads; the replies people send back are answered as in the first plan

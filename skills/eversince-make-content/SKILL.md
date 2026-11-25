@@ -20,7 +20,7 @@ Research grounds the strategy, so it usually comes first and is repeated as the 
 - **The user's own content**, where they already post: an account connected in Eversince is read with `read_social_results` (their posts with the platform's own numbers, those posted outside Eversince included, free); one not connected, or on X, with `pull_posts` by platform and account (public counts: views, likes, comments, shares). Either way the agent learns their voice, what has worked for them, and what has not.
 - **Content with traction in their field**: `pull_posts` by keywords or hashtag, or by named accounts and competitors, finds what is getting attention now. Trending matters, and so does any post with strong engagement relative to its account: both show what is working.
 - `inspect_media` reads a post's frames, `pull_posts` transcript_of its words, and `keep_posts` keeps a reference in the library. `skill-social-trends` holds the method for reading a field's posts and ad libraries into angles and briefs, `skill-account-audit` for reading one account against its own baseline.
-- `pull_posts` is charged in AI credits, a fraction of a credit per page of posts.
+- `pull_posts` is charged in credits, a fraction of a credit per page of posts.
 
 ## Strategy
 
