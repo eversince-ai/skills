@@ -7,13 +7,13 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-short-form-videos"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-Nobody owes a short their attention, and the next video is one flick away. A short has to pay off in the first second and keep paying to the end. Build it around one idea, in the platform's shape, and make it as long as the idea needs and no longer. For writing the hook and script, use `skill-hooks-and-scripts`; for a piece that sells, `skill-ugc-ads`; for a moment lifted whole from something long, `skill-clipping`. A brief, reference or style from the user overrides every default here.
+Nobody owes a short their attention, and the next video is one flick away. A short has to pay off in the first second and keep paying to the end. Build it around one idea, in the platform's shape, and make it as long as the idea needs and no longer. For writing the hook and script, use `skill-hooks-and-scripts`; for a video that sells, `skill-ugc-ads`; for a moment lifted whole from something long, `skill-clipping`. A brief, reference or style from the user overrides every default here.
 
 ## The plan
 
 1. Settle the one idea, the platform, and the material: the user's footage, stock, generation or a mix
 2. Get the script: the user's, a short one you write here (a few beats), or a longer one with `skill-hooks-and-scripts`
-3. Pick the shape and hold it for the whole piece
+3. Pick the shape and hold it for the whole video
 4. Lay the beats on a 9:16 timeline, strongest picture first
 5. Add sound, captions and on-screen text inside the platform's safe area
 6. Run the check, then hand over the short in the app
@@ -34,7 +34,7 @@ Nobody owes a short their attention, and the next video is one flick away. A sho
 
 ## The hook
 
-The first second decides whether the rest is seen. The picture, the first words and any text on screen land together and open a question the short then answers. Start inside the interesting part: no intro, no context, no name, no logo. Choose the first frame, since it plays before any sound where a feed is muted. A spoken hook starts mid-thought; a text hook is one line, read at a glance. The test: a stranger who sees only the first second knows what they get by staying, and wants it. Several hooks written and compared, or a longer script, is `skill-hooks-and-scripts`.
+The first second decides whether the rest is seen. The picture, the first words and any text on screen land together and open a question the short then answers. Start inside the interesting part: no intro, no context, no name, no logo. Choose the first frame, since it plays before any sound where a feed is muted. Where there is a person or a spoken line, open on it: Emplifi's 2026 Reels data found speech in the first three seconds holds viewers better than music alone. A spoken hook starts mid-thought; a text hook is one line, read at a glance. The test: a stranger who sees only the first second knows what they get by staying, and wants it. Several hooks written and compared, or a longer script, is `skill-hooks-and-scripts`.
 
 ## The shape
 
@@ -87,7 +87,7 @@ The shelf holds finished shorts as templates. `get_templates` kind timeline list
 
 ## The check
 
-Run `check_timeline` once on the cut; no findings means it passed. It does not read text burned into the footage or judge whether a moment is the right one, so check these on the words (`get_transcript`) and, where needed, on frames:
+Run `check_timeline` once on the cut; `ok` true is the pass, and each warning is still read. It does not read text burned into the footage or judge whether a moment is the right one, so check these on the words (`get_transcript`) and, where needed, on frames:
 
 - **On mute:** it still delivers its one thing through captions and picture alone.
 - **First frame:** it is the hook itself, with no black or slow lead-in, and it works as the cover.
@@ -97,7 +97,7 @@ Run `check_timeline` once on the cut; no findings means it passed. It does not r
 - **Words:** names, terms and numbers spelled right; the last caption gone by the final frame.
 - **Music:** cleared for the account and the length.
 
-Look at frames (`inspect_timeline` with `sheet: true`) in four cases: a finding names a clip, the look is all there is to judge (no speech, a loop's seam), the user asked for the work to be verified, or nobody will see it before it is used. Fix a failure at the beat that caused it. For a last pass over the whole piece, use `skill-finish`.
+Look at frames (`inspect_timeline` with `sheet: true`) in four cases: a finding names a clip, the look is all there is to judge (no speech, a loop's seam), the user asked for the work to be verified, or nobody will see it before it is used. Fix a failure at the beat that caused it. For a last pass over the whole video, use `skill-finish`.
 
 ## A series
 

@@ -17,17 +17,18 @@ Real takes: the first plan. No footage: the generated plan after it, its cost sa
 
 The takes exist as items; hook, script and beats are chosen from what was said.
 
-1. `transcribe_media` {ref: a take, format: "phrases"} per take: the lines, with their spans (refs only reads words already stored)
+1. `transcribe_media` {ref: a take} per take: the sentences, with their spans, to choose the lines from (refs only reads words already stored); format "phrases" only for cut points, since it breaks only at pauses and a fast talker comes back as one long phrase
 2. `manage_timelines` {create: {name: "<product> · <angle>", aspect_ratio: "9:16", clips: [{ref: a take, source: [start, end]} per beat, in order]}}
 3. `auto_reframe` {timeline_id: from step 2}, where a take is horizontal
 4. `remove_silence` {timeline_id: from step 2} (the clips carry the words step 1 read); `get_timeline` for the length against the target
 5. `captions` generate {timeline_id: from step 2, template: "Social"} unless the user says no captions; `duck_music` {timeline_id, ref: the track} where they asked for music
-6. `check_timeline` {timeline_id: from step 2}
-7. `publish_preview` {timeline_id: from step 2}: returns the preview the ad already has, its app_url the link to hand over; `render_timeline` {timeline_id, idempotency_key} for the file an ad platform takes
+6. `level_audio` {timeline_id: from step 2}: the voice to delivery level
+7. `check_timeline` {timeline_id: from step 2}
+8. `publish_preview` {timeline_id: from step 2}: returns the preview the ad already has, its app_url the link to hand over; `render_timeline` {timeline_id, idempotency_key} for the file an ad platform takes
 
 ### Generated, with no footage
 
-The cost of the takes is said first (`estimate_cost`). The creator is made once as a still, then `generate_video` {type: "image-to-video", source_refs: [the creator still], prompt: each beat's line and action in the model's own form, settings: {duration, aspect_ratio 9:16}, idempotency_key} per beat, `get_jobs` for the items, which then go into step 2 as the clips with steps 4 to 7 the same.
+The cost of the takes is said first (`estimate_cost`). The creator is made once as a still, then `generate_video` {type: "image-to-video", source_refs: [the creator still], prompt: each beat's line and action in the model's own form, settings: {duration, aspect_ratio 9:16}, idempotency_key} per beat, `get_jobs` for the items, which then go into step 2 as the clips with steps 4 to 8 the same.
 
 ## What the job needs
 
@@ -70,7 +71,7 @@ Hooks that keep working in ad accounts: a pain called out in the buyer's words (
 
 Keep one register through every line: unimpressed for a product that sells on function; evangelical for genuine surprise (it burns out on a small claim); conspiratorial for a shortcut others don't know; exasperated for a long-standing problem; deadpan for a category sick of being sold to, only when the copy carries the joke.
 
-Write speech, not copy read aloud: contractions, an unfinished thought, a sentence that starts over. The start is the hook. The middle is the one thing that makes the claim believable, usually a specific moment rather than a reason. The end lands and stops: no slogan, no sell. Time it at speaking pace: about 2.5 words a second for a real person, 2.2 for a generated voice, so fifteen seconds holds 33 to 37 words. Say one thing, and leave out what the buyer can already see. A common timing that works: the hook in the first 3 seconds, the problem to about 8, the product shown working to about 20, the ask in the last 3 to 5. TikTok ads tend to do best at 15 to 25 seconds, Meta at 15 to 30. The table of default lines against their real counterparts is in `skill-image-ads`.
+Write speech, not copy read aloud: contractions, an unfinished thought, a sentence that starts over. The start is the hook. The middle is the one thing that makes the claim believable, usually a specific moment rather than a reason. The end lands and stops: no slogan, no sell. Time it at speaking pace: about 2.5 words a second for a real person, 2.2 for a generated voice, so fifteen seconds holds 33 to 37 words. Say one thing, and leave out what the buyer can already see. A common timing that works: the hook in the first 3 seconds, the problem to about 8, the product shown working to about 20, the ask in the last 3 to 5. TikTok's own guidance for in-feed ads is 21 to 34 seconds (ads.tiktok.com, video advertising guide), Meta's practitioners name 15 to 30. The table of default lines against their real counterparts is in `skill-image-ads`.
 
 ## Shot plan, generated branch
 
@@ -96,15 +97,15 @@ they choose the framing.
 
 ## Assembly
 
-`manage_timelines` create with `aspect_ratio` 9:16 and the takes as `clips` in beat order, in one call. The timeline's ratio is its own, not inherited from the clips, and a horizontal clip is center-cropped until `auto_reframe` frames it on the person. Uploaded speech gets its words with `transcribe_media` timeline_id before any word tool runs. `remove_silence` takes out the dead air (real speech without its pauses is the sound of a posted video), then `remove_words` the fillers.
+`manage_timelines` create with `aspect_ratio` 9:16 and the takes as `clips` in beat order, in one call. The timeline takes the ratio `aspect_ratio` gives (left out, it follows the first clip), and a horizontal clip is center-cropped until `auto_reframe` frames it on the person. Uploaded speech gets its words with `transcribe_media` timeline_id before any word tool runs. `remove_silence` takes out the dead air (real speech without its pauses is the sound of a posted video), then `remove_words` the fillers.
 
-Add B-roll where the ad needs it (a product shown, a result, a step), not by habit. Two ways: **intercut**, the b-roll replacing the face on the same track a few seconds at a time with the voice running under it, the native default since phones edit with hard cuts; or **stacked split**, face and b-roll sharing the frame with `apply_layout` split-v, for when the viewer needs the reaction and the thing at once. For a split, cut the a-roll at the span's edges first (splitClip) and lay out only the overlapping pieces. Either way, mute the b-roll (updateClip volume 0), and cut away from a generated face every few seconds: held long, it invites inspection.
+Add B-roll where the ad needs it (a product shown, a result, a step), not by habit. Two ways: **intercut**, the b-roll replacing the face on the same track a few seconds at a time with the voice running under it, the native default since phones edit with hard cuts; or **stacked split**, face and b-roll sharing the frame with `apply_layout` split-v, for when the viewer needs the reaction and the thing at once. For a split, cut the a-roll at the span's edges first (splitClip) and lay out only the overlapping parts. Either way, mute the b-roll (updateClip volume 0), and cut away from a generated face every few seconds: held long, it invites inspection.
 
 `captions` generate (the Social template, burned in) unless the user says no captions: most viewers watch silently. Music, where the user asks for it, sits low under the voice (`duck_music` with `ref`: the user's track or a `search_stock` one the user picked), a trending-sounding bed rather than a polished score. A rant or a reply often plays better with none.
 
 ## The check
 
-One `check_timeline` reads the cut; no findings means it passed. It does not read text inside a generated shot, or whether a take is the right one. Judge a generated take by its look when it lands (`inspect_media`). Draw the cut with one `inspect_timeline` with `sheet: true` when a finding names a clip, the user asked for the work to be verified, or nobody sees the ad before it runs.
+One `check_timeline` reads the cut; `ok: true` means it passed, and each warning it lists is still read. It does not read text inside a generated shot, or whether a take is the right one. Judge a generated take by its look when it lands (`inspect_media`). Draw the cut with one `inspect_timeline` with `sheet: true` when a finding names a clip, the user asked for the work to be verified, or nobody sees the ad before it runs.
 
 - **Sound off.** It looks like something a person filmed, not something a brand made. If not, fix the room and the camera.
 - **Full screen, on a phone.** A generated face and mouth judged at full size, the way the ad plays; a mouth that looks right small can look wrong full screen.
@@ -113,12 +114,12 @@ One `check_timeline` reads the cut; no findings means it passed. It does not rea
 
 Trace a failure back to the decision that caused it, and rebuild the prompt whole from the decisions.
 
-For a last pass over the whole piece, see `skill-finish`.
+For a last pass over the whole ad, see `skill-finish`.
 
 ## Handover
 
 - One ad: 9:16, fifteen to forty seconds, unless the placement sets another shape or length.
 - Captions (`captions` template Social) unless the user says otherwise: a feed plays it muted first.
-- The voice at delivery level on `check_timeline`; music, if any, under it.
+- The voice at delivery level (`level_audio`); music, if any, under it.
 - The ad is in the app from its first media, where it plays and is reviewed; the result's app_url is the link the user opens. `render_timeline` makes the file an ad platform takes.
 - Also possible: music under the voice, variations on the hook or the angle (`skill-ad-variations`), a still version (`skill-image-ads`), other placements' shapes, a version in another language, what competitors run, read from the ad libraries.

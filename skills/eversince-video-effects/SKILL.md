@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-video-effects"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-An effect lifts one moment: a reveal, a turn, the line that matters. Used once or twice in a piece,
+An effect lifts one moment: a reveal, a turn, the line that matters. Used once or twice in a video,
 it reads as intent; on every cut it becomes noise, and "doing too much" is the most common complaint
 about edited content. If the user names an effect, build that one. If they ask for effects in
 general, pick the moments where one helps and leave the rest of the cut clean. A trending effect wears out once viewers can predict it, so the moment matters more than the effect. A brief, a reference
@@ -15,7 +15,7 @@ or a brand from the user outranks every default here.
 
 ## The plan
 
-1. Read the piece: `get_timeline` and `get_transcript` (or `inspect_media` where there is no speech) to find the moment each effect serves
+1. Read the video: `get_timeline` and `get_transcript` (or `inspect_media` where there is no speech) to find the moment each effect serves
 2. Build each effect as its entry below says: on the timeline (`edit_timeline`), or as a motion graphic (`compose_motion`)
 3. Draw frames before, in the middle of and after each effect: `inspect_timeline` {timeline_id, seconds}, one call
 4. `check_timeline` {timeline_id}, then `publish_preview` {timeline_id}: the link to hand over
@@ -40,11 +40,11 @@ A `person` mask written in the same `edit_timeline` call that adds its clip is s
 
 **Freeze and lift.** The frame holds and the person lifts off it. `extract_media` mode frame at the moment, `remove_background` on that still (credits), the still on the timeline for the hold and the cut-out on a track above, rising about 5% in scale over half a second (`setKeyframes`) and settling.
 
-**Speed ramp.** Slow into fast, on a beat. `splitClip` where the pace turns, `setSpeed` on each piece (0.5x into 3x, say), a `blur` transitionIn of 4 to 6 frames on the fast piece, the beat landing where the fast piece starts, the clip's own sound off under it.
+**Speed ramp.** Slow into fast, on a beat. `splitClip` where the pace turns, `setSpeed` on each part (0.5x into 3x, say), a `blur` transitionIn of 4 to 6 frames on the fast part, the beat landing where the fast part starts, the clip's own sound off under it.
 
 **Impact shake.** The frame jolts on a hit: the `shake` effect on an adjustment clip of 6 to 10 frames starting on the hit, its `fx0.intensity` keyframed from about 0.8 to 1 down to 0.
 
-**Stutter.** A moment repeats two or three times: `splitClip` around a short piece (4 to 8 frames) and the same span added again right after it, the repeats back to back, then the shot plays on. The pieces are too short to sit on separate beats, so the stutter as a whole lands on a beat.
+**Stutter.** A moment repeats two or three times: `splitClip` around a short part (4 to 8 frames) and the same span added again right after it, the repeats back to back, then the shot plays on. The parts are too short to sit on separate beats, so the stutter as a whole lands on a beat.
 
 **Echo trail.** A moving subject leaves ghosts behind it: two or three copies of the clip on tracks above it, over the same timeline span, each 2 to 4 frames further behind in its source than the one under it, at opacity about 0.3, 0.2, 0.1, sound off. Stronger ghosts outweigh the live picture. The still background matches in every copy, so only the moving subject doubles. It reads best on a moving subject against a dark or plain still background.
 
@@ -86,9 +86,9 @@ A `person` mask written in the same `edit_timeline` call that adds its clip is s
 
 ## Built as a motion graphic
 
-A motion graphic draws what the timeline cannot: pieces, depth, designed shapes. Code craft is in `skill-motion-graphics`. Footage goes inside a graphic as a `video` control and a still as an `image` control, each set in `values` to the library item's ref.
+A motion graphic draws what the timeline cannot: fragments, depth, designed shapes. Code craft is in `skill-motion-graphics`. Footage goes inside a graphic as a `video` control and a still as an `image` control, each set in `values` to the library item's ref.
 
-**Designed transitions.** The Transitions shelf (`get_templates` {shelf: "Transitions"}) lists every designed transition. Place one with `compose_motion` `template`, centered on the cut, so the frame is covered at the cut point. The built-in clip transitions (`transitionIn`: fade, dipwhite, dissolve, wipe, push, slide, iris, clock, zoom, blur, whip, spin) are plainer and need no graphic. Use one style through a piece.
+**Designed transitions.** The Transitions shelf (`get_templates` {shelf: "Transitions"}) lists every designed transition. Place one with `compose_motion` `template`, centered on the cut, so the frame is covered at the cut point. The built-in clip transitions (`transitionIn`: fade, dipwhite, dissolve, wipe, push, slide, iris, clock, zoom, blur, whip, spin) are plainer and need no graphic. Use one style through a video.
 
 **Accents on a cut.** Short, a few frames to under a second:
 - Flash: `transitionIn` style `dipwhite`, 2 to 4 frames, on a beat.
@@ -98,7 +98,7 @@ A motion graphic draws what the timeline cannot: pieces, depth, designed shapes.
 
 **Screen in 3D.** A screen recording tilted in space. A graphic with a dark ground, the recording inside a box with rounded corners and a shadow, under `perspective` (about 1600) with `rotateX` and `rotateY` animated between views (within about ±25°), springs with no bounce. Scale the box to about 0.65 of the frame so its near edge, which grows with the tilt, stays inside. The shelf graphic device-floating-screen is a ready version.
 
-**Shatter.** The shot breaks into pieces that fly apart, revealing the next shot. Freeze the outgoing shot's last frame as the cut shows it (`extract_media` with `timeline_id` and that frame, cloud processing; from the source item it comes back ungraded and unreframed) and pass it to a graphic as an image control. The graphic cuts it into triangles (a grid of 6 by 4 cells, inner points jittered, each cell split in two) with `clipPath` polygons. After a hold of about 8 frames, each piece flies outward from the center, with an ease-in, a little gravity, rotation and a fade at the end, the pieces nearest the center first, over about a second. Random-looking values come from a function of the piece's index, since Math.random is blocked. Place it at the cut, with the next shot on the timeline below.
+**Shatter.** The shot breaks into pieces that fly apart, revealing the next shot. Freeze the outgoing shot's last frame as the cut shows it (`extract_media` with `timeline_id` and that frame, cloud processing; from the source item it comes back ungraded and unreframed) and pass it to a graphic as an image control. The graphic cuts it into triangles (a grid of 6 by 4 cells, inner points jittered, each cell split in two) with `clipPath` polygons. After a hold of about 8 frames, each video flies outward from the center, with an ease-in, a little gravity, rotation and a fade at the end, the pieces nearest the center first, over about a second. Random-looking values come from a function of the video's index, since Math.random is blocked. Place it at the cut, with the next shot on the timeline below.
 
 **Photo in depth.** A still photo moving in 2.5D, the subject separated from the background: `remove_background` on the photo (credits) gives the subject; the full photo on the bottom and the subject on top, both slowly scaling over the shot, the subject a little more (1 to 1.08 against 1 to 1.04) so they part. The hole the subject leaves stays hidden while the movement is small.
 
@@ -266,7 +266,7 @@ A word behind a presenter:
 3. edit_timeline {timeline_id, if_revision: from step 1, operations: [addTrack above, addClip text on it spanning the beat, addTrack above that, copy of the shot on it at the same trim by addClip with the same ref, source and span]} (or a separate `copy_clips` call)
 4. edit_timeline {timeline_id, if_revision: from step 3, operations: [updateClip {clipId: the copy's id from step 3, patch: {masks: [{id: "person", shape: "person"}]}}]}; get_jobs {ids: its job_ids} until the mask is read
 5. check_timeline {timeline_id}, then inspect_timeline {timeline_id, seconds: the beat's first, middle and last frame}: one call, the edge and the word judged by their look
-6. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over
+6. publish_preview {timeline_id}: returns the preview the video already has, its app_url the link to hand over
 
 A presenter keyed over their own screen recording:
 
@@ -275,7 +275,7 @@ A presenter keyed over their own screen recording:
 3. edit_timeline {timeline_id, if_revision: from step 1, operations: [addTrack {track: {kind: "visual", index: above the recording, id: "presenter"}}, addClip {trackId: "presenter", ref: the presenter, id: "presenter-clip"}, updateClip {clipId: "presenter-clip", patch: {effects: [{type: "colorkey", params: {keyColor, similarity, smoothness: from step 2}}]}}]}: the id given on addClip names the clip for the patch in the same call
 4. check_timeline {timeline_id}, then inspect_timeline {timeline_id, seconds: the first frame, the last, the fastest movement}: one call, the edge judged by its look
 5. Only where step 4 shows a rim, a hole or a stand: edit_timeline {timeline_id, if_revision: from step 3, operations: [updateClip with the whole colorkey entry again (effects replace whole), spillSuppression raised or a second colorkey entry for the screen's darker side, and a drawn rect mask where the frame holds a stand or an edge]}
-6. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over; render_timeline {timeline_id, idempotency_key} for a file used elsewhere
+6. publish_preview {timeline_id}: returns the preview the video already has, its app_url the link to hand over; render_timeline {timeline_id, idempotency_key} for a file used elsewhere
 
 ## What cannot be built here
 
@@ -298,6 +298,6 @@ An effect is judged by its look, so draw frames: one before it starts, one in th
 
 ## Handover
 
-- The piece with its effects, in the app with the result's app_url as the link; `render_timeline` for a file.
+- The video with its effects, in the app with the result's app_url as the link; `render_timeline` for a file.
 - With it: which effects went where, and that timeline effects can be changed in the editor.
 - Also possible: another effect at another moment, a different transition style, the same effect on a vertical version.

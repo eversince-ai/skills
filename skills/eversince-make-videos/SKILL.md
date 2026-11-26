@@ -19,14 +19,14 @@ The result is in the app from its first media, where it plays without rendering,
 
 ## Checking
 
-`check_timeline` is free and reports what a render would show wrong. `inspect_timeline` draws real frames of the edit (cloud processing, except through the desktop app), worth it where a change is visual and its result uncertain: a reframe, a layout, text placement. A simple cut or a sound fix does not need frames drawn.
+`check_timeline` reports what a render would show wrong; measuring an item's sound the first time is cloud processing. `inspect_timeline` draws real frames of the edit (cloud processing, except through the desktop app), worth it where a change is visual and its result uncertain: a reframe, a layout, text placement. A simple cut or a sound fix does not need frames drawn.
 
 ## What is possible
 
 A menu, used when the request calls for it:
 
 - **Cutting**: by the words (`remove_words`, `remove_silence`, with words from `transcribe_media`), by hand (`edit_timeline`: trim, split, move, speed), a new timeline from clips (`manage_timelines` create); one recording into many clips (`cut_clips`), clips or a look taken from another timeline (`copy_clips`, `copy_clip_settings`), several cameras of one event (`sync_recordings`, `switch_angle`).
-- **Sound**: speech cleaned (`clean_audio`) and leveled (`level_audio`), music in the manual's order (the user's own, then generated to fit with `generate_audio`, stock only where the user picked it, else none), ducked under a voice (`duck_music`).
+- **Sound**: speech cleaned (`clean_audio`) and leveled (`level_audio`), music as the manual orders it, ducked under a voice (`duck_music`).
 - **Captions**: `captions` (`skill-animated-captions`).
 - **Another aspect ratio** with the subject kept in frame: `auto_reframe`.
 - **Reading footage**: words with timing (`transcribe_media`), frames or a log of every shot (`inspect_media`), who speaks when (`speakers`), the beat of a song (`detect_beats`), several items at once (`prepare_media`), a moment across many recordings (`search_footage`).
@@ -40,7 +40,8 @@ A menu, used when the request calls for it:
 Starting points when the request matches; some edits need none of them.
 
 - **Raw footage into a finished video**: `skill-video-editing`; one person talking to camera is its part `skill-talking-head`.
-- **A launch, a feature or a product shown off** from screens, photos or clips: `skill-launch-videos`, `skill-product-videos`; a piece made mostly of graphics and type: `skill-motion-graphics`.
+- **A launch, a feature or a product shown off** from screens, photos or clips: `skill-launch-videos`, `skill-product-videos`; a video made mostly of graphics and type: `skill-motion-graphics`.
+- **A video meant to sell** (a teaser, an ad, a UGC-style video, versions to test): `skill-promote`.
 - **A long recording into short clips**, or one highlight: `skill-clipping`; a supercut of one subject across the library: `skill-searching-your-backlog`.
 - **A podcast or any conversation**, on one camera, several, or a file per person: `skill-podcast-editing`.
 - **A screen recording into a demo**: `skill-screen-recording-editing`.
@@ -50,7 +51,7 @@ Starting points when the request matches; some edits need none of them.
 - **A Reel, Short or TikTok built around one idea**: `skill-short-form-videos`.
 - **Footage, photos or type cut to a song**, a performance included: `skill-music-videos`.
 - **One idea explained with a voice and pictures**: `skill-explainer-videos`; a channel of them with nobody on camera: `skill-faceless-videos`.
-- **A voiceover or music made for the piece**: `skill-voiceovers-and-music`.
+- **A voiceover or music made for the video**: `skill-voiceovers-and-music`.
 - **Generated video that looks like film**: `skill-ai-filmmaking`; drawn, painted or rendered worlds: `skill-ai-animation`; a person or character kept the same in every scene: `skill-ai-influencer`.
 - **Matching a reference video**: `skill-remake-from-a-reference`; cutting the way the user already edits, read from their own videos: `skill-edit-in-my-style`; a final pass before it goes out: `skill-finish`.
 

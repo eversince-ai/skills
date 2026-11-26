@@ -21,7 +21,7 @@ The matrix repeats it per destination.
 6. `level_audio` {timeline_id: the id from step 1, platform}: its result says whether the target is reached.
 7. `check_timeline` {timeline_id: the id from step 1, platform}: the one check; a sheet only in the four cases below.
 8. `publish_preview` {timeline_id: the id from step 1}: returns the master's preview with the variation as its tile, the link to hand over; `render_timeline` {timeline_id, idempotency_key} for a file used elsewhere.
-9. For a subtitled language version, where the user asked (`skill-translation-and-dubbing` writes it free): `captions` {action: "translate" (credits), timeline_id: the id from step 1, target_language, as_new_timeline: true}, then steps 7 and 8 on the timeline it returns.
+9. For a subtitled language version, where the user asked (`skill-translation-and-dubbing`): `captions` {action: "translate" (credits), timeline_id: the id from step 1, target_language, as_new_timeline: true}, then steps 7 and 8 on the timeline it returns.
 
 ## What the job needs
 
@@ -64,7 +64,7 @@ A variation can also nest the master instead of copying it: `edit_timeline` addC
 
 ## The check
 
-One `check_timeline` covers all variations (`timeline_ids`); no findings means it passed. It does not read text burned into the footage, or whether the hook and payoff survived. Read those from each variation's first and last lines (`get_transcript`): each should stand as if made for its destination.
+One `check_timeline` covers all variations (`timeline_ids`); `ok` true is the pass, and each warning is still read. It does not read text burned into the footage, or whether the hook and payoff survived. Read those from each variation's first and last lines (`get_transcript`): each should stand as if made for its destination.
 
 Look at frames in four cases: a finding names a clip, the look alone is the judgement (no speech), the user asked for verification, or nobody sees it before it is used. One picture covers a variation: `inspect_timeline` with `sheet: true`.
 

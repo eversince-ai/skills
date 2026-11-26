@@ -22,7 +22,7 @@ Use this to write what a video says before it is made: the hook and the script, 
 
 A video says one thing. Write it as one sentence first: what the viewer knows, believes or can do afterwards. A second thing is a second video. If the strongest hook does not fit the idea, change the idea, not the hook (Jenny Hoyos writes her Shorts hook first, ending second, middle last).
 
-If the script builds on material that already exists, read the material first, because the moments that exist decide the beats. Use `transcribe_media` for what was said in the user's recording and `search_footage` for moments across their library. Read a post the user wants to learn from the same way: `pull_posts` `transcript_of` on a TikTok or YouTube link for its words (another platform's post: `pull_posts` with its link as account, `keep_posts`, then `transcribe_media`), `inspect_media` on its first two seconds for its opening.
+If the script builds on material that already exists, read the material first, because the moments that exist decide the beats. Use `transcribe_media` for what was said in the user's recording and `search_footage` for moments across their library. Read a post the user wants to learn from the same way: `pull_posts` `transcript_of` on a TikTok or YouTube link for its words (another platform's post: `pull_posts` with its link as account, `keep_posts`, then `transcribe_media`), `inspect_media` on its first two seconds for its opening. Each `pull_posts` read uses a fraction of a credit; `estimate_cost` gives the figure.
 
 ## The hook
 
@@ -91,7 +91,7 @@ Write the script in two columns: the spoken line, and beside it what is seen (th
 Only if the user wants one, and never more than one:
 
 - **"Comment [word] and I'll send you the link":** Instagram allows it when the link really arrives by message; asking for a comment just for reach ("comment YES") gets demoted as bait.
-- **"Send this to someone who…":** what Instagram weighs most for reaching people who don't follow the account.
+- **"Send this to someone who…":** sends weigh more than likes on Instagram for reaching people who don't follow the account.
 - **"Follow for part 2":** only when part 2 exists.
 
 ## What you send

@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-clipping"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-A clip is a moment that works without the recording around it. The viewer never saw the hour before it, so the clip has to carry its own setup and payoff. A moment that only makes sense to someone who was there is an excerpt, not a clip. This skill finds the moments and cuts them as a set of clips, or as one highlight (below). For a piece built from the whole material, see `skill-video-editing`; for several cameras, `skill-podcast-editing`; for a short built around an idea, `skill-short-form-videos`. A brief, reference or brand from the user overrides every default here.
+A clip is a moment that works without the recording around it. The viewer never saw the hour before it, so the clip has to carry its own setup and payoff. A moment that only makes sense to someone who was there is an excerpt, not a clip. This skill finds the moments and cuts them as a set of clips, or as one highlight (below). For a video built from the whole material, see `skill-video-editing`; for several cameras, `skill-podcast-editing`; for a short built around an idea, `skill-short-form-videos`. A brief, reference or brand from the user overrides every default here.
 
 ## The plan
 
@@ -89,11 +89,11 @@ Draw frames in four cases: a finding names a clip, the look alone decides it, th
 
 When a clip fails, fix its in and out points first; most weak clips are strong moments cut too wide.
 
-For a last pass over the whole piece, see `skill-finish`.
+For a last pass over the whole set, see `skill-finish`.
 
 ## A highlight
 
-A highlight is one idea from the long piece, cut to stand on its own: the moment someone would send to a friend, complete enough to need nothing before it. Build it from one passage, or two or three that make the same point, each running long enough to land (five seconds or more), with cuts only where the idea needs a join. A run of one-liners from across the hour is a montage: it trades understanding for energy, so make one only when the user asks. Asked for highlights with no number, make a set of three to five, each its own clip; asked for one highlight, make one. If the user wants music, put it under the idea and end it as the idea lands (`duck_music` with `ref`).
+A highlight is one idea from the long recording, cut to stand on its own: the moment someone would send to a friend, complete enough to need nothing before it. Build it from one passage, or two or three that make the same point, each running long enough to land (five seconds or more), with cuts only where the idea needs a join. A run of one-liners from across the hour is a montage: it trades understanding for energy, so make one only when the user asks. Asked for highlights with no number, make a set of three to five, each its own clip; asked for one highlight, make one. If the user wants music, put it under the idea and end it as the idea lands (`duck_music` with `ref`).
 
 ## Handover
 

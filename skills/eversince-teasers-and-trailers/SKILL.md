@@ -9,7 +9,7 @@ This is Eversince's own skill. When Eversince is connected, `manage_skills` with
 
 A teaser or trailer makes people want something without explaining it. Wanting comes from what is
 held back: a cut of the best moments in order spends what it was meant to sell. Every shot raises a
-question, and the only answer the piece gives is where and when to get the thing. Use it for
+question, and the only answer the teaser gives is where and when to get the thing. Use it for
 anything with a release: a product launch, a video, an episode, a course, an event, a collection, a
 film or a game. It sits between a highlight and a rough cut: moments lifted from existing material,
 ordered to build. A teaser runs 6 to 20 seconds: one question and the landing. A trailer runs 30 to
@@ -38,7 +38,7 @@ Where no cut has to land on a beat (a teaser on a calm track, a cut led by its l
 
 - What is sold and how it lands: the title, and where or when to get it (a date, "out now", a
   link, a place). The landing is the payoff; build toward it.
-- The material, usually existing footage: the finished piece, the shoot, the launch video, a
+- The material, usually existing footage: the finished work, the shoot, the launch video, a
   screen recording, the event's footage. With little footage (one image, a logo), build around it
   with stock B-roll (`search_stock` kind video), motion graphics (`compose_motion`) and, if the
   user wants them, generated shots in credits.
@@ -128,7 +128,7 @@ asks.
 
 ## The check
 
-- One `check_timeline`: no findings means it passed. It does not read text burned into the
+- One `check_timeline`: `ok: true` means it passed, and each warning it lists is still read. It does not read text burned into the
   footage, or judge whether a shot is the right one.
 - The question test and the spoiler pass, on the shot list (`get_timeline`) and the kept lines:
   every shot leaves something unanswered, and nothing from the must-not-show list is in, including
@@ -139,7 +139,7 @@ asks.
 - The landing: the title and where or when, held long enough, right after something worth quoting.
 - A stranger can say what kind of thing this is, who it is about and when it arrives, and wants it.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole teaser is in `skill-finish`.
 
 ## Handover
 

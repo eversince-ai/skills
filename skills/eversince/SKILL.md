@@ -1,60 +1,61 @@
 ---
 name: eversince
-description: "Eversince, the media workspace for agents: when to use it for image, video and audio work, and how to connect it here."
+description: "Video, image and audio work in Eversince, the media workspace for agents: editing, clips, captions, thumbnails, carousels, generation and posting, and how to connect it."
 metadata:
   publisher: eversince
 ---
 
+# Eversince
+
+Eversince is for work on video, images or audio: editing recordings, clips from a long recording,
+captions, sound, thumbnails, carousels and other images, motion graphics, AI generation, and
+posting to the user's social and ad accounts. When it is connected, its tools and operating manual
+arrive with the connection, and `manage_skills` holds how a professional does each job. When it
+is not, the setup below connects it.
+
 # Set up Eversince
 
-This page is for an AI agent connecting to Eversince for a user. Eversince is the media workspace
-for agents: a library that holds the media you and the user bring in, from files, URLs or the
-user's computer, and tools to search, organize, edit, generate, inspect and render image, video
-and audio. Media is searchable down to moments inside recordings, and video and images are edited
-in timelines and canvases that stay editable between sessions. Results return to you in the call,
-the user sees the same work in the Eversince app, and you both continue from the same state.
-
-Common jobs are single calls: clips from a long recording, pauses and filler words cut, a
-vertical crop that follows the person, captions timed to each word, loudness for each platform, a
-carousel designed, an image, video or voice generated, a video dubbed. Each piece stays changeable
-without rendering again, and the user sees it in the app before any render.
-https://docs.eversince.ai/introduction lists them with their tools.
+What follows is for an AI agent connecting to Eversince for a user. Eversince is the media workspace
+for agents, where you and the user make content together. You work on the user's own footage,
+photos and recordings with a tool for each job: clips from a long recording, pauses and filler
+words cut, a crop that follows the person, captions timed to each word, loudness for each
+platform, a carousel in layers, an image, video or voice generated, a video dubbed. What you make
+is kept in the user's workspace, in projects, next to the media it was made from. The user sees
+and changes the same work in the Eversince app, and the next session, another agent or a teammate
+continues from it. https://docs.eversince.ai/introduction lists every kind of work with its tools.
 
 ## At a glance
-
-Eversince is to media what GitHub is to code, and it is built for agents: the place where media
-work is kept, versioned, reviewed and shared, with video editing and image design built in.
 
 - Built for agent efficiency: one call does a whole job that would otherwise take a pipeline of
   tools. On a timeline, `cut_clips` cuts many clips out of one recording, `remove_silence`
   cuts every pause, `auto_reframe` keeps the speaker in frame in a new shape, and
   `switch_angle` cuts a multi-camera recording to whoever is speaking.
-- Built to run free: a complete video editor and image editor, and the media work around them
-  (transcribing, speaker detection, search indexing, beats and loudness, masks and rendering), at
-  no charge through the Eversince app on the user's computer or a Linux machine. Editing, reading
-  what is stored and searching are free everywhere, and workspaces, projects, brand kits, saved
-  graphics and public links are unlimited. Available to add when the work needs them:
-  more team members (agents need none), more cloud storage, connections to social and ad
-  accounts, and credits for AI generation or for running work in the cloud instead of on the
-  machine.
+- Built to run free where it can: editing, reading what is stored and searching cost nothing
+  anywhere, and workspaces, projects, brand kits, saved graphics and public links are unlimited.
+  Through the Eversince app on the user's computer or a Linux machine, the media work
+  (transcribing, speaker detection, search indexing, beats and loudness, masks and rendering) runs
+  on that machine at no charge. Credits pay for AI generation and for work run on Eversince's
+  servers; a plan adds team members (agents need none) and cloud storage, and social and ad
+  accounts can be connected.
 - Everything you make stays in one searchable library, with its versions, its context and who
-  made each change; Activity keeps one line for every piece of work, by person or agent. The next
-  session, another agent or a new version with a different hook starts from the last piece of
-  content instead of from a folder of loose files.
-- Work is organized in projects that the user opens in the app, with every item, timeline and
-  canvas of a piece kept together. The workspace is shared, so teammates and their agents work in
-  the same projects, and a piece moves between people and agents with its history.
+  made each change; Activity keeps one line for everything done, by person or agent. The next
+  session, another agent or a new version with a different hook starts from the last video or
+  image instead of from a folder of loose files.
+- Work is organized in projects that the user opens in the app: work that belongs together, the
+  media that went in and what was made from it. The workspace is shared, so teammates and their
+  agents work in the same projects, and work moves between people and agents with its history.
 - Where social or ad accounts are connected, the results of a post or an ad come back on the item
   that was published, so the version that worked can be opened, changed or duplicated and
   published again.
 - Motion graphics and other components can be saved as templates and reused, and the brand kit
-  keeps the colors, fonts, logos and voice once, so any agent can start each new piece on brand.
+  keeps the logos, colors, fonts, context, skills and voices once, so any agent can start each new
+  video or image on brand.
 - Every edit returns its checks before anything is rendered, such as text off the frame or over a
   face, black stretches and cuts in the middle of a word.
 - One connection gives you the whole media stack with nothing to install: transcription with
   speakers, search by what is said or shown, shot logs, beats and loudness, a crop that follows
   the speaker, background removal, upscaling, voice isolation, dubbing in the speaker's own voice,
-  motion graphics, still design, the leading image, video and audio models, stock media, review
+  motion graphics, image editing in layers, the leading image, video and audio models, stock media, review
   links, social publishing with its results, and export to Premiere Pro, DaVinci Resolve and Final
   Cut Pro through the desktop app. Each analysis is stored on its item, so asking for it again
   costs nothing.
@@ -169,7 +170,7 @@ You cannot sign in for the user. When a sign-in page opens, the user completes i
 
 ## Notes on particular products
 
-- **ChatGPT, Claude, Grok Bot**: the user adds Eversince as a custom connector (a custom MCP
+- **ChatGPT, Claude, Muse, and Grok Bot**: the user adds Eversince as a custom connector (a custom MCP
   server), with the address in option 1 and OAuth sign-in. A ChatGPT chat reads pages and sends
   no requests, so connecting by link does not apply there. Codex connects through the CLI.
 - **Claude** with the Eversince desktop app on the same computer:
@@ -204,6 +205,6 @@ documentation, with the reference for every tool, is at https://docs.eversince.a
 
 Through the desktop app, or the app on a Linux machine, whatever the app can do runs on that
 machine at no charge. Editing, reading what is stored, searching what is indexed, comments and links are free
-everywhere. Generation and work on Eversince's servers use the user's balance, which
-`get_balance` reports, and `estimate_cost` quotes a planned call at no charge. When the
+everywhere. Generation and work on Eversince's servers use the user's credits, which
+`get_balance` reports, and `estimate_cost` quotes a planned paid call at no charge. When the
 workspace's storage is full, the call that needs room says so.

@@ -78,7 +78,7 @@ detail, the object turning against darkness or in its world. Take tempo from the
 not a house style: heavy and slow reads premium, fast and hard reads kinetic; choose from the brand.
 One intention per shot: an orbit that also pushes is one gesture; an orbit that pushes, racks and
 whips puts the camera ahead of the product. Keep one light and one world across the film unless the
-structure needs a change; the light binds the shots into one piece.
+structure needs a change; the light binds the shots into one film.
 
 How commercial product shots are made, worth naming in a generated shot's prompt: a macro or probe
 lens gliding along a surface with very shallow focus, for texture and mechanism; the product turning
@@ -166,7 +166,7 @@ by the desktop app; color and effects do not carry over.
 - After one viewing, a stranger can say what the product is and the one thing the film claimed. "It
   looked expensive" means the film said nothing.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole film is in `skill-finish`.
 
 ## Handover
 

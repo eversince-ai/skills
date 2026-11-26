@@ -27,10 +27,10 @@ user outranks every default here.
 
 - The camera sits at the wearer's eye, so a head turn is a pan the viewer did not choose.
 - Portrait, 3 wide by 4 high, on an ultra-wide lens (about 100°, 122° on Oakley Meta Vanguard). Up to 3K at 30 frames a second or 1080p at 60 on current models; 1080p on the first Ray-Ban Meta. A clip's real size and length are in `search_library`'s `technical`; a 16:9 clip in the batch is from a phone and is cut like phone footage.
-- Clips are short: 30 seconds by default, up to 3 minutes (5 on Vanguard). A day is many short clips.
+- Clips are short: 30 seconds by default, up to 3 minutes; on Vanguard up to 3 minutes at 3K and 5 at 1080p, a hyperlapse up to 30 minutes and slow motion up to 1. A day is many short clips.
 - Stabilization, slow motion and hyperlapse are set on the glasses. The timeline cannot steady a shaky clip, so the cut goes around shaky stretches.
 - The microphones sit near the ears: the wearer's voice close and clear, the world around it, wind where there was wind. Exposure is automatic: daylight is good, low light is grainy, a bright sky burns out and a backlit subject goes dark.
-- Clips reach the phone through the Meta AI app, as HEVC on iPhone and MP4 on Android. Clips copied to a computer are imported where they sit (`import_media` `local` through the desktop app), with no upload; from a phone they are shared into the Eversince app or dropped on an `import_media` `link` page.
+- Clips reach the phone through the Meta AI app, as HEVC on iPhone and MP4 on Android. Clips copied to a computer are imported where they sit (`import_media` `local` through the desktop app), with a cloud copy unless `cloud_copy` is false; from a phone they are shared into the Eversince app or dropped on an `import_media` `link` page.
 
 ## First-person grammar
 
@@ -91,7 +91,7 @@ A day's clips shot in sun and shade can be matched into one look with `skill-col
 
 ## The check
 
-One `check_timeline` with the platform reads the cut; no findings means it passed. Where the wearer speaks, read the words with `get_transcript`. Draw frames only where a finding names a clip, the cut has no speech, the user asked for it to be checked, or nobody sees it before it is used: `inspect_timeline` with `sheet: true`.
+One `check_timeline` with the platform reads the cut; `ok: true` is the pass, and each warning is still read and fixed or accepted. Where the wearer speaks, read the words with `get_transcript`. Draw frames only where a finding names a clip, the cut has no speech, the user asked for it to be checked, or nobody sees it before it is used: `inspect_timeline` with `sheet: true`.
 
 - Someone who was not there knows where this is in the first second and what happened by the end.
 - No frame mid head turn, and no clip opening on a hand at the temple.
@@ -99,7 +99,7 @@ One `check_timeline` with the platform reads the cut; no findings means it passe
 - Nothing that matters is cropped out by the vertical frame.
 - Captions sit below the hands, and any place card reads on the first frame.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole video is in `skill-finish`.
 
 ## Handover
 

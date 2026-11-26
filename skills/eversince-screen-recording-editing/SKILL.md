@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-screen-recording-editing"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-A screen recording holds the work and the waiting in equal measure, and the viewer came for the work. The demo is the same session at the speed of understanding: every wait, wander and false start gone, a zoom where the action is too small to follow, each step named by a voice or a label, every result held long enough to land. The interface itself is the claim, so its pixels stay as recorded: framed, cut, zoomed and pointed at, never restyled. A narrated film about a product is `skill-launch-videos`; a piece that explains an idea is `skill-explainer-videos`. A brief, a reference or a style from the user outranks every default here.
+A screen recording holds the work and the waiting in equal measure, and the viewer came for the work. The demo is the same session at the speed of understanding: every wait, wander and false start gone, a zoom where the action is too small to follow, each step named by a voice or a label, every result held long enough to land. The interface itself is the claim, so its pixels stay as recorded: framed, cut, zoomed and pointed at, never restyled. A narrated film about a product is `skill-launch-videos`; a video that explains an idea is `skill-explainer-videos`. A brief, a reference or a style from the user outranks every default here.
 
 ## The plan
 
@@ -36,7 +36,7 @@ Write the beats down before cutting: the action, the frame it starts, the frame 
 `remove_silence` cuts pauses in speech and knows nothing about a spinner. Dead time on a screen is visual: a page loading, a progress bar, the mouse wandering, a menu opened and abandoned, a typo typed and deleted. Cut it with `edit_timeline` rippleDeleteRange, which closes the gap on every track so the voice and picture stay together, working from the last span to the first since each cut moves every frame after it.
 
 - **A wait that is part of the claim stays, faster.** Split it and speed it (`setSpeed`, 4 to 8 for a progress bar) to under two seconds, and mark it (a small "4x" label) so it does not suggest a speed the product does not have.
-- **The rest can play a little faster.** Cutting the dead parts and playing the rest at 1.25 to 1.5x is common; a narrated stretch tops out around 2x, and needing more means there is still dead time to cut. Keep the voice's pitch.
+- **The rest can play a little faster.** Cutting the dead parts and playing the rest at 1.25 to 1.5x is common; a narrated stretch tops out around 2x, and needing more means there is still dead time to cut. The voice keeps its pitch at any speed.
 - **Typing with no story in it goes faster or goes.** The one line that causes the result (a command, a prompt, a search) is typed on screen at a speed that can be read.
 - **Late in, early out.** Each beat starts as the action begins and ends once its result is readable. Leave about a quarter to half a second after a click before cutting, and hold a result at least a second and a half, longer when it has to be read.
 
@@ -77,7 +77,7 @@ A desktop squeezed whole into 9:16 is unreadable. Open on the result with a shor
 
 ## The check
 
-One `check_timeline` reads the cut: no findings means it passed. It does not read the interface's own text, so readability and private data are judged on the picture. `inspect_timeline` with `sheet: true` gives the whole piece; `sheet` and `tiles` space frames evenly and cannot be aimed at beats, so look at specific moments with `inspect_timeline` `seconds`, and at single frames where a finding names a clip.
+One `check_timeline` reads the cut: `ok` true is the pass, and each warning in `issues` is still read. It does not read the interface's own text, so readability and private data are judged on the picture. `inspect_timeline` with `sheet: true` gives the whole video; `sheet` and `tiles` space frames evenly and cannot be aimed at beats, so look at specific moments with `inspect_timeline` `seconds`, and at single frames where a finding names a clip.
 
 - **Readable where it matters:** the words a beat depends on read at the size it is watched.
 - **Bearings:** it starts wide and returns wide between moves; no zoom on a stray click.
@@ -86,7 +86,7 @@ One `check_timeline` reads the cut: no findings means it passed. It does not rea
 - **True:** colors as recorded, nothing invented, every sped-up wait marked.
 - **Private:** no name, address, record or key visible anywhere.
 
-A last pass over the whole piece is `skill-finish`.
+A last pass over the whole video is `skill-finish`.
 
 ## Handover
 

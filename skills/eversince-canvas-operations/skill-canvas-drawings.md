@@ -29,7 +29,7 @@ Every layer field applies on top of the drawing: box (with rotation and flips), 
 # Method
 1. Decide the box in slide pixels and write the viewBox to match.
 2. One idea per layer: a color field is one drawing, its grain another on top with blend multiply or overlay, a light band a third with blend screen. Separate layers can be tuned, reordered and switched off; one monolithic filter chain cannot.
-3. Colors come from the brand kit or the design skill's look, not from the recipe.
+3. Colors come from the user's brand or brief, or the look from `skill-graphic-design`, not from the recipe.
 4. inspect_canvas after the first draw, then patchLayer `svg` until it reads; render_canvas at the end.
 
 # Recipes

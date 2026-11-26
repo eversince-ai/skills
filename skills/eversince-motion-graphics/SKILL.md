@@ -16,20 +16,20 @@ is a canvas.
 
 ## The plan
 
-A graphics-only piece with several sections, once the brief is settled. Ids in later steps come
+A graphics-only video with several sections, once the brief is settled. Ids in later steps come
 from earlier responses. Over footage, the ground in step 3 is left out and the sections sit
 transparent over the footage.
 
 1. get_timeline {timeline_id, response_format: "concise"} for the frame rate, size and what sits where
-2. detect_beats {ref: the music item} when the piece cuts to music
-3. compose_motion {timeline_id, source_code: the ground (background, grain), placement: {from_seconds: 0, duration_seconds: the whole piece}}
+2. detect_beats {ref: the music item} when the video cuts to music
+3. compose_motion {timeline_id, source_code: the ground (background, grain), placement: {from_seconds: 0, duration_seconds: the whole video}}
 4. inspect_timeline {timeline_id, seconds: [one settled frame of the ground]}
 5. compose_motion {timeline_id, source_code: section 1, placement: {from_seconds, duration_seconds}}
 6. inspect_timeline {timeline_id, seconds: [settled, the signature move, either side of a cut]}
 7. compose_motion and inspect_timeline once per remaining section, each placed by its seconds
-8. check_timeline {timeline_id}; its warning about a graphic over black is expected on a graphics-only piece
-9. inspect_timeline {timeline_id, span: {start, end}} over the piece, up to 60 seconds a call, for the arc as one strip and the stranger's read
-10. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over; render_timeline {timeline_id, idempotency_key} for a file used elsewhere
+8. check_timeline {timeline_id}; its warning about a graphic over black is expected on a graphics-only video
+9. inspect_timeline {timeline_id, span: {start, end}} over the video, up to 60 seconds a call, for the arc as one strip and the stranger's read
+10. publish_preview {timeline_id}: returns the preview the video already has, its app_url the link to hand over; render_timeline {timeline_id, idempotency_key} for a file used elsewhere
 
 Two overlays on an existing cut: a lower third, and a stat card timed to a spoken figure.
 
@@ -42,11 +42,11 @@ With no spoken figure, step 5 places the stat card on the line that makes the po
 
 6. inspect_timeline {timeline_id, seconds: [a settled frame of each, the count landing]}
 7. check_timeline {timeline_id}
-8. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over
+8. publish_preview {timeline_id}: returns the preview the video already has, its app_url the link to hand over
 
 ## The parts
 
-- `skill-motion-planning`: a piece with scenes. Sections as timed scenes, the 22 shot plans by
+- `skill-motion-planning`: a video with scenes. Sections as timed scenes, the 22 shot plans by
   role, cuts between scenes inside one graphic, and choosing transitions inside a graphic and
   between clips.
 - `skill-motion-overlays`: graphics over footage. Which kind a request is; lower thirds, callouts,
@@ -56,7 +56,7 @@ With no spoken figure, step 5 places the stat card on the line that makes the po
   graphic, or a mechanic you write by hand.
 
 A single title card from the shelf needs none of them. For a graphic over footage, open the
-overlays part for its kind's numbers. For a piece with sections, open the planning part before the
+overlays part for its kind's numbers. For a video with sections, open the planning part before the
 first section.
 
 ## The shelf
@@ -69,8 +69,8 @@ card. Reading one by id returns its controls and the `compose_motion` call that 
 `image` or `video` control takes a library item's ref in `values`; `code: true` adds its reviewed source to build from. Once
 placed, a shelf graphic is the clip's own code.
 
-Each shelf graphic carries its own type, position and entrance. A piece of several beats reads as
-one designed piece when its graphics share one display face and one text face, one ink and one
+Each shelf graphic carries its own type, position and entrance. A video of several beats reads as
+one designed video when its graphics share one display face and one text face, one ink and one
 accent, one zone of the frame for words and one entrance, set in the spec before the first graphic.
 Shelf graphics then go in as parts of that system: their controls set to it, and a font, position
 or entrance that differs changed in their code (`source_edits`). Four cards placed beat by beat in
@@ -102,7 +102,7 @@ The compiler enforces these; code outside them fails at compile or draws nothing
   place on the timeline. A frame can be drawn first, last or alone (the preview seeks; a cloud render
   starts each chunk cold), so state and effects hold only what is worked out once: a measured
   layout, a table built from the controls.
-- **Time is seconds times `useVideoConfig().fps`**, never a bare frame count, or the piece plays at
+- **Time is seconds times `useVideoConfig().fps`**, never a bare frame count, or the video plays at
   the wrong speed on another rate.
 - **Every ramp says where it stops**: `interpolate` extends past its last frame unless
   `extrapolateRight: 'clamp'` is set. The input range climbs and both lists match in length, or the
@@ -135,7 +135,7 @@ The compiler enforces these; code outside them fails at compile or draws nothing
   size, then about 0.72 and 0.52 of it, cut with an ellipsis past the last) with balanced lines.
 - **The fonts are the catalog's, spelled exactly**: Sans: Montserrat, Inter, Poppins, DM Sans, Manrope, Outfit, Plus Jakarta Sans, Rubik, Nunito, Quicksand, Raleway, Lato, Open Sans, Roboto, Archivo, Space Grotesk, Sora, Figtree, Lexend, Urbanist, Work Sans, IBM Plex Sans, Geist, Instrument Sans, Albert Sans, Red Hat Display, Hanken Grotesk, Schibsted Grotesk, Bricolage Grotesque, Inter Tight, Onest. Display: Oswald, Bebas Neue, Anton, Barlow Condensed, Big Shoulders, League Gothic, Antonio, Fjalla One, Teko, Saira Condensed, Unbounded, Syne, Archivo Black, Dela Gothic One, Chakra Petch, Orbitron, Russo One, Righteous, Bungee, Alfa Slab One. Serif: Playfair Display, DM Serif Display, Fraunces, Instrument Serif, Cormorant Garamond, Libre Baskerville, Lora, Merriweather, EB Garamond, Crimson Pro, Newsreader, Young Serif, Bodoni Moda, Abril Fatface, Gloock, Prata, Spectral. Mono: JetBrains Mono, Space Mono, IBM Plex Mono, Fira Code, Roboto Mono, DM Mono, Geist Mono. Handwritten: Caveat, Permanent Marker, Pacifico, Dancing Script, Kalam, Satisfy, Great Vibes, Rock Salt. Hebrew, Arabic, CJK: Heebo, Assistant, Noto Sans Hebrew, Cairo, Tajawal, Almarai, Noto Sans Arabic, Noto Sans SC, Noto Sans JP, Noto Sans KR. Any other family
   draws in a fallback with nothing reported.
-- **Ready-made pieces**: `<Camera legs={[{ at, dur, focus, scale,
+- **Ready-made parts**: `<Camera legs={[{ at, dur, focus, scale,
   ease, blur }]}>world</Camera>` is the one camera, each leg from wherever the camera is, `focus`
   the world point brought to the center in the frame's pixels as laid out, a value a leg leaves out
   holding, `blur` peaking at the leg's fastest moment; `Camera.at(t, legs, width, height)`
@@ -210,7 +210,7 @@ styles and fonts from Google Fonts or jsdelivr (Fontsource). Pictures come from 
 addresses; an outside picture is imported with import_media first, and any other address is refused.
 No requests, frames, video or audio inside it; footage and sound go on the timeline. HyperFrames
 shader transitions are refused (they do not render frame-exact); transitions are the timeline's or GSAP. A relative
-address does not load. It has no knobs, no template or `save_as`, and its words are not read by text search, `change_language` or
+address does not load. Its knobs are the variables its `<html>` declares (`data-composition-variables`), set with `values`; it takes no template or `save_as`, and its words are not read by text search, `change_language` or
 the text notes `inspect_timeline` returns, so its frames are judged by eye. A revision is
 `compose_motion` with `html` and `clip_id`. A HyperFrames project of several files comes in as one
 document, its sub-compositions inlined and its pictures imported to the library and named
@@ -232,14 +232,14 @@ a render in a browser tab refuses it.
   0.07s apart, or the whole line from 8px over 0.15s, with no travel. Once landed it is dead still,
   and it leaves the same way in 0.13 to 0.25s. This replaces fading and sliding up every line.
 - **Nothing arrives before its beat**: everything on screen in the first quarter and then frozen is
-  a slideshow. Bring each piece in when the words reach it, spread across the back half of the scene.
+  a slideshow. Bring each element in when the words reach it, spread across the back half of the scene.
 - **Stillness over filler**: breathing, floating, drifting and pulsing loops look like the video is
   waiting. A slow push through the back half of a scene pulls the eye off the content. A hold
   carries only a barely visible jitter, or the subject acting: a count ticking, an icon's part
   turning, a cursor leading the eye.
 - **Cut while moving, in one direction**: across a cut inside one graphic, the outgoing element is
   still accelerating when the cut lands, and the incoming one carries on along the same axis, the
-  same way, at the same speed. One direction carries the piece; save the others for meaning
+  same way, at the same speed. One direction carries the video; save the others for meaning
   (`skill-motion-planning`).
 - **One primary transition**: one style carries most changes, with one or two accents for the
   opening, a change of topic and the climax. Nothing animates out before a scene change except in
@@ -254,9 +254,9 @@ before a payoff.
 ## Before code
 
 A single element (a lower third, a callout, a title card) needs only the look, taken from what it
-sits on. A piece with sections settles five things first:
+sits on. A video with sections settles five things first:
 
-- **The concept**: the visual idea unique to this piece: a metaphor, a transformation, a build. A
+- **The concept**: the visual idea unique to this video: a metaphor, a transformation, a build. A
   section plan is not a concept. Several ideas from different starting points (the subject's own
   world, the feeling, the audience, the category's cliché turned over) beat the first one; two with
   the same silhouette count as one.
@@ -265,12 +265,12 @@ sits on. A piece with sections settles five things first:
 - **The look, in one anchored sentence**: tie it to the brand or the subject and name a design
   language (editorial typography, keynote minimalism, condensed display, editorial serif). Without
   an anchor you get the template.
-- **The arc**: what changes across the piece (energy escalating, complexity building to a reveal,
+- **The arc**: what changes across the video (energy escalating, complexity building to a reveal,
   tension to release). Every section at the same energy is flat.
-- **The one spectacle**: the single exaggerated moment the piece earns, when it lands and how it
+- **The one spectacle**: the single exaggerated moment the video earns, when it lands and how it
   settles. Everything around it stays restrained.
 
-Read the answers together: a vertical ninety-second piece built on dense charts puts them on a
+Read the answers together: a vertical ninety-second video built on dense charts puts them on a
 phone screen too small to read. A specific brief (a reference, a named style) is executed as given.
 
 Write them down before the first compose as the spec, a comment block at the top of the source
@@ -288,7 +288,7 @@ adjective into a number: "big" is a share of the frame, "fast" is seconds.
 - SHOTS: each with its seconds, what is on screen, its one move, every element with its verb
   (arrives, draws, counts, swaps, docks) and what carries its middle (`Scene 2 (1.0 to 3.0s): the
   three icons arrive as the line names each`).
-- BANNED: the defaults below that this piece could fall into, by name.
+- BANNED: the defaults below that this video could fall into, by name.
 
 For scenes and cuts, see `skill-motion-planning`.
 
@@ -303,7 +303,7 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
   3), body (3 to 12), close; three to five text elements. **30s**: opening, three or four beats at 4
   to 5s each, close; five to eight. **60s**: hook, context, value, close; eight to twelve. **Longer**:
   five or more sections on a planned energy arc.
-- A held statement stays on screen about 0.5 seconds plus 0.3 seconds a word, the piece's last line
+- A held statement stays on screen about 0.5 seconds plus 0.3 seconds a word, the video's last line
   at least 2 seconds. A longer hold is a dead stretch, not a safer read. With voiceover it stays at
   least half a second past the spoken phrase. Over twenty words, split it into several beats.
   Kinetic typography breaks this on purpose: words land and leave inside a second, and the sequence
@@ -311,7 +311,7 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
   word or two can carry an elaborate move.
 - Nothing flashes more than three times in a second: past that is the accessibility limit for
   seizures, and a strobe on a hit is still one flash.
-- Text carries the piece with sound off. It follows an arc whose close resolves what the hook
+- Text carries the video with sound off. It follows an arc whose close resolves what the hook
   opened, two to five words a beat, density inverse to the visual's. Keep a real figure or a named
   feature as the source wrote it ("2.4M a second", not "fast"). On-screen text is motion copy (a
   hero word, a number, a short line), not a sentence lifted from the narration.
@@ -335,10 +335,10 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
 - Stagger in order of importance, not reading order. What existed before the shot appears together.
 - Velocity contrast creates energy: slow, slow, fast is anticipation into release.
 - The handoff is the motion: the next section arrives while the current one leaves. A fade to black
-  is a deliberate beat. Where the piece repeats a structure, give each transition a fixed meaning:
+  is a deliberate beat. Where the video repeats a structure, give each transition a fixed meaning:
   the primary for the next thing along, an accent for going deeper into this one.
 - A persistent thread (one shape, line or accent that carries through and morphs between sections)
-  keeps a multi-section piece from reading as several ads. So does a persistent frame, accumulation
+  keeps a multi-section video from reading as several ads. So does a persistent frame, accumulation
   where nothing exits and all but the newest quiets, or a hero prop held while everything around it
   changes. The deliberate alternative is a hard anthology of short sections.
 - Connected parts share one coordinate space: a label and its arrow, a callout and its target, in
@@ -353,9 +353,9 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
   halves of a cut made while moving · `Easing.inOut(Easing.cubic)` a move between two positions ·
   `Easing.in(Easing.exp)` an exit that accelerates away · `Easing.inOut(Easing.sin)` calm and slow
   · `Easing.out(Easing.circle)` a camera or an orbit · linear only for a constant scroll or the
-  value behind a counter. A piece speaks in about three easing characters: a calm, a standard, a
+  value behind a counter. A video speaks in about three easing characters: a calm, a standard, a
   punch. A bounce, when chosen, is a real spring, `spring({ frame, fps, config: { damping: 12,
-  stiffness: 200 } })`, held as the piece's one physics; a spring times itself, so
+  stiffness: 200 } })`, held as the video's one physics; a spring times itself, so
   `durationInFrames` stays off it and stiffness sets its speed.
 - **Enter, hold and exit in one interpolate** on one value: keyframes `[0, 0.5 * fps, hold, hold +
   0.4 * fps]` to `[0, 1, 1, 0]`, one easing per segment, clamped both ends.
@@ -372,7 +372,7 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
   shrunk. A graphic that owns the frame composes the whole frame: a small card centered in an empty
   frame is not a shot. The full scale is `skill-graphic-design`. Key
   content inside about 7% of the width from each side and 9% of the height from top and bottom; on
-  9:16 nothing in the top 12% or bottom 24%, text
+  9:16 nothing in the top 12%, the bottom 24% or the right 10% (the button column), text
   30 to 50% larger; 1:1 centers. Recompose, never crop.
 - **Animate with `transform`, lay out with flex**: animating top, left, width or height reflows text
   every frame.
@@ -398,12 +398,12 @@ statements, no product detail) · logo reveal (one moment, sound carries it).
 
 ## Audio
 
-If the piece has music, the music comes before the design: the user's own track, then
-`generate_audio` music made to fit the piece's length and hits exactly (a job, in credits) where
+If the video has music, the music comes before the design: the user's own track, then
+`generate_audio` music made to fit the video's length and hits exactly (a job, in credits) where
 the user has credits, a stock track (`search_stock` kind music) only where the user picked it. Measure beats with `detect_beats` (cloud processing). A hit lands
 about 0.1s (three frames at 30) ahead of the measured beat, where it reads as on it. On calm music
 the grid is the tracker's guess, so changes land on phrases instead. The rest of cutting to music is
-`skill-sound-design`. Sound effects make transitions physical; use them selectively. The piece
+`skill-sound-design`. Sound effects make transitions physical; use them selectively. The video
 still works silent, because the feed plays it silent.
 
 ## The order across tools
@@ -441,7 +441,7 @@ still works silent, because the feed plays it silent.
 
 **Sections are separate composes placed by frame**, unless an element carries across the cut between
 them (a headline word, a card that docks, a cursor). Then they are one graphic, since nothing crosses
-between two clips. The ground under a whole piece is its own graphic on the lowest track, with its
+between two clips. The ground under a whole video is its own graphic on the lowest track, with its
 `<Grain />` and any vignette; sections sit transparent above it. Stills and b-roll from the library
 sit under the overlays the same way. Put an asset inside the clip when the graphic has to move with
 it (a callout on a screenshot, a logo being revealed): an `image` or `video` control, set in
@@ -452,9 +452,9 @@ own art, a stock illustration or icon (`search_stock` kind illustration or vecto
 `remove_background`). Place it as an `Img` with the moves built in code above it, and check its
 edge over a light and a dark ground.
 
-Build a multi-section piece audio first, then the first section alone, composed and inspected, since
+Build a multi-section video audio first, then the first section alone, composed and inspected, since
 it sets the direction; then the remaining sections one compose at a time, each inspected; then read
-the whole piece: does the arc build, does one primary transition carry the changes, does text hold
+the whole video: does the arc build, does one primary transition carry the changes, does text hold
 long enough, does anything sag?
 
 **A finished picture animated in place** (a thumbnail, a slide, a screenshot, a diagram, where every
@@ -471,27 +471,26 @@ is the picture again, which is where a loop ends.
 
 ## The check
 
-Check real frames at the entrance, mid-hold and exit of every section, about five a call at 1080p (more exceeds the
-request size limit):
+Check real frames at the entrance, mid-hold and exit of every section, up to 12 a call:
 legible at delivery size over the actual background; nothing mid-animation on a clip's last frame;
 nothing drifted that should connect; one primary transition held, with accents only where they mean
 something; the arc felt; every compile note weighed; the look chosen rather than generated
 (`skill-graphic-design`'s check). Rank each problem P0 (unreadable, broken, an empty frame), P1 (a default
 from the list below, a number off the spec) or P2 (polish). Fix P0 and P1 before handover.
 
-When a piece is close: off pacing is the energy arc (no escalation, no holds), not individual
+When a video is close: off pacing is the energy arc (no escalation, no holds), not individual
 timings · "more energetic" means more contrast between slow and fast, not everything faster ·
 "looks generic" is, in order, brand colors or the purple default, structural variety, the persistent
 thread, full-frame content or centered text on a gradient · "shorter" cuts the weakest section whole
-rather than compressing everything · "a slideshow" is content dumped early and held: move each piece
+rather than compressing everything · "a slideshow" is content dumped early and held: move each element
 onto its beat and hand scenes over while moving · "cheap" or "AI" is bounce, idle wobble, web-sized
 type and the default fonts, in that order.
 
-`skill-finish` has a last pass over the whole piece.
+`skill-finish` has a last pass over the whole video.
 
 ## Handover
 
-- The piece at its destination's shape and length; a section cut to music lands on beats from `detect_beats`.
+- The video at its destination's shape and length; a section cut to music lands on beats from `detect_beats`.
 - Over the user's footage: no graphic over a face or in the caption band.
 - In the app from its first media, where it plays; the result's app_url is the link the user opens. `render_timeline` makes a file for use elsewhere, a transparent WebM when the graphic goes into another editor.
 - Also possible: the graphic saved as a template for reuse (`save_as`), versions at other shapes, sound effects on its transitions, a music bed cut to it.
@@ -516,7 +515,7 @@ the subject; a reference or a brand from the user outranks this list.
 
 ## The stranger's read
 
-Once, on a finished piece, using frames already drawn: describe each beat as someone who has not
+Once, on a finished video, using frames already drawn: describe each beat as someone who has not
 seen the brief would, naming every object on screen. Fix any object that needs explaining first:
 remove it or make it read. The words alone and the pictures alone should tell the same story. Skip
 this for a single card, or a small note while the user is watching.

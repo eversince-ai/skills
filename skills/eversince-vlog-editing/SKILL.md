@@ -11,7 +11,7 @@ A vlog is a day, a trip or a stretch of life cut so the viewer lives it in the o
 
 ## The plan
 
-1. The user's style, where they have one or show a reference; then log everything: the to-camera pieces, the scenes, the details and the in-between shots, with what happens in each
+1. The user's style, where they have one or show a reference; then log everything: the to-camera takes, the scenes, the details and the in-between shots, with what happens in each
 2. Pick the shape (below) and the one question the vlog carries: will the move happen, how does the launch go, what is this city like
 3. Build the cold open last, from the strongest moments; the day in order after it
 4. Cut each part at its shape's pace, with voice, text and music as the shape uses them
@@ -20,7 +20,7 @@ A vlog is a day, a trip or a stretch of life cut so the viewer lives it in the o
 
 ## Logging
 
-See everything before choosing anything. `transcribe_media` with `refs` and `format: "lines"` returns the words of every item that has them; an item with none is read with `ref` (over five minutes, a job). Action-led clips are read with `inspect_media` `overview`, then `window` into anything alive; the overview also shows footage that already carries text, and a `prompt` read hears music already in a clip. Log a scene as a scene: where, who, what happens, the one line that says why it matters, how it ends. Log the to-camera pieces apart, since they are the narration, and mark any line that states the day's promise for the cold open. `search_footage` over the day's `project` finds a spoken moment across every item.
+See everything before choosing anything. `transcribe_media` with `refs` and `format: "lines"` returns the words of every item that has them; an item with none is read with `ref` (over five minutes, a job). Action-led clips are read with `inspect_media` `overview`, then `window` into anything alive; the overview also shows footage that already carries text, and a `prompt` read (credits) hears music already in a clip. Log a scene as a scene: where, who, what happens, the one line that says why it matters, how it ends. Log the to-camera takes apart, since they are the narration, and mark any line that states the day's promise for the cold open. `search_footage` over the day's `project` finds a spoken moment across every item.
 
 ## The user's own style first
 
@@ -41,7 +41,7 @@ These are the defaults when the user has no style of their own.
 **A short vertical day in my life** (TikTok, Reels, Shorts; most run 45 to 90 seconds, up to three minutes allowed)
 - Open on the day's most unusual frame and its premise in the first second; a flash of the whole day in a fraction of a second is one way.
 - Clips of about 1.5 to 4 seconds, the day in order, faster through the middle and slower at night.
-- Voice in one of three ways: text on screen only, a voiceover recorded afterward (often written first, with the edit built to it), or short pieces to camera. Captions on any speech (`skill-animated-captions`).
+- Voice in one of three ways: text on screen only, a voiceover recorded afterward (often written first, with the edit built to it), or short takes to camera. Captions on any speech (`skill-animated-captions`).
 - 9:16 (`auto_reframe` on horizontal clips), ending on the payoff of the premise.
 
 **A long YouTube vlog** (a day, a week, a project; often 10 to 40 minutes)
@@ -66,14 +66,14 @@ These are the defaults when the user has no style of their own.
 - **Sound leads the picture:** start the next place's sound a beat to two seconds before its picture (`detachAudio`, `unlinkClips`, then `trimClip` on the sound's edge), so the cut feels like going somewhere.
 - **On the beat:** in a passage with music, `detect_beats` on the track gives its beats; land the cuts of the passage on them. Talk is never cut to the beat.
 - **A punch-in on the funny or important line:** `auto_zoom` with `clip_id` and `moments_seconds` on that line, not a rhythm of punches everywhere.
-- **Speed:** a short time-lapse or a speed ramp through a walk or a drive (`setSpeed`; a ramp is `splitClip` into pieces and one `setSpeed` each).
+- **Speed:** a short time-lapse or a speed ramp through a walk or a drive (`setSpeed`; a ramp is `splitClip` into parts and one `setSpeed` each).
 - **B-roll by what is in it:** `search_footage` over the day's project finds the shot a line mentions (the coffee, the street, the screen) when the log did not tag it.
 - **Silence as a beat:** cutting the music out for a second lands a moment harder than any effect.
 
 ## Voice, music and sound
 
-- **The scene's own sound** is the dialogue and the room. Clean a phone-mic piece where the user asks (`clean_audio`, cloud processing).
-- **Music** where the user wants it, under the cold open, the passages and the close, dipped under talk: `duck_music` with `ref` (the track, in the manual's order: the user's own first, stock only where the user picked it) places and ducks it in one call; when the track was never measured its level is kept, so check that `check_timeline` does not flag the music as loud, and lower the music clip's volume if it does. Change the track when the story shifts rather than looping one song under everything. A scene that should stand on its room alone has the music split out of it (splitClip and removeClip on the music).
+- **The scene's own sound** is the dialogue and the room. Clean a phone-mic recording where the user asks (`clean_audio`, cloud processing).
+- **Music** where the user wants it, under the cold open, the passages and the close, dipped under talk: `duck_music` with `ref` (the track, in the manual's order: the user's own first, stock only where the user picked it) places and ducks it in one call, measuring the track first (cloud processing); where it cannot be measured its level is kept with a warning, so check that `check_timeline` does not flag the music as loud, and lower the music clip's volume if it does. Change the track when the story shifts rather than looping one song under everything. A scene that should stand on its room alone has the music split out of it (splitClip and removeClip on the music).
 - **Rights:** a business account on TikTok can only use the commercial library, and that license does not carry to Reels or YouTube. Music that is not cleared on a long YouTube vlog sends its revenue to the rights holder. Use music the user can use, or leave room for a sound added in the platform's app.
 - `level_audio` with the platform once the cut is final (`skill-sound-design` for the mix).
 
@@ -83,7 +83,7 @@ These are the defaults when the user has no style of their own.
 - **A long vlog** usually is not captioned over its scenes; a subtitle file goes out separately (`captions` export, format srt, after `transcribe_media` with `timeline_id`).
 - **A day or time stamp** on the first exterior, and a card naming each scene (the place, the time) where the vlog uses them; the shelf's `place-dateline` graphic is a ready version (the place at about 4% of the frame's height, the date or time beneath). Cards enter and leave on a cut and hold still; a stamp or place line at 4% of the frame's height or more, in a color clearly apart from what is behind it.
 
-You can also build one channel's signature devices where the user wants that style or shows a reference: a to-camera piece as an inset on a white matte with its sentence beneath, a single word popped on screen in the cold open, a scene card with a still of the room, a split panel with an agenda beside the footage, a stat card with the number that matters. Build them as clips on `edit_timeline` (solids, scaled clips, text clips timed from `get_transcript`), in the user's fonts and colors where they have them.
+You can also build one channel's signature devices where the user wants that style or shows a reference: a to-camera take as an inset on a white matte with its sentence beneath, a single word popped on screen in the cold open, a scene card with a still of the room, a split panel with an agenda beside the footage, a stat card with the number that matters. Build them as clips on `edit_timeline` (solids, scaled clips, text clips timed from `get_transcript`), in the user's fonts and colors where they have them.
 
 ## The look
 
@@ -91,7 +91,7 @@ Footage from a phone and a camera, or from different light, has to read as one f
 
 ## The check
 
-- One `check_timeline` with the platform: no findings means it passed. It does not read text burned into the footage or whether a scene is the right one.
+- One `check_timeline` with the platform: `ok` true is the pass, and each warning in `issues` is still read. It does not read text burned into the footage or whether a scene is the right one.
 - **The day test** (`get_timeline`): scenes in the day's order, any stamp on the first exterior only.
 - **The room test** (`get_transcript`): no scene cut shorter than the thing that happened in it.
 - **The open test:** every moment in the cold open recurs later in the day; a promise the day never delivers comes out of the open.
@@ -106,7 +106,7 @@ Footage from a phone and a camera, or from different light, has to read as one f
 ## An example plan: a long vlog for YouTube
 
 1. search_library {project: "<the day's project>", type: "video"} for the items; transcribe_media {refs, format: "lines"}; inspect_media {ref, mode: "overview"} on the action-led items
-2. The log: each scene, each to-camera piece, the details by the passage they can carry; the question the day carries
+2. The log: each scene, each to-camera take, the details by the passage they can carry; the question the day carries
 3. manage_timelines {create: {name: "<the day> · vlog", aspect_ratio: "16:9", clips: per scene in the day's order, the to-camera bridge then the scene, each {ref, source: [start, end]}, a passage between scenes the same way}}
 4. get_transcript {timeline_id} and edit_timeline rippleDeleteRange on whole passages a scene loses
 5. The cold open: edit_timeline insertClip per moment at the start, the to-camera line first, each moment two to four seconds from the scenes' own spans

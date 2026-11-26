@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-image-ads"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-A static ad gets about a second, at thumb size, next to something more interesting. Everything here serves being understood that fast. It is one still with a headline and the product, sized for a placement, made one of two ways: composed on a canvas from real pictures and typed words, or generated whole from a prompt. A product photograph without copy is `skill-product-photography`; a thumbnail or poster is `skill-making-thumbnails`; a batch built to test arguments is `skill-ad-variations`, which holds the angles and the anatomy of one piece. A brief, a reference or a brand the user gives outranks every default here.
+A static ad gets about a second, at thumb size, next to something more interesting. Everything here serves being understood that fast. It is one still with a headline and the product, sized for a placement, made one of two ways: composed on a canvas from real pictures and typed words, or generated whole from a prompt. A product photograph without copy is `skill-product-photography`; a thumbnail or poster is `skill-making-thumbnails`; a batch built to test arguments is `skill-ad-variations`, which holds the angles and the anatomy of one ad. A brief, a reference or a brand the user gives outranks every default here.
 
 ## The plan
 
@@ -42,7 +42,7 @@ Start with the angle: the one reason this ad gives, sharpened into a claim. "Mad
 - **Product-aware**, not yet sold: answer the objection that stops them, with proof (a review, a result, a number, a demonstration).
 - **Most aware**: the offer itself, the product and the deal.
 
-Cold audiences on Meta and TikTok are mostly problem-aware, not unaware. Ad platforms now match each ad to the people it suits, so a few ads at different stages tend to beat one aimed at everyone.
+Ad platforms now match each ad to the people it suits, so a few ads at different stages tend to beat one aimed at everyone.
 
 **The six kinds of angle**: pain (the problem, specific, ended), outcome (life after), proof (someone it worked for, a result), switch (this against what they use now, on one difference), mechanism (why it works) and deal (the offer leads).
 
@@ -62,7 +62,7 @@ Ads that look like a post, a note or a screenshot get read; ads that look like a
 - **Offer**: the deal big, the product, an end date if there is one.
 - **Clean product**: the product alone, beautifully lit, one short line.
 
-Format matters less than the angle: studies of hundreds of ads find the type barely changes results, while the message does. Static ads often do best for retargeting and offers, and accounts usually run them beside video.
+Choose the angle first and the format to carry it. Accounts usually run still ads beside video.
 
 ## Remaking an ad that works
 
@@ -104,6 +104,8 @@ The left column is what comes out by default; the right is what a person would s
 ## Design
 
 Type, color, composition, depth and the defaults that read as generated are `skill-graphic-design`; its delivery checklist is the check on a finished ad. Specific to ads: the eye lands on the headline, then the product, then everything else, and size, weight and position set that order. In a long headline, lift the two or three words that carry it with an accent color, a heavier weight or a marker behind them. Put text over a photograph on the calmest part of the frame, with a real treatment behind it when it needs one (a panel, a lozenge, a scrim); don't fix contrast by recoloring the line. A set or a multipack shows the whole set somewhere in the ad.
+
+On Meta, Advantage+ creative enhancements (some on by default) can crop, add text to or rework a still ad after it is built; an ad that must run as composed has them switched off in the ad account.
 
 ## Composed on a canvas
 

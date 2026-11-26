@@ -9,7 +9,7 @@ This is Eversince's own skill. When Eversince is connected, `manage_skills` with
 
 An explainer is an argument with pictures, and the argument comes first: one idea, taught in beats,
 each beat one sentence the viewer keeps and one picture that shows it. If the script does not teach
-on paper, animation will not fix it. To persuade, use `skill-launch-videos`; for a piece with no
+on paper, animation will not fix it. To persuade, use `skill-launch-videos`; for a video with no
 voice, cut to a track, use `skill-music-videos`. A faceless channel is `skill-faceless-videos`.
 A brief, reference or brand from the user outranks every default here.
 
@@ -24,7 +24,7 @@ A brief, reference or brand from the user outranks every default here.
 7. Only where the user asked for music or effects: duck_music {timeline_id: from step 3, ref: the user's track or a search_stock id the user picked}; a search_stock kind sfx on a landing
 8. For a feed, or where the user asked: captions {action: "generate", timeline_id: from step 3, template: "Social" for a feed, "Subtitles" for a player, style: {maxWords: 3}}
 9. level_audio {timeline_id: from step 3}; check_timeline {timeline_id: from step 3}: the one check; a sheet only in the four cases under The check
-10. publish_preview {timeline_id: from step 3}: returns the preview the piece already has, its app_url the link to hand over
+10. publish_preview {timeline_id: from step 3}: returns the preview the video already has, its app_url the link to hand over
 
 The user's own recording works the same: it goes on the timeline as the clip in step 3, then transcribe_media {timeline_id} runs before get_transcript.
 
@@ -38,7 +38,7 @@ Fully generated (a faceless channel, an all-AI look): steps 5 and 6 become gener
 - The destination: 16:9 for a player or a site, 9:16 for Shorts, TikTok and Reels, 4:5 or 1:1 in a
   feed; and whether sound can be assumed.
 - The material: an article, notes or a document (`read_document`), screenshots, footage, an earlier
-  piece, a brand's look. A source is information, not a running order. Its headings are never the
+  video, a brand's look. A source is information, not a running order. Its headings are never the
   hook; rearrange, combine and cut its sections into the order the viewer needs.
 - A script brought in is fixed or reworkable. Divide a fixed script into beats only where a
   sentence or clause ends, change no word, and keep its runtime.
@@ -61,10 +61,10 @@ Write it whole before any picture.
   has wondered, a claim against what they think, a muddle they recognize, an image that makes the
   abstract physical. Never open on a definition.
 - **The idea is clear by beat two.** Two tests on the beat list: remove every supporting beat and
-  what is left still states the idea; remove the idea's own beats and, if the piece still seems to
+  what is left still states the idea; remove the idea's own beats and, if the video still seems to
   work, it was a tour.
 - **One idea per beat, numbered.** Each beat carries the sentence the viewer keeps and how it
-  sticks: made tangible, shown a piece at a time, set against its opposite, given a shape, backed
+  sticks: made tangible, shown a part at a time, set against its opposite, given a shape, backed
   by a figure or a source, or closed off. A beat that needs three pictures is three beats.
 - **A beat for what it is not.** Name the neighboring idea the audience will confuse it with and
   set it apart; the boundary teaches more reliably than another example.
@@ -87,7 +87,7 @@ Make the narration first; every cut and reveal is timed to it.
   Each clip's real length is its beat's length; revising a beat is one regeneration.
 - Set the delivery with tags before the line (a pace or a tone, such as "[calm, unhurried]"); `skill-voiceovers-and-music` has the tags. When a line runs longer than its picture, keep the
   delivery and extend the picture: hold the finished frame, or add a second shot.
-- For a short piece where the flow across sentences matters more, make one file and read its beats
+- For a short video where the flow across sentences matters more, make one file and read its beats
   from `get_transcript` sentences.
 - Spell the script the way it should be said (`generate_audio` reads the text exactly):
   "C S V", "about four and a half million", "example dot com". Captions are cut from those words,
@@ -95,7 +95,7 @@ Make the narration first; every cut and reveal is timed to it.
 - When the voice is priced but not yet made, put the script on the timeline as text clips, one a
   beat, each held for its words at speaking pace, and cut the pictures to those. Once real takes
   exist, they replace the text and every reveal is retimed to its word.
-- A presenter on camera is one beat, not the whole piece: the opening and the close, where a face
+- A presenter on camera is one beat, not the whole video: the opening and the close, where a face
   earns trust; the pictures carry the rest. In the edX study, a face cut between slides held viewers
   better than slides alone. Generate the presenter's line as that beat's voiceover
   and hand it to a video model that takes reference audio (`list_models` says which).
@@ -133,7 +133,7 @@ alone or together:
   (`list_models` says which models take references and their durations). Check the stills before
   paying for any video.
 
-Decide one design system for every picture before the first frame (`skill-graphic-design`). A short piece
+Decide one design system for every picture before the first frame (`skill-graphic-design`). A short video
 collapses to one idea, one picture, one build.
 
 ## Sound
@@ -155,12 +155,11 @@ Whether to show the user the script and its cost first is up to you.
 
 ## The order across tools
 
-Narration first, so its frames set every cut; designed frames next, so the piece is judged in
+Narration first, so its frames set every cut; designed frames next, so the video is judged in
 stills; video and code last, against the frames the narration gives.
 
-On the timeline: `manage_timelines` create; `edit_timeline` setAspectRatio, then addClip per
-narration file in order on the visual track with no frame, each landing after the last.
-`get_transcript` words returns every word as [index, text, from_frame, to_frame]; land each cut and
+On the timeline: one `manage_timelines` create with aspect_ratio and the narration clips in order, as
+in step 3. `get_transcript` words returns every word as [index, text, from_frame, to_frame]; land each cut and
 reveal on the frame of its word. Inside a `compose_motion` clip, a reveal's frame is that frame
 minus the clip's own start. Get an uploaded clip's words with `transcribe_media` `timeline_id`;
 a generated voice already carries them. For feed work, `captions` generate with maxWords 3 to 4 under narration; the rest is in
@@ -168,18 +167,18 @@ a generated voice already carries them. For feed work, `captions` generate with 
 
 ## The check
 
-- One `check_timeline`: no findings means the check passed. It does not read text inside a picture,
+- One `check_timeline`: `ok: true` means it passed, and each warning it lists is still read. It does not read text inside a picture,
   a graphic's own layout, or whether a picture shows what its line says.
 - Read `get_transcript` once more against the source and the beat list: every number and claim,
   the first line a question and the last the idea. With the picture off, the voice alone teaches.
 - Look at frames in four cases: a finding names a clip; the look alone decides (a graphic written
-  as code, a generated frame); the user asked for the work to be verified; or nobody sees the piece
+  as code, a generated frame); the user asked for the work to be verified; or nobody sees the video
   before it is used. One picture covers it: `inspect_timeline` with `sheet: true`, read against
   the beat list. Remake or cut a beat where the picture only decorates.
 - The cold read: every beat can be said back from its own line and picture. A beat that needs its
   neighbors to make sense is a script problem.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole video is in `skill-finish`.
 
 ## Handover
 

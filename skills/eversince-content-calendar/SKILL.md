@@ -19,11 +19,11 @@ Follow how the user already works. The ways below are options; if the user has a
 
 **Planning a run of posts:**
 1. Find out how far ahead, which platforms, how often, and what the posts are made from
-2. manage_cards create per post {place: its day, title, body: what it is, fields: its time and channels, status}
+2. manage_cards create per post {place: its day, title, body: what it is, fields: its time and channels, status}; a status is one of the workspace's own or suggested ones, which get_workspace_overview lists
 3. Give the plan in the chat, one line per post by day; the posts the user picks are made with their own skills
 
 **An ongoing session:**
-1. manage_cards list {from, to} for the days in play, and get_workspace_changes for what others changed since
+1. manage_calendars get for the days in play, which carries each card's time, channels and status (manage_cards list gives only place, revision and body length), and get_workspace_changes for what others changed since
 2. See what moved: posts finished, statuses changed, gaps in the coming days, and posts held for approval or failed (`manage_social_posts` list with status)
 3. Do the session's work (make posts, write captions, move entries) and update each card as it changes
 4. Report what is ready, what is waiting on whom, and what is open
@@ -55,7 +55,7 @@ A plan turns into a finished post on the same card: attach the items and write t
 ## Eversince's calendar
 
 - **The calendar** is one per workspace and holds cards, each on a day with a time and the channels (platforms, each with its own mark) and showing its status. `manage_calendars` get names the fields and the channels, and reads a range of days.
-- **A card** (`manage_cards`) is an entry with a title, a markdown body, attached library items in order with their own text, and a status from the workspace's list. It goes on a day with its time and channels, so one card follows a post from idea to done. The body holds the caption and notes; the attachments hold the items. update needs the revision from read, so if another member changed an entry, read it again instead of overwriting it.
+- **A card** (`manage_cards`) is an entry with a title, a markdown body, attached library items in order with their own text, and a status from the workspace's list. It goes on a day with its time and channels, so one card follows a post from idea to done. A card the user started a post on in the app carries it as post_draft. The body holds the caption and notes; the attachments hold the items. update needs the revision from read, so if another member changed an entry, read it again instead of overwriting it.
 - **A single finished item** goes on a day as a card with that item attached and no body.
 - **What attaches:** library items: footage, rendered items, images, documents. Name a timeline or canvas still being edited in the card's body until you attach its render.
 - **Series, pillars and campaigns** go in a card's title or body.

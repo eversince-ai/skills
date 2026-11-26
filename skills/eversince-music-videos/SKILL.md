@@ -20,18 +20,18 @@ There are four common shapes, and one video can mix them:
 
 ## The plan: a performance video
 
-1. Find the song's beats and sections: `detect_beats` {ref: the song}
+1. Find the song's beats and downbeats: `detect_beats` {ref: the song}; its sections come from listening to it or from the user
 2. `manage_timelines` {create: {name, aspect_ratio: the destination's}} → the timeline
 3. Line up the takes to the song: `sync_recordings` {timeline_id, refs: [the song, the takes]}
 4. Cut the performance across the whole song: `switch_angle` {timeline_id, switches: [{from_seconds, to_seconds, angle}]}, cuts on downbeats
 5. Add story and detail shots where the video cuts away: `edit_timeline` addClip on a track above the takes, on their beats
-6. `auto_reframe` {timeline_id} for a vertical version
+6. A vertical version: `manage_timelines` {create: {parent: this timeline, aspect_ratio: "9:16"}}, then `auto_reframe` {timeline_id: the new one}
 7. `level_audio` {timeline_id}, then `check_timeline` {timeline_id} and `inspect_timeline` {timeline_id, sheet: true}
 8. `publish_preview` {timeline_id}: the link to hand over
 
 ## The plan: a montage, lyric or type video
 
-1. The user's song, or a song made for the piece (`skill-voiceovers-and-music`; a song with lyrics comes from the music generation itself)
+1. The user's song, or a song made for the video (`skill-voiceovers-and-music`; a song with lyrics comes from the music generation itself)
 2. `detect_beats` {ref: the song}
 3. `manage_timelines` {create: {name, aspect_ratio, clips: [{ref: the song, source: [the section's first downbeat, its end], snap: false}]}} → the timeline and the song's clip id
 4. `edit_timeline`: a fade on the song (fadeInFrames 12, fadeOutFrames 45) and addMarker on the downbeats the cut will use
@@ -43,14 +43,14 @@ There are four common shapes, and one video can mix them:
 
 ## What the job needs
 
-- **The song:** the user's track as it is, the soundtrack of a video they bring, or a song made for the piece. On a long track, pick the section by how it sounds ("where the drums come in", "the last chorus") and start it on a downbeat, not on a second picked by eye. One short `inspect_media` question finds where the energy lifts.
+- **The song:** the user's track as it is, the soundtrack of a video they bring, or a song made for the video. On a long track, pick the section by how it sounds ("where the drums come in", "the last chorus") and start it on a downbeat, not on a second picked by eye. One short `inspect_media` question finds where the energy lifts.
 - **The pictures:** performance takes, the user's own photos and footage, shots generated for the song (`skill-ai-filmmaking`, `skill-ai-animation`), or a mix. Use every picture the user brings unless they leave one out, and hold each long enough to take in.
 - **The destination:** 9:16 for Reels, TikTok and Shorts, 4:5 or 1:1 in a feed, 16:9 for YouTube.
 
 ## The track
 
-- `detect_beats` returns every beat, every downbeat and the tempo, in seconds of the file. On the timeline a beat sits at its file second, minus the clip's trim, plus where the clip starts.
-- Divide the song where it really changes before placing any picture: an intro, a verse, a chorus, a drop, a stop, a build. A short piece has one to six sections. A section longer than about six seconds usually takes a second idea partway through.
+- `detect_beats` returns every beat, every downbeat and the tempo, in seconds of the song. On the timeline a beat sits at its second in the song, minus the clip's trim, plus where the clip starts.
+- Divide the song where it really changes before placing any picture: an intro, a verse, a chorus, a drop, a stop, a build. A short video has one to six sections. A section longer than about six seconds usually takes a second idea partway through.
 - Where a steady drum drives the music, cut on the beat. On gentle music without one, cut on the phrase and let shots breathe; cuts forced onto a soft grid look robotic. `skill-sound-design` has the detail on where a cut lands against the beat.
 - Cut on the main beats, not on every drum hit, so the edit follows the song and not the hi-hat.
 
@@ -71,11 +71,11 @@ The artist mimes or sings along to the song playing on set, so each take's camer
 - A hard cut on the beat is the default. Use transitions only where the user wants them, and put them on phrase changes and at the drop. Use one transition style throughout, with one or two accents.
 - On gentle stretches: long holds and slow dissolves at the phrase edge, no cuts on every beat.
 - Punch-ins on the downbeats, where the user wants them: `auto_zoom` with `beats_of` naming the song's clip on footage; on a still, a scale keyframe that steps in and settles.
-- A speed ramp is built in pieces: splitClip where the pace turns, setSpeed on each piece (0.5x into 3x, say), a blur transitionIn of 4 to 6 frames on the fast piece, the drop landing where the fast piece starts, and the clip's own sound muted.
+- A speed ramp is built in parts: splitClip where the pace turns, setSpeed on each part (0.5x into 3x, say), a blur transitionIn of 4 to 6 frames on the fast part, the drop landing where the fast part starts, and the clip's own sound muted.
 
 ## Pictures
 
-- A still can hold as it is, cut on its beat. If the user wants movement, either settle it (start at about 1.06 scale, ease to 1 over about a second, then hold) or push it across the whole shot with two linear keyframes so it is already moving at both cuts. Pushes go the same direction through the piece.
+- A still can hold as it is, cut on its beat. If the user wants movement, either settle it (start at about 1.06 scale, ease to 1 over about a second, then hold) or push it across the whole shot with two linear keyframes so it is already moving at both cuts. Pushes go the same direction through the video.
 - Trim footage to its best moment and cut on action where there is any. Turn its own sound off unless a line is meant to be heard, then `duck_music` dips the song under it.
 - Words over footage need the picture dimmed by a third to a half (an adjustment clip or the clip's grade), and change on the same beats as the cuts.
 - `auto_reframe` keeps a person in a vertical crop. Frame a still with its transform.
@@ -103,7 +103,7 @@ End where the music ends: on the track's own ending, or on a final downbeat with
 - A music video is judged by its look, so draw one picture of it: `inspect_timeline` with `sheet: true`. Single frames only where a finding names a clip or the user asked for the work to be checked.
 - Lyrics on screen match the vocal word for word.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole video is in `skill-finish`.
 
 ## Handover
 

@@ -21,7 +21,7 @@ Animation is video whose frames are drawn, painted or rendered rather than photo
 8. sound per skill-sound-design
 9. inspect_timeline {timeline_id, seconds: [one moment from each scene]} → the frames, read against each other
 10. check_timeline {timeline_id}
-11. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over
+11. publish_preview {timeline_id}: returns the preview the film already has, its app_url the link to hand over
 
 ## What the job starts from
 
@@ -36,7 +36,7 @@ Commit to one family. Each name is its prompt language: studio and campaign name
 | Flat 2D vector | Clarity: ideas, systems, abstractions; the most reliable style | "flat design illustration, vector art, bold solid colors, minimal shading" |
 | Stylized 3D | Character warmth, rich worlds | "Pixar-style 3D, expressive faces, rich materials" or "Spider-Verse style, non-photorealistic rendering" |
 | Watercolor, painterly | Emotion, warmth, children's stories | "Studio Ghibli background painting style, visible brush strokes, paper texture" |
-| Claymation | Charm, personality, playful pieces, food | "Aardman style claymation, plasticine texture, visible fingerprints, miniature set" |
+| Claymation | Charm, personality, playful films, food | "Aardman style claymation, plasticine texture, visible fingerprints, miniature set" |
 | Anime | Energy and drama | "anime style, cel-shaded, bold outlines"; soft via Ghibli, cinematic via "photorealistic backgrounds with anime characters", energy via "speed lines, dynamic poses" |
 | Paper cut-out | Tactile, handmade, editorial to children's book | "paper cutout animation, layered craft paper, torn edges, depth shadows" |
 | Line art | Minimalism, teaching, architecture | "pen and ink illustration, continuous line drawing" |
@@ -58,7 +58,7 @@ Design for readability and consistency, not realism.
 
 ## What only animation can say
 
-Devices for a piece that argues or explains: a metaphor made literal (silos as walls crumbling), committed to as the piece's visual language; transformation, weeks compressed into seconds; scale, galaxy to atom with something revealed at every level; impossible physics in service of the story; emotional abstraction (anxiety as closing walls, relief as expanding space); the accumulation reveal, scattered elements resolving into the mark, which works only if they look random until they don't.
+Devices for a film that argues or explains: a metaphor made literal (silos as walls crumbling), committed to as the film's visual language; transformation, weeks compressed into seconds; scale, galaxy to atom with something revealed at every level; impossible physics in service of the story; emotional abstraction (anxiety as closing walls, relief as expanding space); the accumulation reveal, scattered elements resolving into the mark, which works only if they look random until they don't.
 
 ## Motion
 
@@ -71,10 +71,10 @@ Devices for a piece that argues or explains: a metaphor made literal (silos as w
 
 ## One style across every shot
 
-1. One style key: the image that defines the language, made with `generate_image` and carried into every later generation. Pass it as `reference_refs` where the model takes references and as the `source_refs` start frame where it does not; `end_ref` anchors a landing when one is needed.
+1. One style key: the image that defines the language, made with `generate_image` and carried into every later generation. Pass it as `reference_refs` where the model takes references and as the `source_refs` start frame where it does not; `end_ref` anchors a landing when one is needed. A recurring character goes in `characters` on video models that list `max_characters`, the strongest hold across shots.
 2. A style block repeated verbatim in every prompt: the family anchor, the exact palette with its background color, texture level, line weight, lighting approach. Leave the background out and each scene improvises a different one.
-3. One image model for keys, sheets and frames and one video model for motion, each chosen from `list_models` and kept for the whole piece.
-4. Many short shots rather than a few long ones: a character holds best over a few seconds, and repeated actions do not come out the same twice. Keep the subject at a similar size from shot to shot, since a big jump in scale shows drift. A cutaway hides a seam. A `seed`, where the model takes one, keeps a remade shot close. Light and tone drift more than the subject, so match them in the edit (`skill-color-grading`).
+3. One image model for keys, sheets and frames and one video model for motion, each chosen from `list_models` and kept for the whole film.
+4. Many short shots rather than a few long ones: a character holds best over a few seconds, and repeated actions do not come out the same twice. Keep the subject at a similar size from shot to shot, since a big jump in scale shows drift. A cutaway hides a seam. Light and tone drift more than the subject, so match them in the edit (`skill-color-grading`).
 
 Fewer colors hold better than many. Give the most important element the most saturated color. A gradient sliding from violet into blue is what generated work falls into when nobody chooses. A brand's palette, from what the user gives or their brand kit (`manage_brand_kit`), goes into the style block as hexes. Do not generate message text (titles, supers, claims) into frames; put it on the timeline as text, where it stays exact. Text that belongs to the world (a shop sign, a jersey number) is generated with the world. The exception is an explainer's designed frame: a still made with the copy quoted, then animated (`skill-explainer-videos`).
 
@@ -96,20 +96,20 @@ The photographic tells (sourceless light, flat planes, clean air) are in `skill-
 
 ## Sound
 
-Animation has no set audio. Every sound is designed, exaggerated to match the picture and timed to land on beats; silence is a dramatic choice. Sound carries more of how polished a piece feels than frame-perfect motion: a piece that looks right and still feels cheap is usually missing its sound. Build it with `skill-sound-design`.
+Animation has no set audio. Every sound is designed, exaggerated to match the picture and timed to land on beats; silence is a dramatic choice. Sound carries more of how polished a film feels than frame-perfect motion: a film that looks right and still feels cheap is usually missing its sound. Build it with `skill-sound-design`.
 
 ## The order across tools
 
-`list_models` for the image and video models; `estimate_cost` prices the shot list in advance. Judge the style key and the scene frames as stills before animating anything, while a change costs one image; whether to show them to the user first is the agent's call. Make the style key with `generate_image` and the character sheet per `skill-ai-influencer`. Run one test shot with `generate_video` against the key before the rest, since only a moving frame proves the key and the block. Then the shots, each a job, with `get_jobs` returning the items. Assemble with `manage_timelines` and `edit_timeline`, judge frames with `inspect_timeline`, add sound per `skill-sound-design`. The piece is in the app from its first media; `render_timeline` makes a file for use elsewhere. Bound regeneration on drift: a character that fails twice gets a simpler design.
+`list_models` for the image and video models; `estimate_cost` prices the shot list in advance. Judge the style key and the scene frames as stills before animating anything, while a change costs one image; whether to show them to the user first is the agent's call. Make the style key with `generate_image` and the character sheet per `skill-ai-influencer`. Run one test shot with `generate_video` against the key before the rest, since only a moving frame proves the key and the block. Then the shots, each a job, with `get_jobs` returning the items. Assemble with `manage_timelines` and `edit_timeline`, judge frames with `inspect_timeline`, add sound per `skill-sound-design`. The film is in the app from its first media; `render_timeline` makes a file for use elsewhere. Bound regeneration on drift: a character that fails twice gets a simpler design.
 
 ## The check
 
-Any two frames from different scenes, side by side, read as one piece. The main character is recognizable from silhouette alone. Any paused frame shows a world alive in its own way, nothing breathing or drifting to fill time. The palette reads as chosen.
+Any two frames from different scenes, side by side, read as one film. The main character is recognizable from silhouette alone. Any paused frame shows a world alive in its own way, nothing breathing or drifting to fill time. The palette reads as chosen.
 
 ## Handover
 
 - Set the timeline to the destination's ratio before placing the first shot.
 - Every sound designed and placed; no shot silent by accident.
 - The last frame held, nothing mid-move on it.
-- The piece is in the app from its first media, where it plays; the result's app_url is the link the user opens. `render_timeline` makes a file for use elsewhere.
-- Also possible: one shot re-rolled alone, the piece at another shape, a recurring character kept for later pieces (`skill-ai-influencer`), titles and type in code (`skill-motion-graphics`), a score and designed sound.
+- The film is in the app from its first media, where it plays; the result's app_url is the link the user opens. `render_timeline` makes a file for use elsewhere.
+- Also possible: one shot re-rolled alone, the film at another shape, a recurring character kept for later films (`skill-ai-influencer`), titles and type in code (`skill-motion-graphics`), a score and designed sound.

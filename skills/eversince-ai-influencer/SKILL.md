@@ -55,7 +55,7 @@ Pick one of two registers from the jobs. Casual, phone-shot: everyday phone cont
 
 ## The reference set
 
-- Start with the canonical: one portrait, the character at their most themselves. Generate every other member of the set from it, passed as the reference, so the set holds one identity instead of drifting. The canonical alone can carry a character through a single piece.
+- Start with the canonical: one portrait, the character at their most themselves. Generate every other member of the set from it, passed as the reference, so the set holds one identity instead of drifting. The canonical alone can carry a character through a single video.
 - Make coverage as a sheet, not single rolls. Consistency holds better inside one generation than across many, so generate the angles, expressions and distances the jobs need as one grid with the canonical as reference (`list_models` says how a model wants a grid prompted and sized). Keep the sheet whole as one item and pass it beside the canonical where a generation needs it: the sheet anchors the variety, the canonical carries the fidelity. Don't cut out a cell to stand alone; generate a needed look at full size from the canonical with the sheet as second reference.
 - Check every sheet and variant against the canonical before it joins the set. One drifted member poisons everything generated from it.
 - Why references: in a 2026 test with fixed seeds, one reference photo held the face far better than the prompt alone (a median match of 0.78 against 0.53). Training a custom model on the character holds longest, from 15 to 30 images, but that is not available here; references are the method.
@@ -64,7 +64,7 @@ Pick one of two registers from the jobs. Casual, phone-shot: everyday phone cont
 - When the jobs repeat a place, the world is part of the identity: give their room, desk or kitchen references too. Rooms drift as visibly as faces.
 - A designed character (a mascot, a drawn figure) holds identity by geometry and style: simple strong shapes, with the family, line, palette and proportions stated once and carried in every reference. Its canonical is a turnaround (front, side and three-quarter) generated as one image so the views agree.
 
-Size the set to the jobs named; `estimate_cost` quotes it. A canonical plus one sheet covers most single pieces. Add world references and extra variants when a job needs them.
+Size the set to the jobs named; `estimate_cost` quotes it. A canonical plus one sheet covers most single videos. Add world references and extra variants when a job needs them.
 
 ## Holding identity in use
 

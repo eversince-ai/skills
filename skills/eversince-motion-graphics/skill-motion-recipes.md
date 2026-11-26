@@ -15,9 +15,9 @@ const ramp = (t0, t1, from, to, easing = Easing.out(Easing.poly(4))) =>
 Eases by feel: **settle** `Easing.out(Easing.poly(4))`, the default · **slam**
 `Easing.out(Easing.poly(5))` · **snap** `Easing.out(Easing.exp)` · **gentle**
 `Easing.out(Easing.cubic)` · **orbit** `Easing.inOut(Easing.circle)`, camera legs and moves round a
-center · **overshoot** `Easing.out(Easing.back(s))`, only where a recipe says so. A piece uses
+center · **overshoot** `Easing.out(Easing.back(s))`, only where a recipe says so. A video uses
 about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 1920×1080 and scale by
-`width / 1920`. Every position is one the piece placed, or `Layout.measureText` for text.
+`width / 1920`. Every position is one the graphic placed, or `Layout.measureText` for text.
 
 ## Text and typography
 
@@ -75,7 +75,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 - **beat-lines**: short phrases slamming in one per beat, each with a different entrance, locking
   into a finale. One beat array every element reads its time from; beats 1.2 to 1.8s apart and even
   · each hit 0.35 to 0.6s · exits 0.25s or less · 150px+ in a heavy display face · one accent hue on
-  the verbs · at least three different eases across the piece (slam the default, snap for side
+  the verbs · at least three different eases across the video (slam the default, snap for side
   snaps, `Easing.out(Easing.circle)` a heavy rise) · the finale dressed (an underline sweep, a
   Notation mark), then still. Shelf: title-bold-statement, title-setup-payoff, title-window-word.
 - **color-through-type**: color moving through letterforms that never move: a gradient wider than
@@ -151,7 +151,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   verb, a `blur` on a whip or a dive. Dive or landing 0.6 to 1.0s on slam · repositioning 1.2 to
   2.0s on `Easing.inOut(Easing.cubic)` · pan 0.8 to 1.5s · whip 0.5 to 0.8s · holds 0.8s or more
   between legs, a final dwell 1s or more · anything read is read at a landing · a cruise past
-  standing cards is one long leg, 2 to 4s near-constant · a piece ending mid-dive gives the last leg
+  standing cards is one long leg, 2 to 4s near-constant · a video ending mid-dive gives the last leg
   a window past the clip's last frame, and the compile note about a ramp past the clip is then the
   point. Helper: Camera.
 - **follow-the-caret**: a line growing past the frame kept in view: the world holds until the typing
@@ -180,7 +180,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
   into a layout, each starting at its index on the golden angle, `a = i × Math.PI × (3 −
   Math.sqrt(5))`, at `(cos a, sin a) × RADIUS`. 4 to 14 fragments · radius 250 to 700px · 0.7 to
   1.4s on settle · stagger 0.03 to 0.09s with `n × stagger < duration` · a swap runs both sets off
-  one shared progress · a scatter-out only as the piece's last beat. By hand. Shelf:
+  one shared progress · a scatter-out only as the video's last beat. By hand. Shelf:
   gallery-photo-pile, gallery-tile-build.
 - **face-ring**: faces on an elliptical ring around a hub with lines drawing out to each. Ring 20 to
   30% of the width by 18 to 25% of the height · 8 to 12 avatars at 80 to 120px · hub in over 0.4 to
@@ -225,7 +225,7 @@ about three. A stepped ease is `Math.floor(p * n) / n`. Pixel figures are at 192
 - **same-spot-swap**: one state swapping for another in the same place: the outgoing shrinks and
   fades fast on an in-ease (0.3 to 0.5s), the incoming pops from 0.6 to 0.8 scale just before the
   exit ends (0.45 to 0.7s, overlap 0.1 to 0.2s), painted on top; overshoot on the incoming only (1.4
-  light, 1.8 firm, 2.2 cartoon; a serious piece uses settle); inner detail 0.2 to 0.4s after the
+  light, 1.8 firm, 2.2 cartoon; a serious video uses settle); inner detail 0.2 to 0.4s after the
   settle; both states mounted at opacity 0 in one fixed wrapper; hold 1s or more. By hand. Shelf:
   ui-checkout, ui-upload.
 - **shape-morph**: a container changing shape between two shots and carrying the eye across.
@@ -403,7 +403,7 @@ the perspective · past about 18° of `rotateY` (55° of `rotateX`) type is text
 lands near flat and holds 1s or more · paint order is depth inside `preserve-3d`, so a label is
 pushed forward with `translateZ`, not `zIndex` · `backfaceVisibility: 'hidden'` on anything that
 turns past 90° · one shadow direction for the whole frame, falling away from the side a card turns
-toward. Depth is a spectacle beat, one per piece; most work stays flat. Shelf: Depth and 3D
+toward. Depth is a spectacle beat, one per video; most work stays flat. Shelf: Depth and 3D
 (depth-flip-card, depth-deep-type, depth-double-doors, depth-turntable), device-floating-screen.
 
 - **letter-flap**: the flipping-tile decode: each character hinges from 90° (`transformOrigin:

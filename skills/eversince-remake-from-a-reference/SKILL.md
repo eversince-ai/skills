@@ -15,11 +15,11 @@ lands on the first build. A brief or a brand from the user outranks every defaul
 
 ## The plan: a reference edit remade with the user's footage
 
-1. Get the reference in: `search_library` {query} or `get_items` {refs} if it is already in the workspace; `import_media` {mode: "url", items: [{url}]} for a file; `pull_posts` {source, account: the post's link} then `keep_posts` {posts: [its id]} for a social post
+1. Get the reference in: `search_library` {query} or `get_items` {refs} if it is already in the workspace; `import_media` {mode: "url", items: [{url}]} for a file; `pull_posts` {source, account: the post's link} then `keep_posts` {posts: [its id]} for a social post (on YouTube and Reddit a post's link does not pull the post; a YouTube video's words come through `pull_posts` `transcript_of`)
 2. `inspect_media` {ref, cuts: true}: every cut and each shot's length
 3. `inspect_media` {ref, mode: "window", window: {start, end} for each section}: what happens in each
 4. `detect_beats` {ref: the reference}, where it is cut to music
-5. `inspect_color` {ref, at_seconds: two or three moments}: the grade
+5. `inspect_color` {ref, at_seconds}, one call per moment, at two or three moments: the grade
 6. Write the breakdown (below), one line per shot
 7. `search_footage` {like: {ref: the reference, at_seconds}} or {query} per line: the user's closest moments; a line with nothing is a gap for the user to fill
 8. `manage_timelines` {create: {name, aspect_ratio: the reference's, clips: [{ref, source: [start, end]} per line, in order]}}
@@ -112,7 +112,7 @@ and layout `skill-graphic-design`; captions `skill-animated-captions`; sound `sk
 
 For shots that look like the reference's, `search_footage` with `like` (a moment of the reference
 by `ref` and `at_seconds`, or a picture) returns the closest moments in the workspace's indexed
-footage, with their spans. A line the footage has nothing for is a gap the user fills: the nearest
+footage, with their spans. A reference video is indexed first (`search_footage` with its `refs`). A line the footage has nothing for is a gap the user fills: the nearest
 footage, a stock shot (`search_stock`, then `import_media`), a generated one (credits; the reference's people not reproduced), or the line
 left out. If the user can still film, the breakdown doubles as a shot list: each line says what to
 shoot, how framed and for how long. The handover names each gap and what filled it.
@@ -120,7 +120,7 @@ shoot, how framed and for how long. The handover names each gap and what filled 
 ## Comparing at the same seconds
 
 Draw frames of the reference (`inspect_media`) and the build (`inspect_timeline`) at five to eight
-seconds that carry the piece: a cut, a reveal, a hold, the end. `inspect_color` on the build with the
+seconds that carry the video: a cut, a reveal, a hold, the end. `inspect_color` on the build with the
 reference frame as `reference` returns the color gap as hints on the grade fields.
 
 - **Pace**: the cut points within a frame or two of the reference's, and the average shot length within about a tenth. An average hides the pattern, so also match where the fast and slow stretches sit and the longest and shortest shots.
@@ -140,7 +140,7 @@ What can be measured survives being written down: a length of time, a count, a c
 route. Gradual qualities do not: the softness of a glow, how a surface takes light. Judge those on
 frames against the reference, and stop when the difference no longer shows at delivery size. The
 settled values (durations, counts, colors, proportions, the camera's route), written at the top of a
-graphic's source, are where the next piece in the same series starts.
+graphic's source, are where the next video in the same series starts.
 
 ## The check
 
@@ -148,11 +148,11 @@ At every compared second, the build and the reference read as the same decisions
 the same frame give or take one or two, the same framing, the same hierarchy. Every number in the
 breakdown shows up in the build. Name what could not be matched, and why.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole video is in `skill-finish`.
 
 ## Handover
 
 - The remake at the reference's shape and length; any stock or generated shot named.
 - What could not be matched.
 - In the app, with the result's app_url as the link; `render_timeline` for a file.
-- Also possible: the settled values kept as a template for the next piece in the series, the same remake at another shape, the look alone applied to other work (`skill-color-grading`), a shot list for the user to film.
+- Also possible: the settled values kept as a template for the next video in the series, the same remake at another shape, the look alone applied to other work (`skill-color-grading`), a shot list for the user to film.

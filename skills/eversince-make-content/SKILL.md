@@ -17,7 +17,7 @@ A creator, a business, a person promoting a product, a course or themselves: who
 
 Research grounds the strategy, so it usually comes first and is repeated as the strategy needs, sometimes before every batch.
 
-- **The user's own content**, where they already post: an account connected in Eversince is read with `read_social_results` (their posts with the platform's own numbers, those posted outside Eversince included, free); one not connected, or on X, with `pull_posts` by platform and account (public counts: views, likes, comments, shares). Either way the agent learns their voice, what has worked for them, and what has not.
+- **The user's own content**, where they already post: an account connected in Eversince is read with `read_social_results` (their posts with the platform's own numbers, those posted outside Eversince included, free); one not connected, or on X, with `pull_posts` by platform and account (public counts: views, likes, comments, shares). Either way the agent learns their voice, what has worked for them, and what has not, judged by rates against the account's own usual (sends, saves and watch time per view), not raw counts: Instagram's own ranking weighs watch time and sends per reach.
 - **Content with traction in their field**: `pull_posts` by keywords or hashtag, or by named accounts and competitors, finds what is getting attention now. Trending matters, and so does any post with strong engagement relative to its account: both show what is working.
 - `inspect_media` reads a post's frames, `pull_posts` transcript_of its words, and `keep_posts` keeps a reference in the library. `skill-social-trends` holds the method for reading a field's posts and ad libraries into angles and briefs, `skill-account-audit` for reading one account against its own baseline.
 - `pull_posts` is charged in credits, a fraction of a credit per page of posts.
@@ -28,7 +28,7 @@ A content strategy is usually a mix:
 
 - **Formats**: videos, images, and carousels of images or videos, in the shapes the user's platforms take.
 - **Angles**: the recurring ideas and series the user's content returns to, each one repeatable.
-- **What is gaining traction this week** around the user's field, and how the user can join it in a way that is authentic to them. This is often the most important pillar for reach, and it is refreshed with each round of research. A trending sound is usually added in the platform's own app when posting: stock music in Eversince does not include platforms' trending audio.
+- **What is gaining traction this week** around the user's field, and how the user can join it in a way that is authentic to them. This is often the most important pillar for reach, and it is refreshed with each round of research. Stock music in Eversince does not include platforms' trending audio. Posting through a connected account, `manage_social_posts` choices searches Instagram's licensed audio and, for a TikTok business account, TikTok's Commercial Music Library; any other sound is added in the platform's own app.
 
 Where the user wants the strategy kept, it goes in a document in the library (`save_document`) or in the agent's own system, so later sessions continue from it.
 

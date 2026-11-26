@@ -29,7 +29,7 @@ A page is a column of blocks, in the order given:
 - **A button** to any https or mailto address.
 - **A divider.**
 
-The page's look is a few choices (style): a cover picture across the top, light or dark or the reader's own setting, the font, the heading's size and place, and margins: normal for a page read down a column, small for a page that is one frame of work edge to edge. heading is what the page says at its top and what a pasted link previews with.
+The page's look is a few choices (style): a cover picture across the top, light or dark or the reader's own setting, the font, the heading's size and place, and margins: normal for a page read down a column, small for a page that is one frame of work edge to edge. heading is what the page says at its top; description is the line under it and the text a pasted link previews with. Pages are not indexed by search engines.
 
 ## Open, or with more
 
@@ -39,12 +39,12 @@ A page is open by default and complete that way: anyone with the link sees it, a
 - **A passcode**, **an end date**, or **a name and email before the page opens** (permissions).
 - **Numbers**: get returns how often the page was opened and by how many people; activity lists each person who left a name and email and each download, naming who downloaded which item where name and email are asked for.
 
-A gate costs reach. Reports from marketers put the share of people who leave at a form at half or more, so a name and email fits something the visitor asked for and cannot get elsewhere, and where the user wants to know who came. An open page travels further and is shared on.
+A gate costs reach: many people leave at a form, so a name and email fits something the visitor asked for and cannot get elsewhere, and where the user wants to know who came. An open page travels further and is shared on.
 
 ## A link over time
 
 - The link stays the same while the page changes: update, then publish. People who have it see the new page.
-- duplicate makes a second page from the first, for another audience or another version of the offer.
+- duplicate makes a second page from the first, for another audience or another version of the offer; the copy starts unpublished.
 - regenerate_link issues a new address and ends the old one, for a link that reached the wrong people. unpublish takes the page down and keeps it; delete removes the link and its activity, never the media.
 - A link belongs in the project of the work it shows (project on create); list finds it again.
 - An item that is only on a computer is uploaded when the call comes through the desktop app on that computer, and listed in uploaded; otherwise it is left off and listed in local_only.

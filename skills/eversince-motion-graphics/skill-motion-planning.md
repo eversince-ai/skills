@@ -8,7 +8,7 @@ and where it sits. A shot of several scenes borrows one of the 22 shot plans bel
 
 ```
 Scene 1 (0.0 to 1.0s): only what the words say now enters
-Scene 2 (1.0 to 3.0s): the next piece arrives as the words reach it (a line, a card, a number)
+Scene 2 (1.0 to 3.0s): the next element arrives as the words reach it (a line, a card, a number)
 Scene 3 (3.0 to 6.0s): everything has resolved; the read holds, still
 ```
 
@@ -17,7 +17,7 @@ Scene 3 (3.0 to 6.0s): everything has resolved; the read holds, still
 - **Every arrival has a time**, spread across the shot and its back half. The shot ends on the held
   read; on a short shot the last reveal and the hold are one window.
 - **One signature move per shot**, on the key reveal; two is two shots. Only the last shot of a
-  piece exits; every earlier one leaves by the seam into the next.
+  video exits; every earlier one leaves by the seam into the next.
 - **Each scene line names its job**: the layout (centered for a hero or climax, thirds, a split for
   a comparison, 60/40 or 70/30 for editorial, a triptych, a full-width strip), the device (before
   and after, a numbered run, a counterexample, a callback) and the beat it lands as (recognition,
@@ -39,7 +39,7 @@ Scene 3 (3.0 to 6.0s): everything has resolved; the read holds, still
 In code each window's start is one constant, seconds times fps, and every move reads its start from
 one of them, so retiming a scene changes one number.
 
-A piece of several shots writes what they share once: the palette's roles, the motion grammar (one
+A video of several shots writes what they share once: the palette's roles, the motion grammar (one
 easing family, the reveal model, what may move during a hold), which shots are the held breathers,
 what never appears. Each shot's plan carries only what differs. Emphasis inside the palette is
 inversion, scale, weight or density, not a third color. A motif planted early (a dot, a mark, one
@@ -116,7 +116,7 @@ suit, the one whose moves sit closer to the scenes; where none does, build.
   tile-cascade (a wall of logos pulling back to a huge ecosystem) · number-first (a single gauge
   counting inside a run of type).
 - **Value**: word-beats (a rapid run of 8 to 12 phrases; 2 to 4 statements each held 1.5s or more,
-  each arriving its own way) · quiet-title (two calm lines: the pause in the piece) · pinned-line
+  each arriving its own way) · quiet-title (two calm lines: the pause in the video) · pinned-line
   (one surface stays while its whole look changes each beat) · tile-cascade (a list of gains that
   builds) · camera-route (something small done here changes something there, the camera traveling
   between) · wide-reveal (small actions close up, one pull-back shows how much got done) ·
@@ -666,7 +666,7 @@ second interaction ahead of the reveal; a device frame (that is held-screen).
 
 Several scenes in one graphic play as one unbroken move when every cut keeps the axis, the
 direction and the speed, and falls while both sides are still traveling. The same choices apply
-inside one `compose_motion` piece, where the handoff is written by hand, and between clips on the
+inside one `compose_motion` graphic, where the handoff is written by hand, and between clips on the
 timeline, where `transitionIn` and `transitionOut` offer a fixed set of styles (the mapping is at
 the end).
 
@@ -869,7 +869,7 @@ content comes in during the linear burst, where the speed hides its arrival.
 ## The budget
 
 One main cut (cut while moving, in the main direction) handles most scene changes, with one or two
-accents beside it; two or three kinds of cut cover a whole piece. A hand-built morph and word relays
+accents beside it; two or three kinds of cut cover a whole video. A hand-built morph and word relays
 within a block of lines sit outside the count. Nothing animates out ahead of a scene change: the
 exit half of the cut is the handoff, and only the final scene leaves on its own.
 
@@ -918,7 +918,7 @@ doing, not for variety, inside a graphic and between clips alike.
 
 | Where it falls | What to use |
 |---|---|
-| Opening | the most characterful one that suits the mood, 0.4 to 0.6s; it teaches the piece its style |
+| Opening | the most characterful one that suits the mood, 0.4 to 0.6s; it teaches the video its style |
 | Between connected points | the main transition, held steady, 0.3s |
 | New topic | anything but the main one: panel sweep, shutter, squash wipe |
 | Climax or big reveal | the strongest accent, the quickest or the most dramatic |
@@ -936,7 +936,7 @@ family draws one scene per frame unless drawing both is the point): **dissolve**
 opacities over 0.5s · **dip to black** fades out 0.2s, the next fades in 0.2s beginning 0.05s after
 the first has gone · **iris** animates `clipPath: circle(0% → 75%)` on the incoming scene over
 0.5s · **clock wipe** is a nine-point `polygon` sweeping the four quadrants at 0.1s apiece ·
-**panel sweep** slides panels the size of the frame, in the piece's own colors, across it 0.06s
+**panel sweep** slides panels the size of the frame, in the video's own colors, across it 0.06s
 apart and swaps the scenes while they are hidden (whole-frame panels, never narrow bars) ·
 **overbright flash** takes `filter: brightness()` up to 3 while a white layer peaks on the swap,
 climbing over 0.035 to 0.055s and recovering over 0.24 to 0.38s, no more than once a second, white

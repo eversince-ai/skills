@@ -7,7 +7,7 @@ metadata:
 
 This is Eversince's own skill. When Eversince is connected, `manage_skills` with `action: "get", id: "skill-making-thumbnails"` returns its current version; read that one, since this copy can be older. A skill named here as `skill-<name>` is installed beside this one as `eversince-<name>`, and a part of this skill sits in its folder as `<id>.md`.
 
-The one image that sells a piece of content: a thumbnail beside a title, a poster seen across a
+The one image that sells a video, a podcast or a post: a thumbnail beside a title, a poster seen across a
 room, a cover the size of a stamp in a list. The image should raise a question the title answers.
 Art that only shows what the content is gets passed over. Where people find the art by browsing a
 category (a cover on a shelf, a tile in a directory), it should first read as that kind of thing, in
@@ -26,7 +26,7 @@ image that sells a product with copy and layout, use `skill-image-ads`. A brief,
    the ground; addLayer the same picture in the same box as the subject; addLayer {layer: {type:
    "shape", shape: "rect", box: the half the words take, fill: {gradient: {kind: "linear", angle (0 runs up, 90 right),
    stops: dark at the outer edge with opacity falling to 0}}}}; addLayer {layer: {type: "text",
-   text: two to four words from the video's point (none: no text layer), size: to fit the box with the longest word whole (120 to 180 where it fits), weight: the face's heaviest, color, shadow
+   text: a few words, up to about five, from the video's point (none: no text layer), size: to fit the box with the longest word whole (120 to 180 where it fits), weight: the face's heaviest, color, shadow
    or a thick outline {width, color}, box: on the third the subject leaves, clear of the bottom-right corner}}]}.
 4. `edit_canvas` {canvas_id: from step 2, operations: [patchLayer {layerId: the subject layer
    from step 3, patch: {crop: on the head and shoulders, mask: {kind: "subject"}, effects: {glow:
@@ -34,7 +34,7 @@ image that sells a product with copy and layout, use `skill-image-ads`. A brief,
    subject mask is not wanted, the subject layer is left out of step 3 and the ground stays sharp
    under the gradient.
 5. `inspect_canvas` {canvas_id: from step 2, scale: 0.25}: the one look, the size
-   test, the count and the question test; a second at 0.125 where the piece is for phones.
+   test, the count and the question test; a second at 0.125 where the image is for phones.
 6. `publish_preview` {canvas_id: from step 2}; `render_canvas` {canvas_id, format: "jpeg"} only for uploading it.
 
 A new ground, when wanted: `remove_background` {ref: the frame, idempotency_key} (credits), the cutout placed in
@@ -57,7 +57,7 @@ Settle the concept before choosing or generating any picture; a prompt written f
 produces a depiction. Sketch a few concepts with different devices (the strong ones often combine
 two), then compose one.
 
-- **The face.** One person, large, showing real emotion. The default for talking content, because
+- **The face.** One person, large, showing real emotion. Strong for talking content, because
   faces stop eyes.
 - **The moment.** One action frozen mid-happening, when the content has a real peak that reads
   without context.
@@ -80,7 +80,7 @@ usually what makes it work. How close to go is the user's call.
 
 In vidIQ's study of 500 breakout videos across 30 niches (mid-2026), 72% of thumbnails carried
 overlay text, 69% a human face and 56% high contrast. That describes winners; it does not prove
-cause. For technical topics the thing itself is often the hook instead of a face.
+cause: across 507,478 videos, Eden found faces on 84% of breakouts and 82% of underperformers, so a face is a choice, not the default. Among thumbnails that carry text, vidIQ's median is five words. For technical topics the thing itself is often the hook instead of a face.
 
 A frame with a heading on it is a screenshot, not a thumbnail. Design from three large elements at
 most: a subject, the words, and one supporting thing (an object, an arrow, a second figure to

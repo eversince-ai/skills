@@ -99,15 +99,17 @@ job; importing again fetches only what is new. For several products, run the cho
 
 The media a product's store pages need, as one consistent set: a new product, a seasonal refresh, a promotion, a catalog brought in line. The store and the user decide what the listing takes: one main image, a gallery, a video (a demo, a product film, or the images arranged as a video), a GIF.
 
-Read the store's rules (each image's size, shape, background and file type, a video's length and format, what a main image may not carry) before making anything. `get_canvas` destinations has them where it lists the store (amazon-main 2000 square, shopify-product 2048 square, etsy-listing 2000 by 2500, and the rest); otherwise use what the user states or the store's current page. With no store named and nobody answering, make the set square at 2048 (shopify-product), a default named in the handover. A white ground is a rule only where a store has one, not a default. Amazon's main image, as sellers apply it: pure white (255, 255, 255), the product filling about 85% of the frame, no text, badges or watermark.
+Read the store's rules (each image's size, shape, background and file type, a video's length and format, what a main image may not carry) before making anything. `get_canvas` destinations has them where it lists the store (amazon-main 2000 square, shopify-product 2048 square, etsy-listing 2000 by 2500, and the rest); otherwise use what the user states or the store's current page. With no store named and nobody answering, make the set square at 2048 (shopify-product), a default named in the handover. A white ground is a rule only where a store has one, not a default. Amazon's main image, as sellers apply it: pure white (255, 255, 255), the product filling about 85% of the frame, no text, badges or watermark. A store that requires the real product in its main image (Amazon does) gets a photograph of it there, cut out and placed; a generated scene goes in the gallery.
 
-Use what the user wants from: their own photographs, brought in from wherever they are (`import_media`, `import_store_products`); finishing with light, color and one grade (`skill-photo-editing`); layout, text and badges on a canvas where the store allows them (`skill-graphic-design`); the shots above from the real product; a video from footage or the shots (`skill-product-videos`), a demo (`skill-screen-recording-editing`), a GIF (`render_timeline` format gif). Before handover, check each store's rules on the result (size and shape, a main image's ground in its corners with `inspect_color`, nothing the store refuses). A piece that breaks a rule is named in the handover.
+Use what the user wants from: their own photographs, brought in from wherever they are (`import_media`, `import_store_products`); finishing with light, color and one grade (`skill-photo-editing`); layout, text and badges on a canvas where the store allows them (`skill-graphic-design`); the shots above from the real product; a video from footage or the shots (`skill-product-videos`), a demo (`skill-screen-recording-editing`), a GIF (`render_timeline` format gif). Before handover, check each store's rules on the result (size and shape, a main image's ground in its corners with `inspect_color`, nothing the store refuses). An image that breaks a rule is named in the handover.
 
 ## The check
 
-- Fidelity at full size: `extract_media` crop the label region from the reference and the result
-  and compare side by side (proportions, color, cap, seams). If a shot fails, go back to the
-  reference, not to a patch prompt.
+- Fidelity at full size: compare the label region of the reference and the result side by side
+  (`inspect_media` on both; proportions, color, cap, seams). Even the best models get a product
+  exactly right in only about a quarter of generations (Photoroom's 2026 benchmark of 850
+  products), so plan two to four takes per shot and keep only those that pass. If none passes, go
+  back to the reference, not to a patch prompt.
 - Does it sit in the scene: a contact shadow where the product meets the surface, light on the
   product from the same direction as the scene's, reflections on glass or metal showing that room.
   If not, it looks composited; go back to the scene reference.

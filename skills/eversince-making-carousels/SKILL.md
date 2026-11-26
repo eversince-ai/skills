@@ -60,9 +60,9 @@ earlier deck, screenshots. Take figures from the user or a source; do not invent
   with the promise in a few words, the last is the ask (follow, save, the link), and each slide ends
   on a reason to swipe. Instagram may show a carousel again from slide 2 to someone who scrolled
   past, so slide 2 needs a hook too.
-- Size: every slide shares the first slide's ratio. Since late 2025 Instagram's profile grid shows
-  posts at 3:4, so 1080 by 1440 (`manage_canvases` create with width and height) fills the most
-  space; 4:5 (instagram-post, 1080 by 1350) still works. LinkedIn takes a carousel as a PDF
+- Size: every slide shares the first slide's ratio. Since early 2025 Instagram's profile grid shows
+  posts at 3:4, so 1080 by 1440 (the instagram-portrait destination) fills the most space; 4:5
+  (instagram-post, 1080 by 1350) still works. LinkedIn takes a carousel as a PDF
   document.
 - One visual system: the same ground, the same type at the same sizes, a slide number or progress
   mark in the same corner. Variety comes from the content, not the layout.
@@ -77,14 +77,14 @@ earlier deck, screenshots. Take figures from the user or a source; do not invent
 - Start from a template: `get_templates` kind canvas lists Eversince's image templates (carousels
   for tips, quotes, before and after, a product launch, a recipe, travel, LinkedIn, a photo essay),
   then the workspace's own. Copy one that fits with `manage_canvases` create `from_canvas` and
-  replace its words and pictures to get a finished design. The copy lists its sample pictures as
+  replace its words and pictures to get a finished set. The copy lists its sample pictures as
   `placeholder: true`, image and shape layers alike, and names its destination. Otherwise
-  `manage_canvases` create at the destination: presentation (1920 by 1080) for a deck, instagram-post (1080 by 1350) or linkedin-post (1200 square) for a
+  `manage_canvases` create at the destination: presentation (1920 by 1080) for a deck, instagram-portrait (1080 by 1440) or linkedin-post (1200 square) for a
   carousel. `get_canvas` with `destinations` lists the named sizes. A canvas holds up to fifty
   slides.
 - `edit_canvas`: build the first slide properly, then `addSlide` with `copyOf` for every slide
   that shares its layout, and `patchLayer` the ids the response returns to change the words. Every
-  slide is a copy of one design, so the set stays consistent. A text layer with a box wraps at the
+  slide is a copy of one layout, so the set stays consistent. A text layer with a box wraps at the
   box's width; one without grows with its longest line. A line break is `\n`.
 - Figures as charts: a chart layer plots from rows of numbers, so the figure stays exact and
   editable. When the numbers exist, use a chart, not a picture of one.
@@ -121,9 +121,8 @@ The set is in the app from its first media, and every result carries its app_url
 elsewhere, `render_canvas` exports the slides to the library as PNG or JPEG images, twelve a call
 (render a longer deck twelve at a time, all of it), or with `format: "pdf"` the whole canvas as
 one PDF, a page per slide at the canvas's size, for a LinkedIn document carousel or a shared deck.
-Presenting (full screen, next slide, a timer) happens in the editor. Keep a recurring deck (a
-monthly review, a pitch that keeps changing) as a template with `manage_canvases`, so the next one
-starts from its design.
+Keep a recurring deck (a monthly review, a pitch that keeps changing) as a template with
+`manage_canvases`, so the next one starts from it.
 
 ## Handover
 

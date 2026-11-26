@@ -19,7 +19,7 @@ user outranks every default here.
 1. Read every clip's grade and draw frames either side of each join where the source or the light changes
 2. Pick the reference shot
 3. Correct each shot toward it: exposure, then contrast, then small temperature and tint, saturation last
-4. One look over the whole piece on an adjustment clip, only if the user wants a look
+4. One look over the whole video on an adjustment clip, only if the user wants a look
 5. Check every shot again with the look on, then hand over
 
 ## Looks people ask for
@@ -103,7 +103,7 @@ exposure, contrast and warmth on the knobs, where the next pass can read and adj
 
 ## The order of work
 
-1. **The reference shot**: the one closest to right already, or the one the piece can't do without
+1. **The reference shot**: the one closest to right already, or the one the video can't do without
    (the hero, the face, the product). Everything else comes to it. There is no absolute neutral, only
    agreement.
 2. **Exposure, then contrast**: match brightness across shots before color, because a cast reads
@@ -124,7 +124,7 @@ If the material comes from one source and already agrees, steps 1 to 4 collapse 
 - Judge on rendered frames, not numbers. Two clips can carry the same grade and still disagree,
   because the grade is what was added, not what is there. `inspect_timeline` draws the frames.
   `inspect_color` measures one (black and white points, clipping, the balance of shadows, mids and
-  highlights, saturation, bias), and against a reference frame it returns the gap as hints on the same
+  highlights, saturation, bias), and against a reference frame it returns the gap and `grade_hints` on the same
   fields the patch carries. `reference_at_seconds` is in the reference item's own seconds: the clip's
   trim plus its offset into the clip. Without a reference it returns `correction`; when its gain levels the neutral areas but the frame
   stays colored, `correction.whole_frame.gain` is the stronger number. The numbers narrow the
@@ -148,7 +148,7 @@ If the material comes from one source and already agrees, steps 1 to 4 collapse 
 
 Some looks are a medium rather than a color: shot on a home camera, shown on an old TV, printed. Build
 each from the effect stack on the adjustment clip and commit to it fully; a medium at half strength
-looks like an accident. Use one medium per piece. "Vintage" could mean any of these, and mixing them
+looks like an accident. Use one medium per video. "Vintage" could mean any of these, and mixing them
 muddles when the footage is supposed to be from.
 
 - **Home video**: contrast up and saturation down, so the picture is hard but dull (hard and vivid
@@ -201,7 +201,7 @@ On frame pairs either side of the joins where the source or the light changes:
 
 - Every shot corrected before any look; any look the user asked for on one adjustment clip over the
   whole cut, so it can be changed in one place.
-- The piece is in the app from its first media, where it plays; the result's app_url is the link
+- The video is in the app from its first media, where it plays; the result's app_url is the link
   the user opens. `render_timeline` makes a file for use elsewhere.
 - Also possible: a look from the filters (`get_templates` kind filter), a match to a reference the
   user brings (`skill-remake-from-a-reference`), a medium look (home video, old TV, print), a mask's grade on
@@ -218,4 +218,4 @@ A cut from mixed sources, corrected, and given one look in step 5 only where the
 5. edit_timeline {timeline_id, if_revision: from step 4, operations: [addTrack {track: {kind: "visual", index: above the pictures, id: "look"}}, addClip {trackId: "look", clip: {id, type: "adjustment", from: 0, durationInFrames: the cut's length, grade: the look, effects}}]}
 6. inspect_timeline {timeline_id, seconds: the same frames as step 2}
 7. check_timeline {timeline_id}
-8. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over
+8. publish_preview {timeline_id}: returns the preview the video already has, its app_url the link to hand over

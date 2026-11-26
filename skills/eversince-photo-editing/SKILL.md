@@ -34,8 +34,8 @@ photos in one call. For "like this", `inspect_color` with `reference` returns th
 
 ## The edit
 
-Everything happens on the picture layer of a canvas opened on the photo. It is free and the original
-stays untouched.
+Everything happens on the picture layer of a canvas opened on the photo. The edit is free, the
+original stays untouched, and the `inspect_canvas` check is cloud processing.
 
 1. **The canvas.** `manage_canvases` create with `from_ref` opens the photo at its own size and
    shape as the one layer. Change size or shape only for a destination the user named.
@@ -85,7 +85,7 @@ A noisy or soft photo can go through `upscale_media` (credits), which re-renders
 ## Separating the subject
 
 A photograph on a canvas takes a mask of `kind` `subject` or `background` on `edit_canvas`, found
-in the picture itself, on cloud processing (free through the desktop app). An adjustment layer
+in the picture itself, on cloud processing. An adjustment layer
 with `clip: true` and a `background` mask does the before-and-after in one operation: the room down in
 exposure and saturation while the subject keeps its look. Text behind the subject is three
 layers: the picture, the text, the picture again masked to the subject. The subject is the people

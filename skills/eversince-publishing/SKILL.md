@@ -28,7 +28,7 @@ Where a platform needs a version that does not exist yet (another shape, a short
 
 - **Video**: the user picks the aspect ratio per platform, confirmed before rendering. Shown full size: 9:16 (1080 by 1920) on Reels, TikTok and Shorts, 4:5 or 3:4 in the Instagram feed, 16:9 on YouTube. Render each from its own version, so nothing carries another app's watermark.
 - **Stills and carousels**: one image per slide, in order; Instagram takes up to 20 slides. A LinkedIn carousel is one PDF, sent as the post's only item.
-- **A cover**: what a Reel, a Short or a YouTube video shows before it plays: a strong still from the video (`extract_media` mode frame) or a designed one (`skill-making-thumbnails`), sent as the post's `cover`. TikTok takes a moment of the video itself (its cover_at_ms option).
+- **A cover**: what a Reel, a Short or a YouTube video shows before it plays: a strong still from the video (`extract_media` mode frame) or one made as an image (`skill-making-thumbnails`), sent as the post's `cover`. TikTok takes a moment of the video itself (its cover_at_ms option).
 
 ## The post text
 
@@ -41,13 +41,14 @@ Write each platform's text on its own; the same caption pasted everywhere reads 
 - **X**: within 280 characters; one clear line usually does better than a packed one.
 - **Alt text** for every image: one plain sentence of what it shows, sent with the post as `alt_text`.
 - **An AI label** where a platform asks for one (realistic AI people or scenes, a cloned voice): the account's ai_label option sets the platform's own label.
-- **A first comment** carries what would crowd the caption: a link on LinkedIn, where posts with links in the text reach fewer people, or extra hashtags on Instagram.
+- **A first comment** carries what would crowd the caption. On LinkedIn a link in the post reaches fewer people, and recent data shows a link moved to the comments is held back too, so whether to include one is tested on the account. On Instagram, hashtags in the first comment count toward the five.
 - **A thread** on X or Threads splits a longer point into posts that each stand alone; every post of an X thread counts as an X post.
+- **X posts** are counted: each connected X account includes 30 a month across the owner's workspaces, and a post with a link counts as 15.
 - **The ask**: one, in the user's words (a comment, a follow, a link), only where they want one. A post that asks for a comment with a word can be answered automatically (`skill-inbox-and-auto-replies`).
 
 ## The format
 
-One video on Instagram is a Reel; a story is chosen. A trial reel goes to people who do not follow the account first, a way to test a hook without risking the feed. A Facebook video can go out as a reel; a story on either holds one item and no caption.
+One video on Instagram is a Reel; a story is chosen. A trial reel goes to people who do not follow the account first, a way to test a hook without risking the feed; it takes an account with at least 1,000 followers, and one under that is refused before anything is sent. A Facebook video can go out as a reel; a story on either holds one item and no caption.
 
 ## What else a post can carry
 
@@ -70,11 +71,11 @@ Only where the user keeps their plan in Eversince. Each post on it is a card (`m
 
 ## Sending
 
-The user approves each platform's item and text first. With several accounts on one platform, the user names the one. A connected account takes the post in one call, with what its platform asks for: TikTok who can see it (`manage_social_posts` choices lists the account's own options), a YouTube title, a Pinterest board. check, create and update return `unset`: what was left to each platform (no thumbnail, public, the first frame as cover), to settle before it goes. A scheduled post can be changed or canceled until shortly before it goes out, a held one until it is approved.
+The user approves each platform's item and text first. With several accounts on one platform, the user names the one. A connected account takes the post in one call, with what its platform asks for: TikTok who can see it (`manage_social_posts` choices lists the account's own options), a YouTube title, a Pinterest board. check, create and update return `unset`: what was left to each platform (no thumbnail, public, the first frame as cover), to settle before it goes. A scheduled post can be changed or canceled until shortly before it goes out, a held one until it is approved. Where the workspace keeps agents' posts for approval, changing a scheduled post, retry and edit are left to a person in the app; a held post can still be changed with update, and canceled.
 
-After it goes, `manage_social_posts` get shows each account's result and address: An account that failed says why; retry sends it again to the accounts it missed, and never twice to one that has it. list with status failed finds every post that did not go out, held the ones still waiting. A call that timed out may still have landed, so the post is read before anything is sent again. A published post's text can be changed on Facebook, LinkedIn, Pinterest and YouTube, and the post removed from most platforms but Instagram and TikTok. A published YouTube video's title, tags, playlist and thumbnail can be changed in place; YouTube's own thumbnail test runs only in YouTube Studio, so a thumbnail is tried against another by swapping it and reading the video's results after a few days.
+After it goes, `manage_social_posts` get shows each account's result and address: An account that failed says why; retry sends it again to the accounts it missed, and never twice to one that has it. list with status failed finds every post that did not go out, held the ones still waiting. A call that timed out may still have landed, so the post is read before anything is sent again. A published post's text can be changed on Facebook, LinkedIn, Pinterest and YouTube, and the post removed from most platforms but Instagram and TikTok; removing a YouTube video deletes it for good. A published YouTube video's title, tags, playlist and thumbnail can be changed in place; YouTube's own thumbnail test runs only in YouTube Studio, so a thumbnail is tried against another by swapping it and reading the video's results after a few days.
 
-Platforms restrict an account that acts like a machine, so pace matters. Each account posts at most 25 times an hour (a post past that waits and goes out by itself) and, in a day, 100 times on Instagram, 250 on Facebook and Threads, 50 on X, 25 on Pinterest, and 15 videos and 15 photo posts on TikTok. Limits are per connected account. Pinterest also asks for fewer than 10 pins in a row. The same post to the same account within a day is refused; LinkedIn and Instagram also turn away posts that read as copies, so each account gets its own wording. A refusal that names a wait means wait: sending again sooner lengthens it. Where an account is not connected, hand over the item's url and the text by the route the user has, platform by platform.
+Platforms restrict an account that acts like a machine, so pace matters. Each account posts at most 25 times an hour (a post past that waits and goes out by itself) and, in a day, 100 times on Instagram, 250 on Facebook and Threads, 50 on X, 25 on Pinterest, and 15 videos and 15 photo posts on TikTok. Limits are per connected account. Pinterest also asks for fewer than 10 pins in a row. LinkedIn and Instagram turn away posts that read as copies, so each account gets its own wording. A refusal that names a wait means wait: sending again sooner lengthens it. Where an account is not connected, hand over the item's url and the text by the route the user has, platform by platform.
 
 ## The check
 

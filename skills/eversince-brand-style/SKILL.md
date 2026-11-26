@@ -10,7 +10,7 @@ This is Eversince's own skill. When Eversince is connected, `manage_skills` with
 A brand style is a few fixed decisions: the colors and what each one does, the fonts and what each
 one sets, the logos, the look in a sentence, and a short list of do's and don'ts. Saved in the brand
 kit, they are what any agent in the workspace reads before it makes something for the brand, so every
-piece looks like it came from the same place. A brief or guidelines from the user outrank every default here.
+video and image looks like it came from the same place. A brief or guidelines from the user outrank every default here.
 
 ## The plan
 
@@ -20,9 +20,9 @@ piece looks like it came from the same place. A brief or guidelines from the use
 4. Propose the style in the chat: the palette with roles, two fonts, the look in a sentence, a few do's and don'ts; the user agrees or changes it
 5. Save it: `manage_brand_kit` {colors, fonts, add_items: the logos with role "logo" and a name each, add_context: the look and the rules}
 6. Pin only what the user wants to reuse: a caption template, a text style such as a lower third, a saved graphic component, a voice (`manage_brand_kit` pin, one call each, with a note on when it applies)
-7. Where the user wants to see it working: one sample piece built with it (`skill-graphic-design`)
+7. Where the user wants to see it working: one sample image built with it (`skill-graphic-design`)
 
-Save what the user agreed to keep, nothing more. A section with nothing agreed stays empty, and a one-off choice for a single piece stays in that piece.
+Save what the user agreed to keep, nothing more. A section with nothing agreed stays empty, and a one-off choice for a single video or image stays with it.
 
 ## Reading a brand from what exists
 
@@ -38,14 +38,14 @@ Save what the user agreed to keep, nothing more. A section with nothing agreed s
 - **Fonts, with roles.** A headline face and a body face, or one family at two weights. Two faces that look alike give no hierarchy; pair faces that differ in more than one way (serif and sans, condensed and wide).
 - **Logos.** Each version the brand uses (full, icon, on dark, on light), with a name that says which is which.
 - **The look, in a sentence**, anchored to something a designer would recognize ("editorial, warm paper, one red accent", "bold condensed type on black"). With no brand yet, `skill-design-looks` has ten named looks to start from, and `skill-graphic-design` has palettes by subject.
-- **Do's and don'ts**: three to six, the ones that keep pieces consistent (the logo never on a busy photo, captions always in the accent, no gradients).
+- **Do's and don'ts**: three to six, the ones that keep the work consistent (the logo never on a busy photo, captions always in the accent, no gradients).
 - **The words**: names the brand spells its own way go in `words`, so transcripts come back right.
 
-## Using it in every piece
+## Using it in all later work
 
 The active kit is the one read when no kit is named. Later work in the workspace reads it first: the
 fonts, colors and logos, the context block with the look and the rules, and the pins with their
-notes. How strictly a piece follows the kit is the user's call: a brief for one piece can step
+notes. How strictly a video or image follows the kit is the user's call: a brief for one can step
 outside it. A workspace with several
 brands keeps a kit per brand (`create_kit`, `activate_kit`).
 

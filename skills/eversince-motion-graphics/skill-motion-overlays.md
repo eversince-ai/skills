@@ -42,7 +42,7 @@ A person or company named takes a lower third where first said; a number said ta
 that line; the strongest line a quote card; a thing shown a callout; each timed to the frame of its
 word, spread across the clip. Captions go on first and every
 card stays clear of their band. Where a card needs the room, the speaker shares the frame with it
-for that stretch: the speaker's clip split at its edges (`edit_timeline` splitClip) and that piece
+for that stretch: the speaker's clip split at its edges (`edit_timeline` splitClip) and that part
 laid out (`apply_layout`), full frame again once it clears.
 
 ## Short-form rules
@@ -50,7 +50,7 @@ laid out (`apply_layout`), full frame again once it clears.
 - The hook lands in the first 0.5s.
 - One dominant motif: one way things move, one accent, one signature move.
 - Past 2.5s, a pattern interrupt that changes exactly one thing (an element, a color, a direction,
-  a scale). Several at once read as a new piece.
+  a scale). Several at once read as a new graphic.
 - A key element stays readable for at least 0.3s: still, whole, at full opacity.
 - Beats land 0.1s early: a move timed onto a sound reads late, so it starts three frames ahead at
   30fps (`beatFrame - 0.1 * fps`).

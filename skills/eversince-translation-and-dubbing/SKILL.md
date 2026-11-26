@@ -35,7 +35,7 @@ and names the tile. A brief, a reference or a brand from the user outranks every
 
 ## What carries language
 
-Start by reading the piece for everything that carries words. Each kind changes by its own route:
+Start by reading the video for everything that carries words. Each kind changes by its own route:
 
 - **Captions and subtitles.** Free when you write the translation. `captions` rewrite with no lines
   returns every line with its id and limits; rewrite with `lines`, `language` and
@@ -70,8 +70,9 @@ dub with its price.
 
 `change_language` runs on the timeline the work is on, whether the user's existing edit or one made
 from an item (`manage_timelines` create with `clips`), and saves a new timeline named
-"<name> · <Language>". It is one price for the whole dub and one job; `get_jobs` carries the new
-timeline id when it lands, and the result counts what was translated and names what was left.
+"<name> · <Language>". It is one price for the whole dub and one job, charged when it starts and
+paid back only if it fails before any voice work; `get_jobs` carries the new timeline id when it is
+ready, and the result counts what was translated and names what was left.
 
 A take that runs longer opens the timeline at that clip's end: later clips move and the picture
 under it is held. `revoiced` gives each clip's seconds and loudness before and after, a warning
@@ -80,7 +81,7 @@ names any clip left running over, and timings inside one take do not move.
 Get the words first: `transcribe_media` with `timeline_id`. A speaker with words but no voice (an
 uploaded recording) gets a voice built from their own recording only when the user has confirmed the
 speaker's agreement to the statement the `consent` field carries. Do not pass it on the user's
-behalf without that. Without it, those speakers stay as they are and are named in the plan.
+behalf without that. Without it, those speakers stay as they are and are named in `plan.needsVoiceIds`.
 
 ## What the dub does not do
 
@@ -135,7 +136,7 @@ Reading speed differs by language: Netflix allows about 20 characters a second f
 ## The check
 
 One `check_timeline` covers every language (`timeline_ids`), speech level included, since a new
-take is a new recording. No findings means the check passed. It does not read text burned into the
+take is a new recording. `ok: true` is the pass, and each warning is still read. It does not read text burned into the
 picture, so find words left in the original language on the master's own frames. `captions` rewrite
 with no lines returns every line; read them as the argument, with the terms as decided.
 
@@ -152,7 +153,7 @@ be checked:
 - Translating a few key lines back into the original catches a changed meaning, though not an
   unnatural phrase. A native speaker's review is the real check, so offer one.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole video is in `skill-finish`.
 
 ## Handover
 
@@ -172,7 +173,7 @@ A last pass over the whole piece is in `skill-finish`.
 ## The plan: a spoken version
 
 1. transcribe_media {timeline_id: the timeline the work is on}
-2. change_language {timeline_id, target_language, idempotency_key: a new UUID, consent: true only where the user confirmed it}; the response's plan names the speakers left as they are
+2. change_language {timeline_id, target_language, idempotency_key: a new UUID, consent: true only where the user confirmed it}; the response's `plan.needsVoiceIds` names the speakers left as they are
 3. get_jobs {ids: [from step 2]} → the new timeline id
 4. duck_music {timeline_id: from step 3} where music plays
 5. captions {action: "rewrite", timeline_id: from step 3} → every line, terms corrected with the same call with lines and language

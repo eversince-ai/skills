@@ -24,7 +24,7 @@ Read the video before choosing: how fast the person talks and the cuts come, how
 
 - **Energy:** fast talk and fast cuts can take words built or lit as they are said; calm delivery wants whole lines that hold still and fade.
 - **Footage:** bright or busy footage, or a screen recording, needs a box; heavy motion under the words wants simpler caption motion, not more.
-- **Brand:** a brand or premium piece uses the brand's font and its one accent color. Loud styles read as off-brand for business, legal, finance or luxury.
+- **Brand:** a brand or premium video uses the brand's font and its one accent color. Loud styles read as off-brand for business, legal, finance or luxury.
 - **Faceless or over B-roll:** the captions carry the meaning, so they can be larger and nearer the middle. Over a talking head they stay smaller and off the face.
 - **Platform:** LinkedIn and long-form YouTube lean plain; TikTok carries more energy.
 
@@ -35,7 +35,7 @@ The built-in looks, `template` on `captions` generate (`get_templates` kind capt
 | A talking head on a feed: still lines, the key words in one accent | Social |
 | Podcasts, interviews, motivational talk, lyrics: each word lights up as it is said | Karaoke |
 | High-energy business or educational shorts, the look people call "Hormozi style": heavy type built word by word | Kinetic |
-| One large word at a time, for a fast montage or a beat-driven piece | One word |
+| One large word at a time, for a fast montage or a beat-driven video | One word |
 | Interviews, documentary, anything long or landscape | Broadcast |
 | Shorts and talking heads: bold outlined lines, the word being said on a color block | Highlight |
 | Busy footage or screen recordings with word timing: lines on a dark box, the spoken word in an accent | Lit box |
@@ -90,7 +90,7 @@ How it works here:
 Read before generating:
 
 - `inspect_media` overview of the source: no tool flags burned-in text, so look at the overview's frames. Burned-in subtitles or heavy on-screen text often start partway in, and a second caption system over the first reads worse than none.
-- `get_transcript` sentences: speech under loud music, a strong accent or near silence can come back as fluent nonsense, and a line of invented words is worse than no line. An empty result usually means untranscribed, not silent.
+- `get_transcript` sentences: speech under loud music, a strong accent or near silence can come back as fluent nonsense, and a line of invented words is worse than no line. Clips with no words yet are named in `not_transcribed`, so a missing transcript is not read as silence.
 - Names, products and terms: the workspace keeps spellings under `manage_brand_kit` words, with `heard_as` for what a transcript returned instead.
 
 `captions` generate transcribes uploaded clips that have no words. A subtitle file the user already has is the transcript to trust: `captions` import keeps its cues as written.
@@ -134,7 +134,7 @@ The box is one rounded shape hugging each line, not a bar across the frame. Try 
 - One family, one or two weights; hierarchy by weight and size, not a second face. Any family in the catalog (`get_templates` kind font); bold sans like Montserrat at 700 to 900 is the common social choice, a condensed display face like Anton for short uppercase chunks, the brand's font where there is one. Subtitles at 500 to 600.
 - `fontSize` in the timeline's pixels: running lines at 3.5 to 5% of the frame's height (40 to 55 on 1080 tall, 65 to 95 on 1920 tall). Seven to nine percent is hook size, for two or three words only.
 - Uppercase suits chunks of one to three words; longer lines read faster in sentence case.
-- One accent per piece, `activeColor`, from the brand or the footage.
+- One accent per video, `activeColor`, from the brand or the footage.
 - Italic only as a change of face: a serif italic key word inside a sans line, at least 1.2 times its size (Editorial). The line's own face slanted reads as slanted over moving footage, not stressed.
 
 ## Emphasis and animation
@@ -143,12 +143,13 @@ Every word is plain, emphasized or a peak. About 70% plain, 20% a slight lift, 8
 
 - **Emphasis:** the one or two words a phrase turns on, in at most a third of the lines and one word in ten. `emphasis` in `style` (on `captions` generate; its own field on `cut_clips` and `edit_clips`) is `{words, color, emoji, style}`: a named word stands in that color every time it is spoken, with or without animation. `style` sets those words apart further, `{fontFamily, fontWeight, italic, scale (1 to 1.6), uppercase, ownLine}`; `ownLine` stands the word on a line of its own between the plain words, a lockup, at a scale up to 2.4, with one key word to a phrase (`font_family` and `font_weight` on `cut_clips` and `edit_clips`): one other face for them at most, from the catalog, and a scale of 1.2 to 1.35 so the line keeps its rows. Editorial and Statement carry a style already, so only the words are given. Coloring by meaning (green for good, red for bad) belongs to the loud entertainment look only.
 - **Emoji:** only when the user asks. `emoji` writes one after a named word, `{"launch": "🚀"}`; one or two in a clip, on a word it pictures.
-- **Word animation** (`wordAnim`): "highlight" lights each word in `activeColor` as it is said, "fill" dims the line and fills each word in, "reveal" builds the line word by word, "pop" jumps each word up from 60% of its size; "blur" sharpens each word in, "slam" lands it from larger, "wipe" raises it out of a mask, "glow" lights the spoken word in the accent over a dimmed line, "underline" draws a bar under it, "pill" sets it on a rounded pill. `textTransform` uppercase and `letterSpacing` (em) in `style` set capitals and tracking on any look. Highlight and fill are a reading aid for fast talk, not emphasis, and sit wrong on documentary and interview work; reveal suits a hook.
-- **Line animation** (`lineAnim`): "typewriter" suits code and interfaces; "pop" overshoots on a spring. A caption that bounces on every line reads as a template, so keep bounce for high-energy pieces.
+Both animations go in `captions` `animation`, not in `style`.
+- **Word animation** (`wordAnim`): "highlight" lights each word in `activeColor` as it is said, "fill" dims the line and fills each word in, "reveal" builds the line word by word, "pop" jumps each word up from 60% of its size; "blur" sharpens each word in, "slam" lands it from larger, "wipe" raises it out of a mask, "glow" lights the spoken word in the accent over a dimmed line, "underline" draws a bar under it, "pill" sets it on a rounded pill; the tool also takes "slide", "cycle", "highlightBlock", "gradient" and "glitch", and "none". `textTransform` uppercase and `letterSpacing` (em) in `style` set capitals and tracking on any look. Highlight and fill are a reading aid for fast talk, not emphasis, and sit wrong on documentary and interview work; reveal suits a hook.
+- **Line animation** (`lineAnim`): "typewriter" suits code and interfaces; "pop" overshoots on a spring; "fade" and "slide" bring the line in quietly; "none" holds it still. A caption that bounces on every line reads as a template, so keep bounce for high-energy videos.
 
 ## Where the line sits
 
-Lower third, centered, one line at a time, over no face and no text the footage already carries. On 16:9 and 1:1, `position` `bottom-center`. On 9:16, `bottom-center` already sits clear of the bottom quarter, and generate lifts the lines further for the platforms the timeline names (setMeta `platforms`) and off a face once `auto_reframe` has followed the subject. Over a talking head, look at one frame (`inspect_timeline` with `seconds`) and move `position` if a line covers the face or mouth: `check_timeline` reads text over a face only on clips whose faces were read, and says so ("read on 0 of N framed clips"). A close-up with the chin low takes `top-center`; `center` is for the two or three word hook looks and faceless pieces. Black bars from a landscape source on a vertical frame are caption space. Keep other small text (a URL, a label, a legal line) out of the caption's band; text burned into the footage is not read by any tool, so choose placement from the source's frames: `position` takes top-, center- or bottom- with left, center or right, or `center`.
+Lower third, centered, one line at a time, over no face and no text the footage already carries. On 16:9 and 1:1, `position` `bottom-center`. On 9:16, `bottom-center` already sits clear of the bottom quarter, and generate lifts the lines further for the platforms the timeline names (setMeta `platforms`) and off a face once `auto_reframe` has followed the subject. Over a talking head, look at one frame (`inspect_timeline` with `seconds`) and move `position` if a line covers the face or mouth: `check_timeline` reads text over a face only on clips whose faces were read, and says so ("read on 0 of N framed clips"). A close-up with the chin low takes `top-center`; `center` is for the two or three word hook looks and faceless videos. Black bars from a landscape source on a vertical frame are caption space. Keep other small text (a URL, a label, a legal line) out of the caption's band; text burned into the footage is not read by any tool, so choose placement from the source's frames: `position` takes top-, center- or bottom- with left, center or right, or `center`.
 
 ## The peak, behind the person
 
@@ -164,7 +165,7 @@ A language version is a tab beside the timeline (`captions` rewrite or translate
 
 ## The check
 
-One `check_timeline` reads every line's placement and size: no findings means it passed. It does not read what a line says: `captions` rewrite with no lines returns every line, read for names, terms and numbers. Draw frames when a finding names a clip, the look alone is the judgement (a hand-set style over bright footage, a peak behind the person, a source with its own text), the user asked for it to be verified, or nobody sees it before it is used: `inspect_timeline` with `sheet: true`. Every line should read over the brightest thing behind it.
+One `check_timeline` reads every line's placement and size: `ok` true is the pass, and each warning is still read. It does not read what a line says: `captions` rewrite with no lines returns every line, read for names, terms and numbers. Draw frames when a finding names a clip, the look alone is the judgement (a hand-set style over bright footage, a peak behind the person, a source with its own text), the user asked for it to be verified, or nobody sees it before it is used: `inspect_timeline` with `sheet: true`. Every line should read over the brightest thing behind it.
 
 ## Handover
 

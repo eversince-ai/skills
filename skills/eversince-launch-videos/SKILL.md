@@ -24,13 +24,14 @@ a beat needs proof the material lacks, cut or reshape the beat.
 1. The voice per beat: the user's recording, or generate_audio {kind: "voiceover", text: <beat 1>, voice_id, stability} when a generated voice was chosen
 2. manage_timelines {create: {name, aspect_ratio, clips: [{ref: each voiceover} in order]}}
 3. get_transcript {timeline_id: from step 2, granularity: "words"}
-4. edit_timeline {timeline_id: from step 2, operations: [addTrack {track: {kind: "visual", index: 1, id: "pictures"}}, addClip {trackId: "pictures", ref: each screen or footage, from: its beat's first word's from_frame from step 3}]}
+4. edit_timeline {timeline_id: from step 2, operations: [addTrack {track: {kind: "visual", index: 1, id: "pictures"}}, addClip {trackId: "pictures", ref: each screen or footage, from: its beat's first word's from_frame from step 3, durationInFrames: up to the next beat's first word (the last one to the end of the voice)}]}: a picture with no length comes in at its default and leaves black or lands on a new track
 5. compose_motion {timeline_id: from step 2, source_code, placement: {from_seconds: the beat's frame over fps, duration_seconds}} … one per graphic beat
-6. A bed where the piece calls for music: duck_music {timeline_id: from step 2, ref: the track}, the track in the manual's order (the user's own, then generate_audio music where credits and their way of working allow, a search_stock id only where the user picked it; none of these, no music)
+6. A bed where the film calls for music: duck_music {timeline_id: from step 2, ref: the track}, the track in the manual's order (the user's own, then generate_audio music where credits and their way of working allow, a search_stock id only where the user picked it; none of these, no music)
 7. For a feed, or where the user asked: captions {action: "generate", timeline_id: from step 2, template: "Subtitles" for a player, "Social" for a feed}
-8. check_timeline {timeline_id: from step 2}: the one check
-9. inspect_timeline {timeline_id: from step 2, sheet: true}: only in the four cases below
-10. publish_preview {timeline_id: from step 2}: returns the preview the piece already has, its app_url the link to hand over
+8. level_audio {timeline_id: from step 2}: the voice to delivery level
+9. check_timeline {timeline_id: from step 2}: the one check
+10. inspect_timeline {timeline_id: from step 2, sheet: true}: only in the four cases below
+11. publish_preview {timeline_id: from step 2}: returns the preview the film already has, its app_url the link to hand over
 
 ## What the job needs
 
@@ -178,7 +179,7 @@ form and keeps the timing.
 
 ## The check
 
-- One `check_timeline`: no findings means it passed. It does not read text inside a screen, a
+- One `check_timeline`: `ok: true` means it passed, and each warning it lists is still read. It does not read text inside a screen, a
   graphic's own layout, or whether a picture shows what its line says.
 - Look at frames in four cases: a finding names a clip; a picture can only be judged by its look (a
   graphic written as code, a thing carrying across a cut); the user asked for the work to be
@@ -192,9 +193,9 @@ form and keeps the timing.
   developer can say what changed and why it matters. If they can only list features or file names,
   it was a tour.
 
-A last pass over the whole piece is in `skill-finish`.
+A last pass over the whole film is in `skill-finish`.
 
-## A changelog piece
+## A changelog video
 
 A shipped feature is often one short clip of it in use plus the post announcing it. For release
 notes, make the clip a GIF: `render_timeline` format gif, silent, up to 30 seconds. Work from what

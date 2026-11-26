@@ -13,13 +13,13 @@ Cinema is the design of film-like video: what the camera does, where the light c
 
 1. list_models {type: "video"} → the models, their types and prices; list_models {model: the one chosen} → its limits and guidance; estimate_cost for the shot list's price
 2. generate_image {type: "text-to-image", prompt: the start frame with motion space} → job; get_jobs → the frame item (per shot that grows from a frame)
-3. generate_video {type: "image-to-video", source_refs: [from step 2], prompt: the shot with its verb, end, light and the piece's look phrase, settings: {duration}} → job, one per shot; get_jobs {ids} → the shot items
+3. generate_video {type: "image-to-video", source_refs: [from step 2], prompt: the shot with its verb, end, light and the film's look phrase, settings: {duration}} → job, one per shot; get_jobs {ids} → the shot items
 4. manage_timelines {create: {name, aspect_ratio: the destination's, clips: [{ref: each shot} in cut order]}} → timeline_id
 5. edit_timeline {timeline_id: from step 4, operations: [updateClip {clipId, patch: {transitionIn: {style, durationInFrames}}} where a cut is not hard, trims where a shot runs long]}
 6. sound per skill-sound-design on the timeline from step 4
 7. inspect_timeline {timeline_id, seconds: [the cuts]} → frames at the cuts
 8. check_timeline {timeline_id}
-9. publish_preview {timeline_id}: returns the preview the piece already has, its app_url the link to hand over
+9. publish_preview {timeline_id}: returns the preview the film already has, its app_url the link to hand over
 
 ## What the job starts from
 
@@ -34,7 +34,7 @@ Each kind of film has its own camera language. Drifting between them by accident
 - Documentary: the camera is a witness, handheld energy, natural light, close-ups with real texture, moments that feel caught.
 - Narrative naturalism: motivated moves, eyeline-driven coverage, light from where the room says it comes.
 - Formal: locked frames, symmetry, the subject placed and left there; the stillness is the tension.
-- Mood piece: atmosphere over information, fragments, unusual angles, silhouettes, negative space, heavy grade.
+- Mood film: atmosphere over information, fragments, unusual angles, silhouettes, negative space, heavy grade.
 - Face to camera: the face is the frame and stability is trust, at most a slow push in.
 
 Feeling maps to picture: longing is shallow focus, warm, slow, subjects looking away; tension is tight framing, handheld micro-movement, cool and desaturated, confined space; joy is width, movement, open light; intimacy is extreme close-ups, soft light, stillness, texture; awe is a small subject against a vast environment, the camera revealing scale; urgency is fast cuts, hard light, motion filling the frame.
@@ -55,7 +55,7 @@ Models confuse three kinds of move: translation carries the camera through space
 
 To make a move repeat, write it as a measured operation: the rig first ("on a tripod at 1.5 m lens height"), then one continuous move named once ("one continuous orbit, one direction"), with its numbers (radius in meters, a pan in degrees, a zoom from 18° to 84°), its speed curve ("constant speed, settling in the final half second"), its end ("into a static hold on the closing frame"), and an event it lands with ("timed so the landing frame and the cup touching the table arrive together"). Describe a dolly with strong parallax, near objects sweeping past the frame edges; a zoom with zero parallax, the camera's position and height identical in the first and last frames. Moves are the one place to name a lookalike and rule it out ("a zoom, not a dolly; no travel"), since the model substitutes the nearest move; "no reversal" keeps a move from turning back on itself. A tracking shot holds its angle ("a strict side view throughout"), the subject at constant size and the layers in front and behind moving at their own speeds. The same move wording, lens and light across shots and re-rolls keeps the camera logic consistent.
 
-Life speed is the default. Slow motion is a spice one moment earns; a piece where every shot is slowed reads as a screensaver.
+Life speed is the default. Slow motion is a spice one moment earns; a film where every shot is slowed reads as a screensaver.
 
 ## Coverage and the cut
 
@@ -67,7 +67,7 @@ A scene can come out of one generation with the cuts directed inside it, or shot
 
 ## One world across shots
 
-Independently generated shots read as one film when the consistency signals repeat verbatim in every prompt: the same look phrase, light temperature, lens character and atmospheric texture. Pass a recurring subject as a reference (`reference_refs`) where the model takes one, and as the same start frame (`source_refs`) where it does not; re-description drifts. Hold light direction across a sequence unless the shift is the point. Footage not shot together reads as one world once matched, and the match comes before any look: `skill-color-grading`.
+Independently generated shots read as one film when the consistency signals repeat verbatim in every prompt: the same look phrase, light temperature, lens character and atmospheric texture. A recurring person or creature goes in `characters` on models that list `max_characters`, the strongest hold; otherwise as a reference (`reference_refs`) where the model takes one, and as the same start frame (`source_refs`) where it does not; re-description drifts. Frames a shot must pass through between its start and end go in `keyframe_refs` on models with `max_keyframes`. Hold light direction across a sequence unless the shift is the point. Footage not shot together reads as one world once matched, and the match comes before any look: `skill-color-grading`.
 
 Between shots of one scene, the last frame of one can be the first frame of the next (`extract_media` frame at its end, passed as `source_refs`), so the cut hands over cleanly. A long shot that keeps breaking down becomes two shorter shots joined that way. AI directors in 2026 plan about eight to fifteen shots for a minute of film and approve every look as a still before animating any of it.
 
@@ -78,7 +78,7 @@ Think in the full professional vocabulary; prompt in what the model's training d
 - Works: lens width, named lighting, shot types, camera moves, anamorphic, depth of field described, palette names, golden hour. On image models and older video models, equipment names select training data rather than aesthetics: a cinema camera body pulls highlight rolloff and color science, a film stock its whole look. The newest video models (Seedance 2.5 among them) follow a look described in words more reliably, and gear names can break a complex move there; write the look instead (tonal latitude, highlight roll-off, grain, color response).
 - On a video model, give lens width as a field of view in degrees from a few steps; millimeters are read loosely: 107° (14 to 16 mm, huge interiors), 84° (20 to 24 mm, wide, group blocking), 63° (28 to 35 mm, observational), 47° (40 to 50 mm, neutral eye), 29° (75 to 85 mm, portrait compression), 18° (100 to 135 mm, close portrait), 12° (180 to 200 mm, detail), 8° (300 to 400 mm, extreme compression).
 - Unreliable: f-stops, ISO, lighting ratios, grip equipment, LUT names. Describe the visual result instead ("deep shadows on the left of the face, background falling to darkness").
-- Carry one look through every prompt of the piece; stacked competing signals produce mud.
+- Carry one look through every prompt of the film; stacked competing signals produce mud.
 - "Photorealistic" and "cinematic" do no work; they stand where a choice should be. So do mood words: write "tense" as what is seen ("he freezes, his fist closes slowly, light only from the side, half the face in shadow").
 - Write what happens, not what should not ("stays upright, feet planted", not "does not fall"). Give speeds in km/h, haze in percent or meters of visibility, white balance in Kelvin held across a scene. Tie color to a material and the light on it ("a crimson silk scarf catching the cold tungsten spill from the corridor") rather than listing it. Name left and right from the camera.
 
@@ -113,11 +113,11 @@ Most frontier video models now generate sound with the picture, but not all of t
 
 Lock the dialogue before generating, since every take is timed to it. Lip sync is weakest where it shows most, so a hero close-up gets the most takes. Where a model makes no speech, generate the shot silent and lay the voice on the timeline (`skill-voiceovers-and-music`).
 
-Prompt order differs by model: Google puts the camera first (cinematography, subject, action, context, style); Kling builds the scene first and puts the camera last; Seedance binds its references, then a one-line summary, then numbered shots. `list_models` gives each model's own form.
+Prompt order differs by model: Google puts the camera first (cinematography, subject, action, context, style); Seedance binds its references, then a one-line summary, then numbered shots. `list_models` gives each model's own form.
 
 ## Editing generated shots
 
-- **Generate more than you keep.** Productions keep a fraction of what they generate; one animated episode cut 164 clips to 41. Regenerate a shot that is wrong in idea; trim one that is right but rough.
+- **Generate more than you keep.** Productions keep a fraction of what they generate; one animated episode cut 164 clips to 41, and a hard shot can take dozens of tries (independent productions have logged hundreds to thousands of generations for one film). Regenerate a shot that is wrong in idea; trim one that is right but rough.
 - **Keep the best seconds.** A generated clip often ramps up slowly before its real motion; cut in where the action starts. Often five good seconds come from a fifteen-second clip.
 - **Let sound carry the cuts.** Music, narration or a room tone running across a picture change (an L-cut) hides the seam between shots made separately.
 - **Take off the plastic.** Generated footage comes back too sharp, with waxy skin. A light pass of grain (the `noise` effect, amount about 0.05 to 0.15) and one grade across the shots (`skill-color-grading`) makes them sit together as film.
@@ -142,9 +142,9 @@ A different ratio is a different composition, not a crop. Vertical favors vertic
 
 ## The order across tools
 
-`list_models` first: a short list with a price per model, then `model: "<id>"` for one model's references, durations, audio and multi-shot form. Hold the choice for the whole piece, since each model has its own fingerprint; a shot that needs a move another model does better can use it, with the same references and look phrase so it still reads as the same film. A model with fixed lengths (4, 6 or 8 seconds) sets the shot list: plan shots at those lengths and trim on the timeline. The model's aspect ratio and the timeline's setAspectRatio are separate settings; neither follows the other. One generation with directed cuts suits a scene whose light and faces must hold together; shot by shot suits a piece re-rolled one shot at a time; a 20-second piece of three to five shots takes either. Footage the workspace holds of the subject (`search_footage`) can fill shots, with generation for the rest or the whole piece; grain, halation and a film look on the finished cut are `skill-color-grading`.
+`list_models` first: a short list with a price per model, then `model: "<id>"` for one model's references, durations, audio and multi-shot form. Hold the choice for the whole film, since each model has its own fingerprint; a shot that needs a move another model does better can use it, with the same references and look phrase so it still reads as the same film. A model with fixed lengths (4, 6 or 8 seconds) sets the shot list: plan shots at those lengths and trim on the timeline. The model's aspect ratio and the timeline's setAspectRatio are separate settings; neither follows the other. One generation with directed cuts suits a scene whose light and faces must hold together; shot by shot suits a film re-rolled one shot at a time; a 20-second film of three to five shots takes either. Footage the workspace holds of the subject (`search_footage`) can fill shots, with generation for the rest or the whole film; grain, halation and a film look on the finished cut are `skill-color-grading`.
 
-A start frame is a `generate_image` job whose item becomes `source_refs` on `generate_video`; `end_ref` anchors a landing on models that take one. Each generation is a job; `get_jobs` returns the item. Assembly: `manage_timelines` create with the shots as clips in cut order, then `edit_timeline` for trims, transitions and sound-led cuts placed by where the audio sits, sound per `skill-sound-design`. `inspect_timeline` renders real frames of the composite. The piece is in the app from its first media, its app_url in every result; `render_timeline` makes a file for use elsewhere, and a second ratio is a second timeline per `skill-content-repurposing`.
+A start frame is a `generate_image` job whose item becomes `source_refs` on `generate_video`; `end_ref` anchors a landing on models that take one. Each generation is a job; `get_jobs` returns the item. Assembly: `manage_timelines` create with the shots as clips in cut order, then `edit_timeline` for trims, transitions and sound-led cuts placed by where the audio sits, sound per `skill-sound-design`. `inspect_timeline` renders real frames of the composite. The film is in the app from its first media, its app_url in every result; `render_timeline` makes a file for use elsewhere, and a second ratio is a second timeline per `skill-content-repurposing`.
 
 ## The check
 
@@ -156,4 +156,4 @@ Judge from rendered frames, not from intent. Someone who only watched it can sta
 - Sound under every shot per `skill-sound-design`; no shot silent by accident.
 - The last frame held, nothing mid-move on it.
 - In the app from its first media, where it plays; the result's app_url is the link the user opens. `render_timeline` makes a file for use elsewhere.
-- Also possible: a shot re-rolled alone, the piece at another shape, a film look on the cut (`skill-color-grading`), a score and sound design under it, a recurring face held across shots (`skill-ai-influencer`).
+- Also possible: a shot re-rolled alone, the film at another shape, a film look on the cut (`skill-color-grading`), a score and sound design under it, a recurring face held across shots (`skill-ai-influencer`).

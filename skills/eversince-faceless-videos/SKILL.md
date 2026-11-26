@@ -14,7 +14,7 @@ look like the same show. A brief, a reference or the user's own channel outranks
 ## The plan: a channel's first video
 
 1. The topic: if the user has none, find what is taking off in a niche they care about (`skill-social-trends`), and offer a few channel ideas, each with who it is for, why it can last, and three first episode titles; the user picks one
-2. The format, agreed once: Shorts (9:16, under a minute) or long-form (16:9, minutes); the pictures (motion graphics, the user's footage or screen recordings, stock, generated, or a mix); the voice (a generated one from `list_models` type voice, or the user's own recording)
+2. The format, agreed once: Shorts (9:16, up to 3 minutes) or long-form (16:9, minutes); the pictures (motion graphics, the user's footage or screen recordings, stock, generated, or a mix); the voice (a generated one from `list_models` type voice, or the user's own recording)
 3. The first episode, made as `skill-explainer-videos` makes one: the script in beats, the voice, a picture per beat, captions, music where wanted
 4. The format written down: a document in the channel's project (below), so every later episode follows it
 5. `publish_preview` for review, then `skill-publishing` when the user posts it
@@ -26,7 +26,7 @@ With nobody answering, make the first idea as a Short with motion graphics and s
 The topic is the user's call; what the numbers say, for them to weigh:
 
 - **What pays on YouTube**: finance, business case studies, real estate and software reviews earn the most per view (often several times more); sleep sounds, ASMR, scary stories and compilations earn the least.
-- **What stands out**: in one 2026 study of outlier videos (ten times a channel's usual views), finance channels produced them about five times as often as faceless automation channels, which are crowded with near-identical videos.
+- **What stands out**: in one 2026 vendor report of outlier videos (ten times a channel's usual views; one search of about 40 videos per niche, a small sample), finance channels produced them about five times as often as faceless automation channels, which are crowded with near-identical videos.
 - **What lasts**: a topic with endless real material (companies, history, how things work, a field the user knows) carries a series; a fad does not.
 
 ## Formats that carry a faceless channel
@@ -64,7 +64,7 @@ YouTube does not demonetize faceless channels. Its policy on inauthentic content
 
 ## The format document
 
-The first episode settles the format in a document (`save_document`, "<channel> format") in the channel's own project (`save_document` new_project: "<channel>"): the voice (`voice_id`, `stability`, tags), the length, how an episode opens, its beats and how it ends, the look (fonts, colors, the graphic style, the caption template), the intro and outro, the music. Every later episode reads it first, follows it, and lands in the project. A change the user asks for is written back into it. Reusable pieces (a title card, a lower third, a caption template) are kept once: `compose_motion` save_as, `captions` save_template_as.
+The first episode settles the format in a document (`save_document`, "<channel> format") in the channel's own project (`save_document` new_project: "<channel>"): the voice (`voice_id`, `stability`, tags), the length, how an episode opens, its beats and how it ends, the look (fonts, colors, the graphic style, the caption template), the intro and outro, the music. Every later episode reads it first, follows it, and lands in the project. A change the user asks for is written back into it. Reusable parts (a title card, a lower third, a caption template) are kept once: `compose_motion` save_as, `captions` save_template_as.
 
 ## The check
 

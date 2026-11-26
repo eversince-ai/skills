@@ -12,11 +12,11 @@ This skill covers two jobs on an account's comments and messages: answering what
 ## The plans
 
 **Answering what came in:**
-1. `manage_social_accounts` list → the accounts, and under agents whether replies, messages and removals are allowed for an agent in this workspace
+1. `manage_social_accounts` list → the accounts, and under agents whether replies, messages and removals are allowed for an agent in this workspace. They are off unless the owner allowed them in the app: then step 5 is drafts handed to the user, each with where it goes
 2. `manage_social_inbox` commented_posts → the posts with new comments (unread first); conversations → the message threads
 3. `manage_social_inbox` comments {account_id, post_id} per post, messages {account_id, conversation_id} per thread: read all of it before answering any of it
 4. Sort (below): answer in public, answer in private, leave, hide, hand to the user
-5. reply {account_id, post_id, comment_id, text} for a public answer; private_reply for one that belongs in a message (Instagram, Facebook); send in a thread that is open
+5. reply {account_id, post_id, comment_id, text} for a public answer; private_reply for one that belongs in a message (Instagram, Facebook); send in a thread that is open. A reply or a message can carry one library item (attachment); the same words to one place within ten minutes go once
 6. Report: what was answered, what was hidden and why, what waits for the user
 
 **Comment a word, get the link:**

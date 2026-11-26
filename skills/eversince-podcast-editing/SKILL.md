@@ -34,7 +34,7 @@ What the room gave decides how the cut can be made:
 ## Cutting several cameras
 
 1. **Line them up.** `sync_recordings` with every item of the take, cameras and separate microphone items alike (two to twelve items, video or audio), places each on its own track and remembers the group; the microphone items are what `on_speech` listens to. The response says how surely each was matched. Re-sync a weak match before cutting anything, since a drifting angle means rebuilding the cut. A vertical angle on a 16:9 timeline can lose the face; check its framing on a frame.
-2. **One sound.** The microphone tracks carry the whole piece, one per person where each had a lav. Sync sets each camera clip's volume to 0 when a microphone item is in the group (a cameras-only take keeps the camera sound), so a camera switch never changes what is heard. The wide is whichever angle holds everyone; read it off one `inspect_media` frame per item when the labels do not say. A take with no wide leaves `wide` off and the cut rests on the last talker.
+2. **One sound.** The microphone tracks carry the whole episode, one per person where each had a lav. Sync sets each camera clip's volume to 0 when a microphone item is in the group (a cameras-only take keeps the camera sound), so a camera switch never changes what is heard. The wide is whichever angle holds everyone; read it off one `inspect_media` frame per item when the labels do not say. A take with no wide leaves `wide` off and the cut rests on the last talker.
 3. **Words on the cut.** Clips carry their items' words and keep them after `switch_angle`. `transcribe_media` with `refs` and `format: "states"` says which items have words; with `timeline_id` it reads only the clips without them; when every item already has words, nothing is charged and each clip comes back in `transcribed` with `cached: true`. A recording nobody has listened to is left out of the cut.
 4. **Cut the conversation.** `switch_angle` with `on_speech` follows the talker, holds through a laugh or a "yeah", holds its floor so a run of short answers does not strobe, and rests on the wide (named by label) when the room goes quiet. `min_shot_seconds` is 2.5 by default; use 4 for a considered interview, 2 for a fast exchange. Where every angle carries the same sound (one board feed under each camera), `on_speech` refuses: run `speakers` on one recording, map each speaker to an angle, and pass the turns as `switches`.
 5. **The seams.** Check the joins around interruptions and laughter: `get_transcript` with `speakers: true` names who is talking on each row from what `speakers` found, and leaves out items it has not picked anyone out of; where it returns no speakers, read the turns with `speakers` {ref, transcript: true} on each recording. `inspect_timeline` with `span` shows a join against the sound. When people talk over each other, the wide or a two-shot shows both. A listener's reaction worth holding (a laugh, a wince, a nod) is a stretch you add by hand with `switch_angle` `switches` after the automatic pass.
@@ -61,12 +61,12 @@ The goal is a conversation that moves, not one with every breath taken out. Remo
 - **Pauses:** `remove_silence` shortens long gaps rather than deleting them. Cut pauses past about half a second to a second, and keep a beat; `keep` with a [start, end] stretch leaves a pause before a payoff or a laugh as it is. A video episode keeps more air than a clip; audio only can run tighter.
 - **Fillers:** `get_transcript` words, then `remove_words` with `matches` for the fillers this person says. Remove the long ones and the ones that break a sentence; leave the short ones that sit inside the flow. Read the words around each cut so nothing needed went with it. Run `remove_silence` first, then the words, since every cut shifts the word indices.
 - **Laughs and crosstalk stay.** They are the chemistry of the show.
-- **Jump cuts:** a cut inside one person's shot makes their head jump. On several cameras, `switch_angle` can put the listener or the wide across it; on one camera, `auto_zoom` holds alternate pieces closer to hide it, or it stays as a jump cut.
+- **Jump cuts:** a cut inside one person's shot makes their head jump. On several cameras, `switch_angle` can put the listener or the wide across it; on one camera, `auto_zoom` holds alternate segments closer to hide it, or it stays as a jump cut.
 
 ## Sound
 
 - **Clean:** `clean_audio` where the user says the room is noisy (cloud processing), before any cut. Use the lightest touch that works: noise reduction pushed hard sounds hollow and watery, and a little room tone is better.
-- **Joins:** a hard cut in speech can click. Every join gets two or three frames of fade each side (`setKeyframes` on `volume`), and a gap is filled with the room's own sound, never digital silence.
+- **Joins:** a hard cut in speech can click. Every join gets two or three frames of fade each side (`setKeyframes` on `volume`); a gap in speech is closed rather than left as silence.
 - **Level:** `level_audio` brings each speaker to the same level and the whole episode to its target in one call. `platform: "podcast"` targets -16 LUFS (what Apple asks for, with peaks under -1 dB); `youtube` targets -14. One master at -16 plays fine on YouTube, about 2 dB quieter; if the user wants both, level the video episode for YouTube and render the audio master from a version leveled for podcast.
 - **Music:** `duck_music` where a bed runs under the intro or outro (`skill-sound-design`).
 
@@ -79,12 +79,12 @@ An episode headed for a grade or mix in another app leaves through `export_proje
 
 ## The check
 
-- One `check_timeline`: no findings means it passed. It does not read text burned into the footage, or whether the shot is on the right face.
+- One `check_timeline`: `ok` true is the pass, and each warning in `issues` is still read. It does not read text burned into the footage, or whether the shot is on the right face.
 - `get_timeline` beside `get_transcript` with `speakers: true`: every shot change matches a change in who is talking, none shorter than the floor, no angle on screen while its own person is silent for long unless it is the wide, and picture and sound cut together wherever the conversation was trimmed.
 - `get_transcript` read around the cuts: no sentence joined into something not said, no word clipped.
 - Frames in four cases: a finding names a clip, the look alone is the judgement, the user asked for the work to be verified, or nobody sees the episode before it is used: `inspect_timeline` with `sheet: true`.
 
-A last pass over the whole piece is `skill-finish`.
+A last pass over the whole episode is `skill-finish`.
 
 ## Handover
 

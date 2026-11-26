@@ -1,18 +1,18 @@
 # Eversince skills
 
-Eversince is the media workspace for agents. These are its skills: how a professional does each media job (editing recordings, captions, clips, motion graphics, ads, thumbnails, generation and more), run through Eversince's tools.
+Eversince is the media workspace for agents, where a user and their agents make content together. These are its skills. Each holds how a professional does one kind of media job (editing recordings, clips, captions, sound, motion graphics, thumbnails, carousels, ads, generation and more): the decisions, the numbers that matter and the calls in order, written for an agent to read before it starts. They run on Eversince's tools.
 
 ```bash
 npx skills add eversince-ai/skills
 ```
 
-The installer copies them into the agent's skills folder (Claude Code, Codex, Cursor and others). The `eversince` skill explains how to connect; https://docs.eversince.ai has the rest. The Eversince CLI and desktop app refresh installed copies when a new version is out, and a connected agent reads each skill's current version through `manage_skills`.
+The installer copies them into the agent's skills folder. The `eversince` skill says when Eversince fits and how to connect it; https://docs.eversince.ai has the rest. The Eversince CLI and desktop app bring installed copies to the latest version once a day, and a connected agent reads each skill's current version through `manage_skills`.
 
 This repo is generated from the skills Eversince serves to connected agents; changes made here are replaced by the next release.
 
 ## Skills
 
-- `eversince`: what Eversince is and how to connect
+- `eversince`: when Eversince fits the work, and how to connect it
 - `eversince-make-content`: Running content with or for a user: their goals, research into what works, a strategy, making it, review, and publishing.
 - `eversince-make-videos`: Editing recordings: what is possible (cutting, sound, captions, framing, look), checking in proportion, and the skills by footage.
 - `eversince-make-images`: Thumbnails, carousels, post images, posters, edited photos, product shots and AI pictures: how each is made and its skill.

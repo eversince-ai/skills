@@ -10,7 +10,7 @@ Moves say how things arrive in a motion graphic (the ease family, entrance lengt
 stamp, how scenes change), inside the motion rules of `skill-motion-graphics`; a still takes
 everything but the moves.
 
-A piece stays in one look by rotating a small set of frame kinds, each with its own density and
+A video or a set of images stays in one look by rotating a small set of frame kinds, each with its own density and
 anchor: the opener (sparse, pinned left), the single statement, the section break (one huge numeral),
 the figures frame (the busy one), the list (busy through repeated rows), the quote (centered and open),
 the comparison (two halves, the winning half in the accent), the sequence, the sign-off (centered).
@@ -43,7 +43,7 @@ A picket sign, a strike notice pasted to a wall. Blunt.
   Mono 700 uppercase at 0.1em for every label, date and count.
 - Space: 5% edges with the type crowding the top; 40 to 50% empty; the tally is the busy frame.
 - Signature: the correction. A phrase is set, struck through by a vermilion bar a sixth of the type
-  size deep, and its replacement stands on the next line in tar. One per piece, on the frame that
+  size deep, and its replacement stands on the next line in tar. One per video or set, on the frame that
   carries the argument. The tally sets points as tall numerals down the left, each claim beside its
   number and a 2px rule between rows; no bullets. A date stamp top right runs on content frames only.
 - Tiers: 12 / 8.2 / 5.2, counted at two words or fewer, three to four, five or more.
@@ -177,7 +177,7 @@ A shipping line's annual report, a maritime museum's wall label. Composed, weath
 - Signature: the waterline and the seal. A full-width 2px brass rule at 62% of the height; the
   headline stands on it and everything supporting sits below, and only a picture crosses it. On the
   opener and the close only, a seal: two concentric 2px brass rings with a numeral at the center and
-  the piece's name in spaced capitals beneath. A running foot bottom left names the section.
+  the work's name in spaced capitals beneath. A running foot bottom left names the section.
 - Tiers: 10.4 / 5.6 / 4, the top tier kept for the opener, a statement and a figure.
 - Moves: settle, entrances 0.7 to 0.9s; the waterline draws first, left to right; the seal's rings
   draw on and its name follows; figures count up. Scenes hard-cut between navy and fog, or dissolve

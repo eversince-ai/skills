@@ -27,7 +27,7 @@ Pictures can come from the user's library (`search_library`, or `search_footage`
 - **A photograph finished**: `skill-photo-editing`.
 - **An image ad**, headline and product: `skill-image-ads`.
 - **Type, color and composition for any of them**: `skill-graphic-design`.
-- **A brand's colors, fonts and look, set once for every piece**: `skill-brand-style`.
+- **A brand's colors, fonts and look, set once for every image**: `skill-brand-style`.
 - **A ground, texture, gradient, pattern, light or custom mark drawn in code** (an SVG layer, vector in every export): `skill-canvas-drawings`.
 - **A character kept the same across generated pictures**: `skill-ai-influencer`.
 
@@ -37,9 +37,9 @@ A canvas shows in the app with `publish_preview`; generated pictures show as the
 
 ## Proportion
 
-The image asked for comes first; versions, other sizes and variants are offered in a line. Generation, upscaling, background removal and reframing use credits; editing a canvas is free.
+The image asked for comes first; versions, other sizes and variants are offered in a line. Generation, upscaling, background removal and reframing use credits; editing a canvas is free, except masking a subject, which is cloud processing.
 
 ## Handover
 
 - Each image in the app.
-- Also possible: the same design at other sizes, a set of variants, the frame pulled from a video as a thumbnail, a carousel from a long video, the background removed for a cutout.
+- Also possible: the same image at other sizes, a set of variants, the frame pulled from a video as a thumbnail, a carousel from a long video, the background removed for a cutout.

@@ -32,7 +32,7 @@ decoration shows, how heavy a border is. A web card's 1px edge and 3px shadow di
 brand built on a light ground stays light.
 
 With no brand, fix three colors before drawing anything: a ground that holds across every section, a
-foreground, and one accent. The accent is the only hue that carries the piece; no element gets a
+foreground, and one accent. The accent is the only hue that carries the work; no element gets a
 color of its own. The subject decides light or dark: cooking, health and children's content read
 best on a light ground; software, film and money on a dark one. Assign the roles from a row below
 (first the ground, last the accent, the three between a second surface, a muted tone and the text,
@@ -47,7 +47,7 @@ leaned toward it:
 - Arcade (games, music, nightlife): #120A24 #3B1C6E #FF3D7F #FFE14D #45D49A
 - Midnight (software, finance, premium products): #0A1422 #16233A #2C4A6B #8FA7C2 #E7ECF2
 - Garnet (events, awards, hospitality): #2A0E17 #7A1730 #C8A15A #F5EBDD #1E3346
-- Graphite (typographic pieces, dramatic reveals): #1C1B1A #545250 #A3A09B #F2F0EB #C24B3A
+- Graphite (typographic work, dramatic reveals): #1C1B1A #545250 #A3A09B #F2F0EB #C24B3A
 
 ## Type
 
@@ -60,7 +60,7 @@ Sora, Nunito, Lato, Open Sans, Roboto and Inter; the serifs EB Garamond, Prata, 
 Cormorant Garamond and Playfair Display; Syne, the surest sign of a default; and six defaults in
 waiting, Space Grotesk, DM Serif Display, Archivo Black, Fraunces, Instrument Serif and Bricolage
 Grotesque. Any of them fits when the content asks for it and you can name the reason. A face used in
-the last piece for the same user counts as a default too.
+the last work for the same user counts as a default too.
 
 **More of the catalog, by voice.** Serif: Crimson Pro, Gloock, Libre Baskerville, Newsreader,
 Spectral, Young Serif. Sans: Albert Sans, Archivo, Figtree, Geist, Hanken Grotesk, IBM Plex Sans,
@@ -69,10 +69,10 @@ heavy display: Anton, Antonio, Barlow Condensed, Bebas Neue, Big Shoulders, Dela
 One, League Gothic, Oswald, Saira Condensed, Teko, Unbounded. Mono: DM Mono, Fira Code, Geist Mono,
 IBM Plex Mono, JetBrains Mono, Roboto Mono, Space Mono.
 
-**Picking by voice.** The piece speaks in a register (official, intimate, exacting, cheeky). Pick the
+**Picking by voice.** The work speaks in a register (official, intimate, exacting, cheeky). Pick the
 kind of face printed on the object where that voice lives in the world (a railway timetable, a
 wedding invitation, an engineering spec sheet, a gig flyer, a pharmacy label). Category rules do not
-hold: editorial work sets well in a grotesque, a technical piece in a serif, a children's piece in
+hold: editorial work sets well in a grotesque, a technical one in a serif, a children's one in
 something sharp.
 
 **Pairing.** No near-twins: two geometric sans, two humanist sans or two old-style serifs look
@@ -168,7 +168,7 @@ moves.
   element, ends at another, and does one job (revealing, routing, confirming, stressing). If deleting
   a line loses nothing, it was ornament. A lit edge on a card or a status dot reads more deliberate
   than an arc floating free.
-- In a piece with several sections, no three in a row share one anchor.
+- In work with several sections, no three in a row share one anchor.
 - The subject's own words, figures and files beat a stock icon. A prop that would fit another
   company's video unchanged is not from this one.
 
@@ -176,9 +176,9 @@ moves.
 span: at 16:9 and 1:1 the bottom sixth or so; at 9:16 roughly 64 to 76% of the height, where the line
 sits just above the platform's own band. Imagery, cards and a full-bleed subject may run under it.
 Compose on the frame's true center, not a lifted one; with no captions there is no band. On a
-captioned piece a lower third sits above the caption line, never in its span. At 9:16 the platform's
-interface is a separate keep-out whatever the captions do: the top 12% and the bottom 24%. Place the
-hero high in the middle, clear of both.
+captioned video a lower third sits above the caption line, never in its span. At 9:16 the platform's
+interface is a separate keep-out whatever the captions do: the top 12%, the bottom 24%, and on TikTok and Reels the right-hand column of buttons, about 10% of the width. Place the
+hero high in the middle, clear of all three.
 
 **Other ratios.** A row of three stacks on 9:16 and goes 2+1 or 2x2 on 1:1. A side panel becomes a
 top or bottom band; a four-column list drops a column; decoration thins on tighter frames. Key display
@@ -233,6 +233,6 @@ The frames `inspect_timeline` draws of a graphic or any other moment, or the sli
 
 ## Handover
 
-- A still or a slide: drawn by `inspect_canvas` at its export size with no word cut off, overlapping or off the slide, and in the app from its first media, where it shows; `render_canvas` makes a file for use elsewhere.
+- A still or a slide: drawn by `inspect_canvas` at its export size with no word cut off, overlapping or off the slide; the canvas is in the app from its first layer, and `render_canvas` makes a file for use elsewhere.
 - A frame of video or a graphic: checked on the timeline's own frames (`inspect_timeline`), and the timeline in the app.
 - Work done for another skill's job: that skill's handover as well.

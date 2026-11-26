@@ -30,7 +30,10 @@ Used where the agent has it or the work needs it; none of it is a precondition f
 - **Several ad versions to test against each other**: `skill-ad-variations`.
 - **Ads launched, read and improved once they are made**: `skill-run-ads`.
 - **Photos of the product itself** (packshot, lifestyle, detail): `skill-product-photography`.
-- **A store listing** (main image, gallery, video): `skill-product-photography`, A store listing; posts across days: `skill-content-calendar`.
+- **A store listing** (main image, gallery, video): `skill-product-photography`.
+- **Posts across days**: `skill-content-calendar`.
+- **A product explained step by step** with a voice and pictures: `skill-explainer-videos`.
+- **A software demo from a screen recording**: `skill-screen-recording-editing`.
 - **A short social video that informs rather than sells**: `skill-short-form-videos`.
 
 Anything that fits none of these is made with the tools directly: a timeline (`manage_timelines`, `edit_timeline`), a canvas (`manage_canvases`, `edit_canvas`), graphics (`compose_motion`), AI generation (`generate_image`, `generate_video`, `generate_audio`).
@@ -43,6 +46,7 @@ When the user asks for the set (a launch, an episode going out, an update shippe
 - One cut from another comes after it: the launch video before its clips and stills.
 - The user picks, changes or adds; the list as agreed is the plan, and only those are made, each by its own skill.
 - A set the user wants kept together gets one project (`new_project` on the calls that make it) holding the rendered files and one document (`save_document`) with the plan, each one as it is finished and the post text.
+- Posting the set: `skill-publishing`.
 
 ## Along the way
 
